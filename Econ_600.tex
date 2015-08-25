@@ -144,6 +144,12 @@
 \author{Linfeng Li \\ llinfeng@umich.edu}
 
 
+
+% Check-marks
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
 \begin{document}
 \maketitle
 
@@ -473,6 +479,89 @@ Now, we can define the following \textbf{sets} using the two definitions of sets
     \end{proof}
 \end{exercise}
 
+\noindent\rule{\textwidth}{1pt} % I am a line!
+\centering
+\vspace{-5pt} % Not sure why this shall influence the space between ``Counters Reset'' and the following line-object.
+Counters reset
+\noindent\rule{\textwidth}{1pt} % I am a line!
+
+\subsection{Relation, Function and Correspondence}
+\setcounter{theorem}{0}
+\begin{definition}
+    [Ordered pair]
+    For two sets $A$ and $B$, an ordered pair is $(a,b)$ such that $a \in A$ and $b 
+    \in B$.
+\end{definition}
+
+\begin{definition}
+    [$n$-taple]
+    Let there be $n$ sets: $A_1, \ldots, A_n$, 
+     an $n$-taple is $(a_1, \ldots, a_n)$ such that $a_i \in A_i$, $\forall i = 
+    1,2,\ldots n$.
+\end{definition}
+
+\begin{definition}
+    [Cartesian Product]
+
+    Let $A_1, \ldots, A_n$ be non-empty sets. Cartesion product of $A_1, \ldots, 
+    A_n$ is $A_1 \times \cdots \times A_n$, defined as: 
+    \[
+        \Pi_{i=1}^n A_i = \{ (a_1, \ldots, a_n): a_i \in A_i, \forall i  =1,  
+        \ldots, n\}
+    \]
+
+\end{definition}
+
+\begin{definition}
+    [Relation]
+    A relation from set $A$ to set $B$ is a subset of $A\times B$, denoted by 
+    $R$. 
+    \[
+        a R b \iff (a,b) \in R
+    \]
+    A relation on $A$ is a subset of $A \times A$.
+\end{definition}
+
+\begin{definition}
+    A relation $R \subseteq A \times A$ is said to be: 
+    \begin{itemize}
+        \item \emph{reflective} if $a R a$ $\forall a \in A$. (That is, $(a,a) \in R 
+            $, $\forall a \in A$.);
+
+        \item \emph{complete} if either $aRb$ or $b R a$, $\forall a, b \in A$;
+
+        \item \emph{symmetric} if $\forall a, b \in A$, $aR b \implies b R a$;
+
+        \item \emph{antisymmetric} if $\forall a, b \in A$, $a R b $ and $ b R a 
+            \implies a = b$.
+
+        \item \emph{transitive} if $\forall a,b,c \in A$ s.t. $aRb$ and $bRc$, 
+            $aRc$ (is implied).
+    \end{itemize}
+\end{definition}
+
+\begin{table}[htpl]
+    \caption{Property of common relations}
+    \bigskip
+    \centering
+    \begin{tabular}{c|c|c|c|c|c}
+                        & $<$    & $\le$  & $\in$  & $\subseteq $ & $\succeq$ \\
+          \hline
+          reflective    & \xmark & \cmark & \xmark & \cmark       & \cmark    \\
+          complete      & \xmark & \cmark & \xmark & \xmark       & \cmark    \\
+          symmetric     & \xmark & \xmark & \xmark & \xmark       & \xmark    \\
+          antisymmetric & \cmark & \cmark & \cmark & \cmark       & \xmark    \\
+          transitive    & \cmark & \cmark & \xmark & \cmark       & \cmark
+    \end{tabular}
+\end{table}
+
+
+Note that, $<$ and $\le$ are defined on $\R$; $\in$ and $\subseteq$ are 
+defined on sets; $\succeq$ is preference relation that represents ``weakly 
+prefer''.
+
+Also note that, completeness implies reflectiveness.
+
+
+
 \end{document}
-
-
