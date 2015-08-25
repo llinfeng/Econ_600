@@ -78,6 +78,7 @@
 \newtheorem{definition}[theorem]{Definition}
 %\newtheorem{example}[theorem]{Example}
 \newtheorem{exercise}[theorem]{Exercise}
+\newtheorem*{exercise_nonum}{Exercise}
 \newtheorem{fact}[theorem]{fact}
 \newtheorem{idea}[theorem]{Idea}
 \newtheorem{lemma}[theorem]{Lemma}
@@ -527,6 +528,8 @@ This is a side note
         a R b \iff (a,b) \in R
     \]
     A relation on $A$ is a subset of $A \times A$.
+
+    \label{def:a_relation_on_A}
 \end{definition}
 
 \begin{definition}
@@ -569,7 +572,161 @@ prefer''.
 
 Also note that, completeness implies reflectiveness.
 
+\begin{definition}
+    [Equivilance relation]
 
+    An \textbf{equivalence} on set $A$ is a relation $E$ that is 
+    \emph{reflective, symmetric and transitive}. It is denoted as $\sim$.
 
+    For any $a \in A$, the \textbf{equivalence class} of $a$ with respect to 
+    $\sim$ is defined to be the set 
+    \[E_\sim(a) = \{ b \in A, b\sim a\}\]
+\end{definition}
+
+Remark: by construction in Definition \ref{def:a_relation_on_A},  equivalence 
+($\sim$) is defined as ``a relation on $A$'', which is thereby defined in the 
+Cartesian space.
+
+\begin{definition}
+    [Fucntion: defined using Relation from $A$ to $B$]
+    A function from set $A$ to set $B$ is a relation $f$ from $A$ to $B$ such 
+    that: 
+    \begin{enumerate}[(i)]
+        \item $\forall a \in A$, $\exists b \in B$ such that $(a,b) \in f$, i.e. 
+            $a f b$
+        \item $\forall a \in A$, if $(a,b) \in f$ and $(a,c) \in f$ for some $b, 
+            c \in B$, then $b = c$.
+    \end{enumerate}
+
+    Note that, alternatively, the two conditions could be written in short as: 
+    \begin{enumerate}[(iii)]
+        \item $\forall a \in A$, $\exists ! b \in B$ such that $(a,b) \in f$, i.e. 
+            $a f b$
+    \end{enumerate}
+
+\end{definition}
+\paragraph{Convention for $f$:} If $(a,b) \in f$, we write $f(a) = b$. And, $f$ 
+could be interpreted as a ``mapping'': ``$f: A\to B$''.
+
+\begin{definition}[Domain and Rnage]
+    If $f$ is a function from $A$ to $B$, then $A$ is called the 
+    \textbf{domain } of $f$ and $B$ is the \textbf{codomain} of $f$. The 
+    \textbf{range} of $f$ is the set:
+    \[
+        Ran (f) = \{ b \in B: \exists a \in A 
+        \text{ s.t. } f(a) = b\}.
+    \]
+\end{definition}
+
+\begin{definition}
+    [Propoteries of functions] Let $f$ be a function, then: 
+    \begin{enumerate}[(i)]
+        \item $f$ is \textbf{surjective} if $Ran(f) = B$; \marginnote{onto}
+        \item $f$ is \textbf{injective} if $a_1 \not = a_2 \in A \implies f(a_1) 
+            \not = f(a_2)$; \marginnote{1-to-1}
+        \item $f$ is bijective if $f$ is subjective and injective.
+    \end{enumerate}
+\end{definition}
+
+\noindent Side note: a \textit{indicator function} is defined as following: for 
+$A$ being a set and $S\subseteq A$, 
+\[
+    \mathcal X_S(a) = 
+    \begin{cases}
+        1 & \text{ if } a \in S \\
+        0 & \text{ otherwise }
+    \end{cases}
+\]
+
+\begin{definition}
+    [Image and Preimage]
+
+    For $f: A \to B$ and $C\subseteq A$, \underline{ the \textbf{image} of $C$ under 
+    $f$ is }
+    \[
+        f(C) = 
+        \{ 
+            b \in B : \exists a \in C \text{ s.t. } f(a) = b
+        \}
+    \]
+    \underline{The \textbf{preimage} of $D\subseteq B$} is 
+    \[
+        f^{-1}(D) = 
+        \{
+            a \in A : f(a) \in D
+        \}
+    \]
+
+\end{definition}
+
+\begin{exercise_nonum}
+    Prove that 
+    \begin{enumerate}
+        \item $f^{-1}(f(A)) = A$, and
+        \item $f(f^{-1}(B)) = B$ if and only if $f$ is subjective.
+    \end{enumerate}
+\end{exercise_nonum}
+
+\begin{proposition}
+    Given $f: A \to B$, then $f^{-1}: B \to A$ is a function if and only if $f$ 
+    is bijective.
+\end{proposition}
+
+\begin{definition}
+    [Sequence]
+
+    A sequence is a function $f: N \to A$, denoted by $\{a_1, a_2, \ldots\} = \{ 
+    a_i \}_{i=1}^\infty $\footnote{This is an ordered set.}
+    i.e. the set of all sequence is the following set: 
+    \[
+        A^\infty = A \times A \times \cdots
+    \]
+\end{definition}
+
+\begin{definition}
+    [Cardinality, for (infinite) sequences]
+    Two sets $A, B$ have the same cardinality if $\exists$ a bijective function 
+    $f : A\to B$. 
+
+    Then, $|A|\ge |B|$ if there exists an injective function $f: B \to A$.
+    (Example: $|Z|\ge |N|$ by using identify mapping from $N$ to $Z$; $|N|\ge 
+    |Z|$ by enumerating elements in $Z$ using $N$. Thus, $|Z| = |N|$.) 
+    Eventually, we have: 
+    \[
+        |\R^2| = |\R| > |Q| = |Z| = |N|
+    \]
+
+\end{definition}
+
+\begin{definition}
+    [Correspondence]
+    $T: A \rightrightarrows B$ is a correspondence such that $T: A \to 2^A
+    \setminus \emptyset$.
+\end{definition}
+
+\subsection{Sequences}
+\setcounter{theorem}{0}
+\begin{definition}
+    [Sequence in $\R$]
+    A sequence of real number is a function $a : N \to \R$ s.t. $a(i) = a_i$ is 
+    the $i$-th component of the sequence $\{a_j\}_{j=1}^\infty$.
+\end{definition}
+\begin{definition}
+    [Increasing sequence]
+    A real sequence is increasing if $a_{n+1} \ge a_n$ $\forall n \in N$.
+\end{definition}
+\begin{definition}
+    [Bounded and Bounded (from) above/below]
+    A real sequence is
+    
+    \begin{itemize}
+        \item \textbf{bounded above} if $\exists \bar m \in \R$ s.t. $a_n \le 
+            \bar m$ $\forall n \in N$.
+
+        \item \textbf{bounded below} if $\exists \underline m \in \R$ s.t. $a_n 
+            \ge \underline m$ $\forall n \in N$.
+        \item \textbf{bounded} if it is bounded above and bounded below.
+    \end{itemize}
+\end{definition}
 
 \end{document}
