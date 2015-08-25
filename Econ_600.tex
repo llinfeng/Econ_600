@@ -1,0 +1,421 @@
+%        File: Econ_600.tex
+%     Created: Mon Aug 24 07:00 AM 2015 EDT
+%
+\documentclass[12pt]{article}
+% Package for non-breaking words 
+\usepackage[none]{hyphenat}
+\usepackage[margin=1.2in]{geometry}
+
+% For standard math
+\renewcommand{\phi}{\varphi}
+\renewcommand{\epsilon}{\varepsilon}
+%Set up the margins
+%\usepackage[left=.7in,right=.7in,top=.7in,bottom=.7in]{geometry}
+\usepackage{amssymb,amsmath,amsthm,mathrsfs,verbatim}
+\usepackage{extarrows}%% For extending the equal sign when there is   \xlongequal{<stuff>}
+%\sout{} strike through!
+\usepackage{marginnote}%\marginnote{}
+\usepackage[colorlinks,linkcolor=blue]{hyperref}
+%Create a header at the top of every page
+%\usepackage{fancyhdr}
+%\pagestyle{fancy}
+\usepackage{pdfpages} %merge pdf with: \includepdfmerge{heine-borel_proof.pdf,-}
+\usepackage{graphicx}%to input images \includegraphics[width=130mm]{Open_Open}
+\usepackage{lipsum}
+\usepackage{color}
+%You can define commands for the things you use frequently.
+\newcommand{\al}{\aleph}
+\newcommand{\A}{\mathcal{A}}
+\renewcommand{\c}{\mathfrak c}
+\newcommand{\C}{{\mathbb C}}
+\newcommand{\D}{\mathcal D}
+\newcommand{\E}{\mathfrak E}
+\renewcommand{\L}{{\mathcal L}}
+\newcommand{\M}{\mathcal M}
+\newcommand{\N}{{\mathbb N}}
+\renewcommand{\P}{\mathcal {P}}
+\newcommand{\Q}{{\mathbb Q}}
+\newcommand{\R}{{\mathbb R}}
+\newcommand{\X}{{\mathlarger{\mathcal X}}}
+\newcommand{\Z}{{\mathbb Z}}
+\newcommand{\To}{\Rightarrow}
+\newcommand{\WLOG}{With out loss of generality}
+\newcommand{\card}{\text{card }}
+
+% The limits.
+\newcommand{\limk}{\underset{k\to\infty}\lim}
+\newcommand{\limn}{\underset{n\to\infty}\lim}
+\newcommand{\liminfn}{\underset{n\to\infty}{\underline{\lim}}}
+\newcommand{\liminfk}{\underset{k\to\infty}{\underline{\lim}}}
+\newcommand{\liminfp}{\underset{p\to\infty}{\underline{\lim}}}
+\newcommand{\liminfj}{\underset{j\to\infty}{\underline{\lim}}}
+\newcommand{\limsupn}{\underset{n\to\infty}{\overline{\lim}}}
+\newcommand{\limsupk}{\underset{k\to\infty}{\overline{\lim}}}
+\newcommand{\limsupp}{\underset{p\to\infty}{\overline{\lim}}}
+\newcommand{\limsupr}{\underset{r\to\infty}{\overline{\lim}}}
+\newcommand{\sgn}{\text{sgn}}
+% For L^p space
+\newcommand{\Linfty}{{L^\infty(E)}}
+\newcommand{\Lp}{{L^{p}(E)}}
+\newcommand{\Lq}{{L^{q}(E)}}
+\usepackage{mdframed}%needed for box like theorems.\newmdtheoremenv %In the box, the footnotes are more handy! ^.^
+% Additional structures, enumerated through section number.
+% Found as of 2015-06-30
+% Fonts in the environments will be normal (standing straight up)
+\theoremstyle{definition}
+% Define all the theorem-based environments.
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{claimbox}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+%\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{fact}[theorem]{fact}
+\newtheorem{idea}[theorem]{Idea}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{question}[theorem]{Question}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{remark_box}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newmdtheoremenv{example}{Example}
+\newmdtheoremenv{question_sqrt}{Question}
+\newmdtheoremenv{typo}{Typo Correction}
+% Found as of 2015-06-30
+% Fonts will resume to be italic in for the environments thereafter.
+\theoremstyle{plain}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem*{defn}{Definition}
+\newtheorem*{rudin}{Rudin Says}
+\newtheorem*{poblem}{\textcolor[rgb]{1.00,0.00,0.00}{Problem}}
+\usepackage{mathrsfs} % enable people to use \mathscr{A}
+\usepackage{color}
+\usepackage{xcolor}
+\newcommand{\hilight}[1]{\colorbox{yellow}{#1}}
+\usepackage{bbm}
+\usepackage{relsize} % For large symbles: \mathlarger{math_expression}
+\usepackage{marvosym} %
+\usepackage{enumerate}
+%\usepackage{enumitem} % For using: \begin{itemize}[leftmargin=-.5in]
+%\usepackage{comment}
+% To make footnote numering by section.
+\makeatletter
+\@addtoreset{footnote}{section}
+\makeatother
+\usepackage{colonequals}
+
+% Package for including footnotes to section-titles
+\usepackage[stable]{footmisc}
+
+% Highlighting:
+\usepackage{xcolor}
+\usepackage{newverbs}
+\newverbcommand{\bverb}
+{\begin{lrbox}{\verbbox}}
+{\end{lrbox}\colorbox{blue!30}{\box\verbbox}}
+\newverbcommand{\yverb}
+{\begin{lrbox}{\verbbox}}
+{\end{lrbox}\colorbox{yellow!30}{\box\verbbox}}
+\newverbcommand{\gverb}
+{\begin{lrbox}{\verbbox}}
+{\end{lrbox}\colorbox{green!30}{\box\verbbox}}
+\newverbcommand{\rverb}
+{\begin{lrbox}{\verbbox}}
+{\end{lrbox}\colorbox{red!30}{\box\verbbox}}
+\newverbcommand{\grayverb}
+{\begin{lrbox}{\verbbox}}
+{\end{lrbox}\colorbox{gray!30}{\box\verbbox}}
+
+\title{Econ 600: taught by Prof. Shaowei Ke}
+\author{Linfeng Li \\ llinfeng@umich.edu}
+
+
+\begin{document}
+\maketitle
+
+\section*{Disclaimer}
+This is a personal note of mine. I will try to follow professor Ke's lecture as 
+close as possible. However, neither is this an official lecture note, nor will 
+Linfeng be responsible for any errors + typos. 
+\underline{Nevertheless, corrections and suggestions are always welcomed.}
+
+\smallskip
+
+As this lecture note will be maintained on Github, PLEASE: 
+
+\begin{itemize}
+    \item Use the ``Issues'' feature on Github to post suggestions;
+    \item Feel free to fork this repo and send me pull requests.
+\end{itemize}
+
+
+\section{Lecture 1: Logic, Sets and some Real Analysis\footnote{Relation, 
+Function, Correspondence and Sequences in $\R$}}
+
+\subsection{Logic}
+\begin{definition}
+    \textbf{Proposition} is a sentence that is either \textit{true} or 
+    \textit{false}. It cannot be both true and false.
+\end{definition}
+Note: ``true'' and ``false'' may not necessarily be based on any (subjective) 
+factual basis. However, to give a concrete example, contextually correct 
+propositions are employed.
+
+\begin{definition}
+    Logic Connectives: $\land$ and $\lor$. Let $P$ and $Q$ be propositions 
+    \begin{itemize}
+        \item Conjunction of $P$ and $Q$ is denoted as $P \land Q$;
+        \item Disjunction of $P$ and $Q$ is denoted as $P \lor  Q$.
+        \item Negation of $P$ is denoted as: $\neg P$.
+    \end{itemize}
+\end{definition}
+
+\paragraph{Truth Table} is vaguely defined, with each row being a possible 
+``state of the world''. On top of this, 
+
+\begin{table}[htpl]
+    \centering
+    \begin{tabular}{c|c|c|c|c}
+        $P$    & $Q$ & $P\land Q$ & $P\lor Q$ & $\neg P$ \\
+        \hline
+        1      & 1   & 1          & 1         & 0        \\
+        1      & 0   & 0          & 1         & 0        \\
+        0      & 1   & 0          & 1         & 0        \\
+        0      & 0   & 0          & 0         & 1
+    \end{tabular}
+    \caption{Truth Table for logic connectives}
+\end{table}
+
+\begin{definition}[ Conditionals and Biconditionals] Let $P ,Q, R $ be 
+    propositions, 
+    \begin{enumerate}
+        \item Conditional of $P$ and $Q$ is $P \implies Q$;
+        \item Biconditional of $P$ and $Q$ is $P \iff Q$.
+    \end{enumerate}
+
+    
+    \begin{table}[htpl]
+        \centering
+        \begin{tabular}{c|c|c|c}
+            $P$    & $Q$ & $P \implies Q$ & $P \iff Q$ \\
+            \hline
+            1      & 1   & 1              & 1          \\
+            1      & 0   & 0              & 0          \\
+            0      & 1   & \yverb|1|              & 0          \\
+            0      & 0   & \yverb|1|              & \bverb|1|
+        \end{tabular}
+        \caption{Truth Table for Conditionals and Biconditionals}
+    \end{table}
+    Note that, the two \yverb|1|'s are obtained for free. Conditional of $P$ and 
+    $Q$ are trivially true if $P$ is false (thus the conditional is not entered, 
+    thereby cannot be disproved?). \marginnote{$\Leftarrow$Check This.}
+
+    Additionally, from \href{http://www.regentsprep.org/regents/math/geometry/gp1/ifthen.htm}
+    {an external source} ($\leftarrow$ click me!):
+    \begin{quote}
+        % These font-modifiers are only valid within such environment.
+        \small
+        Conditionals are FALSE only when the first condition (if) is true and 
+        the second condition (then) is false.  All other cases are TRUE.
+    \end{quote}
+
+\end{definition}
+
+\begin{definition}
+    Two propositions are \textbf{equivalent} if they have the same truth table, 
+    denoted using ``$\equiv$''.
+\end{definition}
+
+\begin{example}
+    Claim: that $P \implies Q$ and $\neg Q \implies \neg P$ are equivalent.
+
+    \begin{proof}
+        Refer to table \ref{table:equivalence_of_two_statements}: that by 
+        definition, the truth table of the two conditionals are the same.
+    \end{proof}
+
+    Note, (it seems that)\footnote{Since ``truth table'' was not explicitly 
+    defined.} truth tables are the same if the two ``column vectors'' denoting 
+    the true/false status are the same.
+\end{example}
+
+\begin{table}[htpl]
+    \caption{Truth Table: equivalence of $P \implies Q$ and $\neg Q \implies \neg P$}
+    \bigskip
+    \centering
+    \begin{tabular}{c|c|c|c}
+        $P$ & $Q$ & $P \implies Q$ & $\neg Q \implies \neg P$ \\
+        \hline 
+        1      & 1   & 1              & 1          \\
+        1      & 0   & 0              & 0          \\
+        0      & 1   & 1              & 1          \\
+        0      & 0   & 1              & 1
+    \end{tabular}
+    \label{table:equivalence_of_two_statements}
+\end{table}
+
+\begin{definition}[Tautology]
+    A proposition whose truth table consists only $1$'s is called 
+    \textbf{tautology}.
+\end{definition}
+
+\begin{example}
+    Claim: $Q \implies (P \implies Q)$ is a tautology.
+    \begin{proof}
+        Refer to Table  \ref{table:tautology_example}
+    \end{proof}
+\end{example}
+\begin{table}[!htb]
+    \caption{Truth Table: Tautology}
+    \bigskip
+    \centering
+    \begin{tabular}{c|c|c|c}
+        $P$    & $Q$ & $P\implies Q$ & $Q \implies (P \implies Q)$ \\
+        \hline
+        1      & 1   & 1             & 1 \\
+        1      & 0   & 0             & 1  \\
+        0      & 1   & 1             & 1 \\
+        0      & 0   & 1             & 1
+    \end{tabular}
+    \label{table:tautology_example}
+\end{table}
+
+\newpage
+% Otherwise, the table will be below the next remark.
+
+\begin{remark}
+    We introduce the following 4 types of proof: 
+    \begin{enumerate}
+        \item Direct proof: to follow the direction of the statement.
+            \begin{itemize}
+                \item \textbf{Proposition}: For odd integers $x,y$, $x+y$ is an 
+                    even integer.
+            \end{itemize}
+        \item Proof by contrapositive: (restate the proposition and prove the 
+            easier direction).
+            \begin{itemize}
+                \item \textbf{Proposition}: If $n^2$ is an odd integer 
+                    ($P$), then $n$ is an odd integer.
+                    \begin{proof}
+                        Prove instead that: ``if $n$ is an even integer, then 
+                        $n^2$ is an even integer''.
+                    \end{proof}
+            \end{itemize}
+        \item Proof by contradiction: (construct a structure that leads to 
+            contradiction between derived conditions and given conditions.).
+            \begin{itemize}
+                \item That $\sqrt 2$ is rational number\footnote{The set of 
+                    rational numbers is denoted as $Q$.}.
+            \end{itemize}
+        \item Proving a ``if and only if'' statement/proposition to be true: 
+            either one of the following 4 are valid strategies: 
+            \begin{enumerate}
+                \item $P \implies Q$ and $Q \implies P$;
+                \item $P \implies Q$ and $\neg P \implies \neg Q$;
+                \item $\neg Q \implies \neg P$ and $Q \implies P$;
+                \item $\neg Q \implies \neg P$ and $\neg P \implies \neg Q$.
+            \end{enumerate}
+    \end{enumerate}
+\end{remark}
+
+\subsection{Sets}
+%\addtocounter{theorem}{6}
+\begin{remark}[Russell's paradox]
+    The barber is a man who shaves all those and only those who do not shave 
+    themselves.
+
+    In terms of set theory, let $R = \{ x : x \not \in x\}$, then:
+    \[
+        R \in R \iff R \not \in R
+    \]
+    which is very problematic.
+\end{remark}
+
+\begin{definition}[Sets]
+    There are two definition of sets: 
+    \begin{enumerate}
+        \item (Enumerating all elements)
+
+            A set is a collection of objects, e.g. $\{1,2,\ldots\}$ \footnote{a countably 
+            infinite set.} or $\{1,2\}$ \footnote{a finite set.}.
+        \item (Describing properties to be satisfied by elements in the set)
+
+            If $A$ is a set of all objects that satisfies property $P$, then we 
+            can write 
+            \[
+                A = \{ x : P(x)\}
+            \]
+            where the colon means ``such that'', and $P(x)$ means that $x$ 
+            satisfies property $P$.
+    \end{enumerate}
+\end{definition}
+
+Now, we can define the following \textbf{sets} using the two definitions of sets:
+\begin{itemize}
+    \item (Natural Number) $N = \{ 1, 2, \ldots\}$;
+    \item (Integer) $Z = \{ x: x = n \text{ or } x = -n \text{ or } x = 0, 
+        \text{ for some } n \in N\}$;
+    \item (Rational number) $Q = \{ x : x = \frac{m}{n}, m,n \in Z\}.$
+\end{itemize}
+
+\begin{definition}
+    [Set Equality]
+    Two sets $A$ and $B$ are equal if they have the same elements. That is: 
+    \[
+        A = B \text{ if and only if } x \in A \iff x \in B, \forall x
+    \]
+    Note, that the notion $\forall x$ was used sloppily here. Without loss of 
+    generality, it shall better be $\forall x \in A \bigcup B$.
+\end{definition}
+
+\begin{definition}
+    [Set Containment]
+    A set $A$ is contained in a set $B$, denoted by $A \subseteq B$, if $\forall 
+    x\in A \implies x \in B$.
+
+    As a consequence, $A = B$ if and only if $A \subseteq B$ and $B \subseteq 
+    A$.
+
+\end{definition}
+
+\begin{definition}
+    [Cardinality (finite case)]
+
+    If a set $A$ has $n\in N$\footnote{Natural number.} distinct elements, then $n$ is the cardinality of $A$ 
+    and we call $A$ a finite set. The \textbf{cardinality of $A$} is denoted by 
+    $|A|$.
+\end{definition}
+
+\begin{definition}
+    [Empty set $\emptyset$]
+    The empty set is the set with no element. % denoted by $\emptyset$.
+\end{definition}
+
+\begin{definition}
+    [Power set $2^A$]
+    Let $A$ be a set. The \textbf{power set of $A$} is the collection of all 
+    subsets of $A$. 
+
+    Note that, $A$ is an arbitrary set. It could be finite, in which case $2^A$ 
+    easy to envision; At the other extreme, it could be a uncountable set. 
+    Nevertheless, the following equality shall hold: 
+
+    \[
+        |2 ^ A| = 2 ^{|A|}
+    \]
+
+\end{definition}
+
+\end{document}
+
+
