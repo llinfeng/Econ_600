@@ -4,7 +4,7 @@
 \documentclass[12pt]{article}
 % Package for non-breaking words 
 \usepackage[none]{hyphenat}
-\usepackage[margin=1.2in]{geometry}
+\usepackage[margin=1.1in]{geometry}
 
 % For standard math
 \renewcommand{\phi}{\varphi}
@@ -136,6 +136,10 @@
 {\begin{lrbox}{\verbbox}}
 {\end{lrbox}\colorbox{gray!30}{\box\verbbox}}
 
+% For := symbol \coloneqq
+\usepackage{mathtools}
+
+
 \title{Econ 600: taught by Prof. Shaowei Ke}
 \author{Linfeng Li \\ llinfeng@umich.edu}
 
@@ -152,12 +156,12 @@ Linfeng be responsible for any errors + typos.
 \smallskip
 
 As this lecture note will be maintained on Github, PLEASE: 
-
 \begin{itemize}
-    \item Use the ``Issues'' feature on Github to post suggestions;
+    \item Use the \href{https://github.com/llinfeng/Econ_600/issues}{``Issues''} feature on Github to post suggestions;
     \item Feel free to fork this repo and send me pull requests.
 \end{itemize}
-
+Paragraphs starting with ``Note that \ldots'' are most likely my personal 
+reflections. Please be aware of this.
 
 \section{Lecture 1: Logic, Sets and some Real Analysis\footnote{Relation, 
 Function, Correspondence and Sequences in $\R$}}
@@ -414,7 +418,60 @@ Now, we can define the following \textbf{sets} using the two definitions of sets
         |2 ^ A| = 2 ^{|A|}
     \]
 
+    \begin{example}
+        Let $A = \{ 1, 3\}$, then $2^A = \big\{ \emptyset, \{1\}, \{3\}, \{1,3\} 
+        \big\}$. In terms of notation, note that $1$ is an element in $A$, thus 
+        $1 \in A$; yet, $\{1\}$ is a subset of $A$, thus $\{1 \} \subset A$.
+    \end{example}
 \end{definition}
+
+\newpage 
+
+\begin{definition}
+    [Operations on sets: $\bigcup$, $\bigcap$, $\setminus$ and $\cdot^c$.] Let 
+    $A$ and $B$ be two sets:
+    \verb| |
+
+    \begin{itemize}
+        \item Union: $A \bigcup B \coloneqq \{ x : x \in A \lor x \in B\}$;
+        \item Intersection: $A \bigcap B \coloneqq \{ x : x \in A \land x \in 
+            B\}$;
+        \item $A$ and $B$ is disjoint if $A \bigcup B = \emptyset$;
+        \item Difference of $A$ and $B$ is defined as: $A \setminus B \coloneqq 
+            \{ x \in A \land x \not \in B\}$;
+        \item Complements of $A$: $A^c \coloneqq \{ x : x \not \in A\}$.
+    \end{itemize}
+\end{definition}
+
+\noindent Side note: \textbf{Index set} $I$ is a countable set. 
+\[
+    \underset{i \in I}{\bigcup} A_i 
+    = 
+    \{ x : x \in A_i \text{ for some } i \in I \}
+\]
+
+
+
+\begin{definition}
+    [de Morgan's law]
+
+    \[
+        \left( \underset{i \in I } {\bigcup} A_i  \right)^c 
+        =
+        \underset{i \in I}{\bigcap} \left( A_i ^c \right)
+        \text{ and }
+        \left( \underset{i \in I } {\bigcap} A_i  \right)^c 
+        =
+        \underset{i \in I}{\bigcup} \left( A_i ^c \right)
+    \]
+\end{definition}
+
+\begin{exercise}
+    Prove that $\left( A \bigcup B \right)^ c = A^c \bigcap B^c$.
+    \begin{proof}
+        Prove mutual containment using element argument.
+    \end{proof}
+\end{exercise}
 
 \end{document}
 
