@@ -4,7 +4,7 @@
 \documentclass[12pt]{article}
 % Package for non-breaking words 
 \usepackage[none]{hyphenat}
-\usepackage[margin=1.1in]{geometry}
+\usepackage[margin=1in]{geometry}
 
 % For standard math
 \renewcommand{\phi}{\varphi}
@@ -65,7 +65,9 @@
 \theoremstyle{definition}
 % Define all the theorem-based environments.
 \newtheorem{theorem}{Theorem}[section]
+\newtheorem{THM}{Theorem}
 \newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{axiom}[theorem]{Axiom}
 \newtheorem{algorithm}[theorem]{Algorithm}
 \newtheorem{case}[theorem]{Case}
 \newtheorem{claim}[theorem]{Claim}
@@ -301,8 +303,6 @@ propositions are employed.
     \label{table:tautology_example}
 \end{table}
 
-\newpage
-% Otherwise, the table will be below the next remark.
 
 \begin{remark}
     We introduce the following 4 types of proof: 
@@ -432,7 +432,6 @@ Now, we can define the following \textbf{sets} using the two definitions of sets
     \end{example}
 \end{definition}
 
-\newpage 
 
 \begin{definition}
     [Operations on sets: $\bigcup$, $\bigcap$, $\setminus$ and $\cdot^c$.] Let 
@@ -490,7 +489,6 @@ Now, we can define the following \textbf{sets} using the two definitions of sets
 
 \noindent\rule{\textwidth}{1pt} % I am a line!
 
-This is a side note
 
 
 \subsection{Relation, Function and Correspondence}
@@ -728,5 +726,51 @@ $A$ being a set and $S\subseteq A$,
         \item \textbf{bounded} if it is bounded above and bounded below.
     \end{itemize}
 \end{definition}
+
+\begin{definition}
+    [Least upper bound]
+    $a \in \R$ is the least upper bound of a sequence $\{a_n\}$ if 
+    \begin{enumerate}[(i)]
+        \item $a$ is an upper bound;
+        \item $a$ is the smallest upper bound, i.e. $\not \exists b \in \R$ s.t. 
+            $b < a$ and $b$ is a upper bound of $\{a_n\}$.
+    \end{enumerate}
+\end{definition}
+
+\begin{axiom}
+    [Axiom of Real Number: completeness axiom]
+    If $S$ is a nonempty set of real numbers that is bounded above, then there 
+    exists a least upper bound that is also a real number.
+\end{axiom}
+
+\begin{definition}
+    [Convergence sequences]
+    A real sequence $\{a_n\}$ converges to the limit $a\in \R$ if $\forall 
+    \varepsilon > 0$, $\exists N$ s.t. $\forall n \ge N$
+    \[
+        |a_n - a| < \varepsilon
+    \]
+    We write $\underset{n\to\infty} \lim a_n = a$ or $a_n \to a$.
+\end{definition}
+
+\begin{itemize}
+    \item If a sequence does not converge, then it diverges. (To $+\infty$ or 
+        $-\infty$.)
+\end{itemize}
+
+\begin{THM}
+    A monotone bounded sequence converges.
+    \begin{proof}
+        Discuss two cases where 1) $\{a_n\}$ is an increasing sequence, and 2) $\{a_n\}$ 
+        is a decreasing sequence. Then, proof is completed through using either 
+        least upper bound (for increasing sequence) or largest lower bound (for 
+        decreasing sequence).
+    \end{proof}
+%    \begin{proof}
+%        Let $a = \sup a_n$ (the least upper bound of $\{a_n\}$), we want to show 
+%        that: $\forall \varepsilon > 0$, $\exists N $ s.t. $\forall n > N$, 
+%        $|a_n -a | < \varepsilon$
+%    \end{proof}
+\end{THM}
 
 \end{document}
