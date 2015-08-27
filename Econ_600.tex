@@ -105,6 +105,9 @@
 \usepackage{color}
 \usepackage{xcolor}
 \newcommand{\hilight}[1]{\colorbox{yellow}{#1}}
+\newcommand{\highlight}[1]{%
+ \colorbox{yellow!50}{$\displaystyle#1$}}
+
 \usepackage{bbm}
 \usepackage{relsize} % For large symbles: \mathlarger{math_expression}
 \usepackage{marvosym} %
@@ -128,7 +131,7 @@
 {\end{lrbox}\colorbox{blue!30}{\box\verbbox}}
 \newverbcommand{\yverb}
 {\begin{lrbox}{\verbbox}}
-{\end{lrbox}\colorbox{yellow!30}{\box\verbbox}}
+{\end{lrbox}\colorbox{yellow!50}{\box\verbbox}}
 \newverbcommand{\gverb}
 {\begin{lrbox}{\verbbox}}
 {\end{lrbox}\colorbox{green!30}{\box\verbbox}}
@@ -152,6 +155,11 @@
 \usepackage{pifont} % http://ctan.org/pkg/pifont
 \newcommand{\cmark}{\ding{51}}%
 \newcommand{\xmark}{\ding{55}}%
+
+% Strike through
+\usepackage[normalem]{ulem}
+
+% Example: \sout{Hello World}
 
 \begin{document}
 \maketitle
@@ -740,7 +748,10 @@ $A$ being a set and $S\subseteq A$,
 \begin{axiom}
     [Axiom of Real Number: completeness axiom]
     If $S$ is a nonempty set of real numbers that is bounded above, then there 
-    exists a least upper bound that is also a real number.
+    exists a least upper bound \sout{that is also a real number}.
+
+    Note, that, claiming that the upper bound is in $\R$ is redundant.
+
 \end{axiom}
 
 \begin{definition}
@@ -772,5 +783,227 @@ $A$ being a set and $S\subseteq A$,
 %        $|a_n -a | < \varepsilon$
 %    \end{proof}
 \end{THM}
+
+
+\section{Lecture 2: convergence and more}
+\setcounter{theorem}{0}
+
+\begin{definition}
+    A set $S \subset X$ is a linearly ordered set if there is a relation 
+    ``$\le$'' on $X$ s.t.
+
+    \begin{center}
+        $\le$ is complete, transitive and antisymmetric.
+    \end{center}
+
+    Note that, given the linear ordering, we can define $<$ accordingly. 
+    (For arbitrary $a,b \in X$ and $a \le b$, then we say $a<b$ if $a \le b$ and 
+    $a \not = b$.)
+\end{definition}
+
+\begin{definition}
+    [Boundedness for an arbitrary set.]
+
+    Let $X$ be a linearly ordered set and $S \subset X$, then $a \in X$ is 
+    the \textbf{supremum} (or \textit{least upper bound) }of $X$ if: 
+    \begin{enumerate}
+        \item $a$ itself is an upper bound of $S$, i.e. 
+        \item for $b \in X$, $b < a$, then $b$ is not an upper bound of $S$.
+    \end{enumerate}
+
+    \textbf{Corolloary: } For $a = \sup X$, $\forall \varepsilon > 0$, there 
+    exists $x \in S$ s.t. $x > a - \varepsilon$.
+\end{definition}
+
+\begin{axiom}
+    [Completeness Axiom] 
+    If $S$ is a nonempty set of real numbers that is bounded above, then there 
+    exists a least upper bound.
+\end{axiom}
+
+\begin{definition}
+    [Sequence in $\R$]
+    A sequence of real number is a function $a : N \to \R$ s.t. $a(i) = a_i$ is 
+    the $i$-th component of the sequence $\{a_j\}_{j=1}^\infty$.
+\end{definition}
+
+%Question on this. Why we shall need this?
+\begin{remark}
+    $\{a_n\}$ is bounded if $a(N)$ is bounded.
+
+    Note, here $N$ is the set of all natural numbers $\{1,2,\ldots,\}$. Thus, 
+    we hereby define the boundedness of a sequence using the our previous 
+    definition of set-boundedness.
+\end{remark}
+
+\begin{lemma}
+    \label{lemma:1_B_W_Thm}
+    A monotone bounded sequence converges.
+\end{lemma}
+
+\begin{definition}
+    [Subsequence]
+
+    A subsequence $\{a_{n_i}\}$ of $\{a_n\}$ is a sequence s.t. $1 \le n_1 \le 
+    n_2 \le \ldots$. That is: 
+
+    $ \exists $  conversion function $\Phi : N \to N$ s.t. $n_ i = \Phi(i)$ and 
+    $\Phi(i) < \Phi(j)$ whenever $i < j$. We can also write: $a_{n_i} = 
+    a_{\Phi(i)}$.
+\end{definition}
+
+\begin{lemma}
+    \label{lemma:2_B_W_Thm}
+    Every sequence of $\R$ has a monotone subsequence.
+
+    \begin{proof}
+        Proof by doodling: try to construct a decreasing sequence first, if 
+        failed (cannot identify infinitely many of elements as candidate of the 
+        sequence), construct an increasing one.
+
+        Formally: let $S = \{ i : \text{ if } j > i, \text{ then } a _j < a_i 
+        \}$. 
+        \begin{itemize}
+            \item if $|S| = |N|$ (countably infinite)
+                \footnote{Writing $|S| = \infty$ is not rigorous enough, since 
+                uncountably infinite could also be denoted similarly.}, we have 
+                found a monotone (decreasing) sequence.
+
+            \item If $|S| < \infty$, let $\max S = N$, then by construction, 
+                $\exists n_1$ s.t. $a_{n_1} \ge a_{N+1}$. Since $n_1 \notin X$, 
+                there exists $n_2 > n_1$ s.t. $a_{n_2} \ge a_{n_1} \ge a_N$.
+
+                We can construct an increasing sequence in this fashion.
+        \end{itemize}
+    \end{proof}
+\end{lemma}
+
+\begin{theorem}
+    [Bolzano-Weierstrass Theorem]
+    A bounded sequence of $\R$ has a convergent subsequence.
+    \begin{proof}
+        By Lemma \ref{lemma:2_B_W_Thm}, such bounded sequence of $\R$ has a 
+        monotone subsequence, which inebriates the boundedness property.
+        
+        Thus, by Lemma \ref{lemma:1_B_W_Thm}, such bounded monotone sequence 
+        converges.
+    \end{proof}
+\end{theorem}
+
+\begin{remark}
+    [Properties of Limites]
+    For $a_n \to a$ and $b_n \to b$ (two convergent sequences):
+    \begin{enumerate}[(i)]
+        \item $c \cdot a_n \to c\cdot a$, for $c \in \R$;
+        \item $a_n + b_n \to a + b$
+        \item $a_n \cdot b_n \to a\cdot b$
+        \item $\frac{a_n}{b_n} \to \frac{a}{b}$ s.t. $b \not = 0$ and $b_n \not= 
+            0$ $\forall n$.
+        \item $\forall n \in N$, if  $c \le a_n$, then $c \le a$. (Note that we have 
+            defined only one linear ordering $\le$.)
+
+            However, $a_n > c$ does not imply $a > c$. (e.g.: 
+            $\frac{1}{n} > 0, \forall n$, yet $\frac{1}{n}\to 0 = 0$.)
+
+        \item $\forall n$, if $b_n \le a_n$, then $b\le a$.
+    \end{enumerate}    
+\end{remark}
+
+\begin{definition}
+    [Cauchy sequence]
+
+    $\{a_n\}$ is a Cauchy sequence if $\forall \varepsilon> 0$, $\exists N$ s.t. 
+    $\forall m , n \ge N$, $|a_m-a_n| < \varepsilon$.
+\end{definition}
+
+Note that, since the definition of convergent sequence relies on knowing the 
+limit $a$, when such limit is not attainable, Cauchy becomes handy.
+
+\begin{theorem}
+    Every convergent sequence is Cauchy.
+    \begin{proof}
+        Given $\{a _n\} \to a$, thus $\forall \frac{\varepsilon}{2} > 
+        0$ $\exists N$ s.t. $|a_n - a| < \frac{\varepsilon}{2}$, $\forall n > 
+        N$.
+
+        Now, for any $m, n \ge N$, we have: 
+        \[
+            \aligned
+            |a_m - a_n| & = | a_m - a + a - a_n|\\
+            & \le |a_m - a| + |a_n - a| < \varepsilon
+            \endaligned
+        \]
+    \end{proof}
+\end{theorem}
+
+\paragraph{Example}: 
+Prove that $a_{n+1} = \frac{a_n + 2a_{n-1}}{3}$ converges for $a_1 = 0$, $a_2 = 1$.
+
+\begin{proof}
+    \begin{enumerate}[Step 1]
+        \item First observe that: $a_n$ is an average of two real numbers that are in $[0,1]$. Thus, 
+            $a_n \in [0,1]$.
+
+        \item Also observe that by rearranging the terms in the equality, we 
+            have: 
+            \[
+                \frac{a_{n+1} - a_n}{a_n - a_{n-1}} = - \frac{2}{3}
+            \]
+    \end{enumerate}
+    At this point, we check definition of Cauchy sequence by showing that: for 
+    arbitrary $\epsilon$, we can find a $N$ such that $|a_m - a_n| < 
+    \varepsilon$. Deriving the functional form of $|a_m  -a_n|$ suffices. (We 
+    can then use this functional form to find a proper $N$.)
+
+    Without loss of generality, let $m > n$, then:
+    \[
+        \aligned
+        |a_m - a_n|& = |a_n - a_{n+1} + a_{n+1} - \cdots - a_m|\\
+        & \le |a_n - a_{n+1}| + |a_{n+1} - a_{n+2} | + \cdots + |a_{m-1} - a_m| 
+        \\
+        & \le \left( \frac{2}{3} \right)^{n-1} + \left( \frac{2}{3} \right)^n + 
+        \cdots + \left( \frac{2}{3} \right)^{m-2} \\
+        & = \frac{\left( \frac{2}{3} \right)^{n-1}\left( 1 - \left( 
+                    \frac{2}{3} 
+        \right)^{m-n+2} \right)}{1 -  \frac{2}{3}} \\
+        & = O(\left( \frac{2}{3} \right)^n)
+        \endaligned
+    \]
+    By now, we can easily demonstrates that the definition of Cauchy sequence 
+    could be satisfied by choosing a proper $N$ for any given 
+    $\varepsilon$.
+\end{proof}
+
+\begin{theorem}
+    Every Cauchy sequence is bounded.
+    \begin{proof} Let $\{a_n\}$ be an arbitrary Cauchy sequence. Then, for for 
+        arbitrary $\varepsilon>0$, we know that $\exists N_\varepsilon > 0$ such 
+        that $\forall m,n > N$, $|a_m - a_n | < \varepsilon$.
+
+        Now, to construct an upper bound for $\{a_n\}$, without loss of 
+        generality, let $\varepsilon = 1$. Then, we know that there exists $N_1 
+        > 0$ such that $\forall n,m > N_1$, $|a_n - a_m| < 1$. Then, let $M_1$ 
+        denote the bound (either upper or lower). Then, in absolute value, we can 
+        define it to be: 
+        \[
+            |M_1| = \max \{|a_1|, \ldots, |a_{N_{1}}|, |a_{N_1+1}| +  
+            1\}
+        \]
+        Through more careful, yet unnecessary, discussions, we can derive the 
+        exact bound using the absolute value $|M_1|$.
+
+        Note that, the bound we found above is only \textit{one of the upper 
+        bound}. It is not necessarily the $\sup$ nor $\inf$.
+    \end{proof}
+\end{theorem}
+
+\begin{theorem}
+    Every Cauchy sequence \yverb|in |$\highlight{\R}$ \footnote{Note that, for 
+        $\{\frac{1}{n}\}$ defined on $(0,1]$, it does not converge in this space 
+        since $0\not\in (0,1]$.}
+        converges.
+\end{theorem}
+
+
 
 \end{document}
