@@ -1128,6 +1128,35 @@ n) \in \R_{++} \times N$.
     exist a $N$ that may satisfy (i). (The ``$\forall n > N$'' statement is 
     violated due to the subsequence that converges to $a'$.)
 
+    Alternatively, one can prove the statement using an equivalent definition of 
+    limsup: 
+    \[
+        \underset{n \to \infty} {\lim\sup} a_n = \lim_{n\to\infty} \sup_{k \ge 
+        n} a_k
+    \]
+
+    Thus, (i) implies that $\forall \varepsilon > 0$, $\exists N$ s.t. $\forall 
+    n > N$:
+    \[
+        \sup_{k\ge n} a_k < a + \varepsilon
+    \]
+    Therefore, $\underset{n \to \infty} {\lim\sup} a_n < a + \varepsilon \iff 
+    \underset{n \to \infty} {\lim\sup} a_n \le a$ ;
+
+    At the same time, (ii) implies that $\forall \varepsilon > 0$, for arbitrary 
+    $n \in N$, $\exists k > n$ s.t. $a_k > a - \varepsilon$. Then:
+    \[
+        \sup_{j\ge n} a_j > a - \varepsilon
+    \]
+    Therefore, $\underset{n \to \infty} {\lim\sup} a_n > a - \varepsilon \iff 
+    \underset{n \to \infty} {\lim\sup} a_n \ge a$ ;
+
+
+
+
+
+
+
 
 
     \bibliographystyle{plainnat}
