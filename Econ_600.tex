@@ -158,8 +158,12 @@
 
 % Strike through
 \usepackage[normalem]{ulem}
-
 % Example: \sout{Hello World}
+
+% Putting a box around paragraph
+\usepackage{mdframed}
+% \begin{mdframed}
+
 
 \begin{document}
 \maketitle
@@ -879,7 +883,7 @@ $A$ being a set and $S\subseteq A$,
 \end{lemma}
 
 \begin{theorem}
-    [Bolzano-Weierstrass Theorem]
+    [Bolzano-Weierstrass Theorem] %BW theorem
     A bounded sequence of $\R$ has a convergent subsequence.
     \begin{proof}
         By Lemma \ref{lemma:2_B_W_Thm}, such bounded sequence of $\R$ has a 
@@ -1004,6 +1008,131 @@ Prove that $a_{n+1} = \frac{a_n + 2a_{n-1}}{3}$ converges for $a_1 = 0$, $a_2 = 
         converges.
 \end{theorem}
 
+\begin{remark}
+    [Useful limits] Limits of sequences as $n \to \infty$:
 
+    Refer to page 57 of \cite{rudin1976principles} Theorem 3.20.
+\end{remark}
+
+\begin{definition}
+    [limsup, liminf]
+    Let $\{a_n\}$ be a sequence in $\R$, we say: 
+    \[
+        \lim\sup \{a_n\} = a
+    \]
+    if $\sup S = a$, where $S = \{ b \in \R : \exists \text{ subsequence } 
+    \{a_{n_i}\} s.t. a_{n_i} \to b\}$.
+\end{definition}
+
+\paragraph{Exercise: equivalent definition of limsup} Prove that $\lim\sup a_n = 
+a$ if and only if: 
+\begin{enumerate}[(i)]
+    \item $\forall \varepsilon > 0$, $\exists N > 0$ s.t. $a_n < a + 
+        \varepsilon$, $\forall n > N$;
+    \item $\forall \varepsilon > 0$, $\forall n \in N$, $\exists k > n$ s.t. 
+        $a_k > a - \varepsilon$.
+\end{enumerate}
+Note that, (i) specified a property for subsequence; and (ii) is merely about 
+the existence of one element in the sequence, to be found for all $(\varepsilon, 
+n) \in \R_{++} \times N$.
+
+\begin{proof} The iff statement will be established in the following three steps:
+    \begin{itemize}
+        \item Prove that $\lim\sup a_n = a$ implies (i).
+    \end{itemize}
+    WTS: $\forall \varepsilon > 0$, $\exists N > 0$ s.t. $a_n < a + 
+        \varepsilon$, $\forall n > N$;
+
+        First, suppose that $a = +\infty$, that is $\{a_n\}$ is not bounded from 
+        above. Then we are done.
+
+        Then, suppose that $\{a_n\}$ is bounded from above. We now prove by 
+        contradiction. Suppose that $\exists \varepsilon > 0$ s.t. no such $N 
+        \in \N$ exists. Then, we know that $1$ cannot serve the role of $N$. 
+        So, for some $n_1 > 1$, 
+        \[
+            a_{n_1} \ge a + \varepsilon
+        \]
+        Still, $n_1 + 1$ cannot serve the role of $N$, then for some $n_2 > n_1 
+        + 1$, 
+        $$a_{n_2} \ge a + \varepsilon$$
+        By induction, we can construct a subsequence that is bounded from below by 
+        $a + \varepsilon$. Note that, the original sequence is bounded from 
+        above, by Bolzano-Weierstrass Theorem, we know that a bounded sequence 
+        converges. However, the limit of such subsequence shall be larger than $a$, 
+        contradicting $\lim\sup a_n = a$.
+
+        Thus what we assumed is wrong. We thereby proved the original claim in 
+        (ii).
+
+
+    \begin{itemize}
+        \item Prove that $\lim\sup a_n = a$ implies (ii).
+    \end{itemize}
+    WTS: Given that $\lim\sup a_n = a$,
+    $\forall \varepsilon > 0$, $\forall n \in N$, $\exists k > n$ s.t. 
+        $a_k > a - \varepsilon$.
+
+    Now, for arbitrary $\varepsilon > 0$, by definition of limsup, we know that 
+    $\exists 
+    a' \in (a - \frac{\varepsilon}{2}, a)$ s.t. $\exists \{a_{n_j}\}$ (a 
+    subsequence of $\{a_n\}$) s.t. $a_{n_j} \to a'$.
+
+    For this convergent subsequence per se, given the arbitrary $\varepsilon$ we 
+    have specified in the very beginning, we know that $\exists J > 0$ s.t. 
+    \[
+        |a_{n_j} - a'| < \frac{\varepsilon}{2}, \qquad 
+        \text{ for all } j > J
+    \]
+
+    Now, for arbitrary $n \in N$, we can always find a $k = n_i$ with $i> J$, 
+    such that $a_k = a_{n_i}$ is within $\frac{\varepsilon}{2}$ distance away 
+    from $a'$. Combining this fact with the construction that $a' \in (a - 
+    \frac{\varepsilon}{2}, a)$, it is clear the $a_k$ we found specifically for 
+    $\varepsilon$ and $n\in N$ satisfies: $a_k > a - \varepsilon$.
+    
+
+
+%    \begin{mdframed}
+%       These are due to incorrect reading of (ii) in the proposition.
+%
+%        Now, for elements in $\{a_n\}$, $\forall k > n_J$: if $a_k \in \{a_{n_j}\}$, 
+%        then by construction we have: $a_k > a - \varepsilon$; if $a_k \notin 
+%        \{a_{n_j}\}$, then \textbf{it is not necessary that } $a_k > a - 
+%        \varepsilon$. These points may well diverge to $-\infty$, or pursue a limit 
+%        of $a' < a$ as a subsequence.
+%
+%    \end{mdframed}
+
+    \begin{itemize}
+        \item Prove that (i) and (ii) implies that $\lim\sup a_n = a$.
+    \end{itemize}
+    To prove that $\lim\sup a_n = a$, we first show that $a$ is the limit of a 
+    subsequence of $\{a_n\}$; then we show that $\not\exists a' > a$ s.t. $a'$ 
+    is the limit of a subsequence of $\{a_n\}$.
+
+    Firstly, by (i) and (ii), for arbitrary $\varepsilon>  0$, we can find a 
+    subsequence $\{a_{n_j}\}$ with certain $N\in \N$ 
+    such that $a - \varepsilon < a_{n_j} < a + \varepsilon$, $\forall n_j > N$. 
+    (Step 1: by (i), we can find a $N^\varepsilon$ for arbitrary $\varepsilon > 
+           0$, so that: $a_n < a + \varepsilon$ $\forall n > N^\varepsilon$; Step 2, for the $\varepsilon$ 
+           and all $\tilde n \ge N^\varepsilon$, we can find a $a_{k_{\tilde n}}$ 
+           s.t.  $a - \varepsilon < a_{k_{\tilde n}}$. Thus, we have composed a 
+       subsequence $\{a_{k_{\tilde n}}\}$.)
+
+    Then, suppose $\exists a' > a$ as the limsup, then $\forall \varepsilon > 0$ 
+    $\exists N' $ s.t. $\forall n' > N'$, $|a_{n'} - a'| < \varepsilon$. 
+    However, (i) is violated when $\varepsilon < \frac{a' - a}{2}$: suppose that 
+    $a_{n_k} \to a'$. Then, $\exists N' > 0$ s.t. $\forall k > N'$, $|a_{n_k} - a'| < 
+    \varepsilon$. Given that $\varepsilon < \frac{a'-a}{2}$, there does not 
+    exist a $N$ that may satisfy (i). (The ``$\forall n > N$'' statement is 
+    violated due to the subsequence that converges to $a'$.)
+
+
+
+    \bibliographystyle{plainnat}
+    \bibliography{ref}
+
+\end{proof}
 
 \end{document}
