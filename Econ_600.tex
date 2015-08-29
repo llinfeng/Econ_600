@@ -11,7 +11,7 @@
 \renewcommand{\epsilon}{\varepsilon}
 %Set up the margins
 %\usepackage[left=.7in,right=.7in,top=.7in,bottom=.7in]{geometry}
-\usepackage{amssymb,amsmath,amsthm,mathrsfs,verbatim}
+\usepackage{amssymb,amsmath,amsthm,mathrsfs,verbatim,upgreek}
 \usepackage{extarrows}%% For extending the equal sign when there is   \xlongequal{<stuff>}
 %\sout{} strike through!
 \usepackage{marginnote}%\marginnote{}
@@ -100,7 +100,7 @@
 \newtheorem{assumption}[theorem]{Assumption}
 \newtheorem*{defn}{Definition}
 \newtheorem*{rudin}{Rudin Says}
-\newtheorem*{poblem}{\textcolor[rgb]{1.00,0.00,0.00}{Problem}}
+\newtheorem*{problem}{\textcolor[rgb]{1.00,0.00,0.00}{Problem}}
 \usepackage{mathrsfs} % enable people to use \mathscr{A}
 \usepackage{color}
 \usepackage{xcolor}
@@ -598,7 +598,7 @@ Remark: by construction in Definition \ref{def:a_relation_on_A},  equivalence
 Cartesian space.
 
 \begin{definition}
-    [Fucntion: defined using Relation from $A$ to $B$]
+    [Function: defined using Relation from $A$ to $B$]
     A function from set $A$ to set $B$ is a relation $f$ from $A$ to $B$ such 
     that: 
     \begin{enumerate}[(i)]
@@ -792,6 +792,7 @@ $A$ being a set and $S\subseteq A$,
 \section{Lecture 2: convergence and more}
 \setcounter{theorem}{0}
 
+\subsection{Sequence and Convergence}
 \begin{definition}
     A set $S \subset X$ is a linearly ordered set if there is a relation 
     ``$\le$'' on $X$ s.t.
@@ -815,7 +816,7 @@ $A$ being a set and $S\subseteq A$,
         \item for $b \in X$, $b < a$, then $b$ is not an upper bound of $S$.
     \end{enumerate}
 
-    \textbf{Corolloary: } For $a = \sup X$, $\forall \varepsilon > 0$, there 
+    \textbf{Corollary: } For $a = \sup X$, $\forall \varepsilon > 0$, there 
     exists $x \in S$ s.t. $x > a - \varepsilon$.
 \end{definition}
 
@@ -884,6 +885,7 @@ $A$ being a set and $S\subseteq A$,
 
 \begin{theorem}
     [Bolzano-Weierstrass Theorem] %BW theorem
+    \label{thm:BW_theorem}
     A bounded sequence of $\R$ has a convergent subsequence.
     \begin{proof}
         By Lemma \ref{lemma:2_B_W_Thm}, such bounded sequence of $\R$ has a 
@@ -895,7 +897,7 @@ $A$ being a set and $S\subseteq A$,
 \end{theorem}
 
 \begin{remark}
-    [Properties of Limites]
+    [Properties of Limits]
     For $a_n \to a$ and $b_n \to b$ (two convergent sequences):
     \begin{enumerate}[(i)]
         \item $c \cdot a_n \to c\cdot a$, for $c \in \R$;
@@ -924,6 +926,7 @@ Note that, since the definition of convergent sequence relies on knowing the
 limit $a$, when such limit is not attainable, Cauchy becomes handy.
 
 \begin{theorem}
+    \label{thm_convergent_is_Cauchy}
     Every convergent sequence is Cauchy.
     \begin{proof}
         Given $\{a _n\} \to a$, thus $\forall \frac{\varepsilon}{2} > 
@@ -973,14 +976,15 @@ Prove that $a_{n+1} = \frac{a_n + 2a_{n-1}}{3}$ converges for $a_1 = 0$, $a_2 = 
         & = O(\left( \frac{2}{3} \right)^n)
         \endaligned
     \]
-    By now, we can easily demonstrates that the definition of Cauchy sequence 
+    By now, we can easily demonstrate that the definition of Cauchy sequence 
     could be satisfied by choosing a proper $N$ for any given 
     $\varepsilon$.
 \end{proof}
 
-\begin{theorem}
+\begin{lemma}
     Every Cauchy sequence is bounded.
-    \begin{proof} Let $\{a_n\}$ be an arbitrary Cauchy sequence. Then, for for 
+    \label{lemma:Cauchy_is_bounded}
+    \begin{proof} Let $\{a_n\}$ be an arbitrary Cauchy sequence. Then, for 
         arbitrary $\varepsilon>0$, we know that $\exists N_\varepsilon > 0$ such 
         that $\forall m,n > N$, $|a_m - a_n | < \varepsilon$.
 
@@ -999,29 +1003,92 @@ Prove that $a_{n+1} = \frac{a_n + 2a_{n-1}}{3}$ converges for $a_1 = 0$, $a_2 = 
         Note that, the bound we found above is only \textit{one of the upper 
         bound}. It is not necessarily the $\sup$ nor $\inf$.
     \end{proof}
-\end{theorem}
+\end{lemma}
 
 \begin{theorem}
-    Every Cauchy sequence \yverb|in |$\highlight{\R}$ \footnote{Note that, for 
-        $\{\frac{1}{n}\}$ defined on $(0,1]$, it does not converge in this space 
-        since $0\not\in (0,1]$.}
-        converges.
+    \label{thm:Cauchy_convergent_in_R}
+    Every Cauchy sequence \yverb|in |$\highlight{\R}$ 
+    \footnote{Note that, for $\{\frac{1}{n}\}$ defined on $(0,1]$, it does not 
+    converge in this space since $0\not\in (0,1]$.}
+    %
+    converges.
+    \begin{proof} Let $\{a_n\}$ be an arbitrary Cauchy sequence. 
+        We want to show $\{a_n \}$ converges to some $a \in \R$. That is to 
+        show: $\forall \varepsilon > 0$, $\exists N_0 \in \N$ s.t. $\forall n 
+        \ge N_0$, $|a_n - a| < \varepsilon$.
+
+        (Step 1:) For arbitrary $\varepsilon > 0$, given that $\{a_n \}$ is a Cauchy 
+        sequence, for $\frac{\varepsilon}{2} > 0$, $\exists N_1 \in \N$ s.t. 
+        \[
+            |a_m - a_n| < \varepsilon, \qquad \forall m, n > N_1
+        \]
+
+        (Step 2:) By Lemma \ref{lemma:Cauchy_is_bounded}, we know that every Cauchy 
+        sequence is bounded.
+        Thus, by Bolzano-Weierstrass Theorem (Theorem \ref{thm:BW_theorem}), we 
+        know that $\exists \{a_{n_i}\} \to a$ for some certain real number $a  
+        \in \R$. \marginnote{$\Leftarrow$ \textbf{\tiny a is Limit!}} \\ By definition of 
+        convergence of (sub)sequence, for the arbitrary $\varepsilon$ that we 
+        started with, $\exists I \in \N$ s.t.
+        \[
+            |a_{n_j} - a | < \frac{\varepsilon}{2}, \qquad \forall j > I
+        \]
+
+        Now, let $N_0 = \max \{ n_I, N_1\}$, we see that $\forall n > N_0$ and 
+        $n_j > N_0$, we have: 
+        \[
+            \aligned 
+            |a_n - a \ & = | a_n - a_{n_j} + a_{n_j} - a | \\
+                       & \le |a_n - a_{n_j}| + |a_{n_j} - a| < \varepsilon
+           \endaligned
+        \]
+        Note: $a_{n_j}$ is an arbitrary element of the subsequence $\{a_{n_i}\}$ 
+        that we found convergent through B-W Theorem.\\
+        Also note that, $|a_n - a_{n_j}| < \frac{\varepsilon}{2}$ follows from 
+        Step 1 that $\{a_n\}$ is Cauchy to start with.
+    \end{proof}
 \end{theorem}
+
+\begin{definition}
+    [Cauchy Criterion]
+    A sequence in $\R$ is a convergent sequence if and only if it is a Cauchy 
+    Sequence. 
+
+    Demonstration: 
+    Theorem \ref{thm_convergent_is_Cauchy} applies in $\R$, thereby convergent 
+    sequence in $\R$ is Cauchy; Theorem \ref{thm:Cauchy_convergent_in_R} 
+    completes the proof.
+\end{definition}
 
 \begin{remark}
     [Useful limits] Limits of sequences as $n \to \infty$:
+    \begin{itemize}
+        \item $\underset{n\to\infty}  \lim \frac{n^\alpha}{(1+p)^n} = 0$ for $p 
+            > 0$ and $\alpha> 0$. (This demonstrates exponential function 
+            dominates polynomials in the limit.)
+        \item $\underset{n\to\infty} \lim \sqrt[n]{n} =  1$
+        \item $\underset{n\to\infty} \lim \left( 1 + \frac{1}{n} \right)^n = e$; then 
+            $\underset{n\to\infty} \lim \left( 1 + \frac{t}{n} \right)^n = e^t$.
+        \item $\underset{n\to\infty} \lim \sqrt[n]{p} = 1$ if $p  > 0$.
+    \end{itemize}
 
-    Refer to page 57 of \cite{rudin1976principles} Theorem 3.20.
+    Refer to page 57 of \cite{rudin1976principles} Theorem 3.20 for detailed 
+    proofs.
 \end{remark}
 
 \begin{definition}
     [limsup, liminf]
     Let $\{a_n\}$ be a sequence in $\R$, we say: 
-    \[
+    $
         \lim\sup \{a_n\} = a
-    \]
+    $
     if $\sup S = a$, where $S = \{ b \in \R : \exists \text{ subsequence } 
-    \{a_{n_i}\} s.t. a_{n_i} \to b\}$.
+    \{a_{n_i}\} \text{ s.t. } a_{n_i} \to b\}$.
+
+    Not surprisingly, we can define 
+    \[
+        \lim\inf \{ a_n \} = - \lim \sup \{ - a_n\}
+    \]
 \end{definition}
 
 \paragraph{Exercise: equivalent definition of limsup} Prove that $\lim\sup a_n = 
@@ -1064,6 +1131,18 @@ n) \in \R_{++} \times N$.
 
         Thus what we assumed is wrong. We thereby proved the original claim in 
         (ii).
+    \begin{mdframed}
+        Note that, the converse of the following claim: 
+        \[
+            \forall \varepsilon > 0, \quad \exists N \in \N \text{ s.t. } 
+            \forall n \ge N, \text{ proposition } P \text{ is true.}
+        \]
+        \[
+            \overset{\text{converse}} \implies \qquad 
+            \exists \varepsilon > 0, \quad \forall N \in \N \text{ s.t. } 
+            \exists n \ge N, \text{ proposition } P \text{ is \textbf{not} true.}
+        \]
+    \end{mdframed}
 
 
     \begin{itemize}
@@ -1127,6 +1206,7 @@ n) \in \R_{++} \times N$.
     \varepsilon$. Given that $\varepsilon < \frac{a'-a}{2}$, there does not 
     exist a $N$ that may satisfy (i). (The ``$\forall n > N$'' statement is 
     violated due to the subsequence that converges to $a'$.)
+    \noindent\rule{\textwidth}{1pt} % I am a line!
 
     Alternatively, one can prove the statement using an equivalent definition of 
     limsup: 
@@ -1150,18 +1230,319 @@ n) \in \R_{++} \times N$.
     \]
     Therefore, $\underset{n \to \infty} {\lim\sup} a_n > a - \varepsilon \iff 
     \underset{n \to \infty} {\lim\sup} a_n \ge a$ ;
-
-
-
-
-
-
-
-
-
-    \bibliographystyle{plainnat}
-    \bibliography{ref}
-
 \end{proof}
+
+\begin{definition}
+    [Infinite series]
+    Given a sequence $\{a_n\}$, let $s_n = \sum_{i=1}^n a_i$ be a sequence 
+    $\{s_n\}$, it is called \textbf{infinite series}. 
+    We write $\sum_{n=1}^\infty a_n = a$ if $\{s_n\}$ converges to $a$.
+    \begin{example}
+        For $a_n = \frac{1}{2^n}$, we can obtain an expression for $\sum_{n=1}^M 
+        a_n$; 
+        and $\sum_{n=1}^\infty \frac{1}{n} = \infty$.
+
+        Also note that the sum of arbitrary segment of $\{\frac{1}{n}\}$ can be 
+        arbitrarily large if the length of such segment is long enough.
+    \end{example}
+\end{definition}
+
+\begin{definition}
+    [Rearrangement]
+    $\{n_i\}_{i=1}^\infty$ is a sequence of natural numbers in which each 
+    natural number appears exactly once. Let $b_i = a_{n_i}$, then $b_i$ is 
+    \textbf{a rearrangement } of $\{a_i\}_{i=1}^\infty$.
+\end{definition}
+
+\begin{definition}
+    [Absolute convergence]
+    If $\sum_{n=1}^\infty |a_n|$ converges, we say that $\sum_{n=1}^\infty a_n$ 
+    converges absolutely.
+    %
+    (e.g. for $a_n = (-1)^n \frac{1}{n}$, $\sum_{n=1}^\infty < \infty$, yet 
+    $\sum_{n=1}^\infty |a_n| \to \infty$.)
+\end{definition}
+
+\begin{proposition}
+    If $\sum_{n=1}^\infty a_n$ converges absolutely, then $\sum_{n=1}^\infty b_i 
+    = \sum_{n=1}^\infty a_n$, where $\{b_n\}$ is a rearrangement of $\{a_n\}$.
+    
+    Note that, rearranging $\{(-1)^n\}_{n=1}^\infty$ can give raise to arbitrary 
+    partial sum $\in \Z$.
+\end{proposition}
+
+\paragraph{Review: subsets in $\R$}
+Epistemic-wise, we established the construction of following sets sequentially: 
+\begin{enumerate}
+    \item $\N$: The set of natural number; [It is countable.]
+    \item $\Z$: The set of integers; [It is also countable. In fact, $|\N| = |\Z|$.
+    \item $\Q$: The set of rational number; [It is also countable, and 
+        \textbf{dense}.]
+    \item $\R$: The real line. [Completeness Axiom]
+\end{enumerate}
+
+\begin{definition}
+    [Principle of Mathematical Induction]
+    The set of natual numbers is the smallest set that satisfies the axiom of 
+    Mathematical Induction.
+
+    \begin{example}
+        Prove that $1 + 2 + \cdots + n = \frac{n(n+1)}{2}$.
+        \begin{proof}[Proof method:]
+            To prove by induction: 
+            \begin{itemize}
+                \item When $n = 1$, LHS = RHS;
+                \item Suppose LSH = RHS $\forall n \in N$ s.t. $n \le n_0$, then 
+                    we show that LHS = RHS for $n = n_0 + 1$.
+            \end{itemize}
+        \end{proof}
+    \end{example}
+\end{definition}
+
+\subsection{Real Value Functions}
+\setcounter{theorem}{0}
+
+\begin{definition}
+    A real valued function defined on $X$ (an arbitrary set) is represented as following, with $\R$ as the 
+    codomain:
+    \[
+        f: x \to \R
+    \]
+\end{definition}
+\begin{notation} For $a \in \R$ and $f,g$ being real value functions, 
+    ``$=, \ge , > , \gg$, function addition and (scalar) multiplcation'' are defined as follows:
+    \begin{itemize}
+        \item If $f(x) =  a$ $\forall x \in X$, we write $f = a$;
+        \item If $f(x) \ge g(x)$ $\forall x \in X$, we write $f \ge g$;
+        \item If $f\ge g$, but not the other way, then $f > g$. ($f(x) = g(x)$ 
+            is permissible for some $x \in X$).
+        \item If $f(x) > g(x)$ $\forall x \in X$, then we write $f \gg g$.
+        \item $(f+g)(x) \coloneqq  f(x) + g(x)$;
+        \item $(a\cdot f) (x) \coloneqq a \cdot f(x)$;
+        \item $(f\cdot g) (x) \coloneqq f(x) \cdot g(x)$.
+    \end{itemize}
+    Note that, $f>g$ is a ``weakly hight'' relationship.
+\end{notation}
+
+\begin{definition}
+    [strictly/weakly increasing/decreasing] Construction is intuitive and 
+    thereby omitted.
+\end{definition}
+
+\begin{definition}
+    [Limit of function] A function $f : x \to \R$ converges to $a \in \R$ as $x$ 
+    approaches some $x_0 \in X$ if 
+    \[
+        \forall \varepsilon > 0, \; \exists \delta > 0 \text{ s.t. } \forall x  
+        \in
+        (\highlight{x_0 - \delta}, x_0 + \delta) 
+    \]
+    \[
+        |f(x) - a | < \varepsilon
+    \]
+    in which case we write $\underset{x \to x_0} \lim f(x) = a$.
+\end{definition}
+\begin{definition}
+    [Right limit]
+    A function $f : x \to \R$ converges to $a \in \R$ from right as $x$ 
+    approaches $x_0$ if 
+    \[
+        \forall \varepsilon > 0, \; \exists \delta > 0 \text{ s.t. } \forall x 
+        \in (\highlight{x_0}, x_0 + \delta),
+    \]
+    \[
+        |f(x) - a | < \varepsilon
+    \]
+    We write the right limit as: $\underset{x\to x_0^+} \lim f(x) = a$.
+\end{definition}
+
+\begin{proposition}
+    Suppose $f: X \to \R$ and $g: X \to \R$, with $\underset{x\to x_0} \lim 
+    f(x) = a$ and $\underset{x\to x_0} \lim g(x) = b$.
+    \begin{enumerate}[(i)]
+        \item $\underset{x\to x_0} \lim f(x) \pm g(x) = a + b$;
+        \item $\underset{x\to x_0} \lim f(x) \cdot g(x) = a\cdot b$;
+        \item $\underset{x\to x_0} \lim \frac{f(x)}{g(x)} = \frac{a}{b}$ if $g 
+            \not= 0$ and $b \not= 0$.
+    \end{enumerate}
+\end{proposition}
+
+\begin{definition}
+    [Continuity] A function $f: X \to \R$ is continuous at $x_0 \in X$ if 
+    \[
+        \underset{x\to x_0} \lim f(x) = f(x_0)
+    \]
+    Note that, we can draw definition of \textit{limit of function} to formalize 
+    an $\varepsilon-\delta$ argument that defines a continuous function.
+\end{definition}
+
+
+\section{Lecture 3: Linear Space and $f: X \to \R$, continued}
+
+\subsection{Linear spaces and linear algebra}
+
+\begin{definition}
+    [Vector Space]
+    \textbf{Vector space} $V$ over a field $F$ is a set $V$ together with 
+    \textit{vector addition} and \textit{scalar multiplication}.
+    \begin{itemize}
+        \item A field $F$ is a set with addition and multiplication operation 
+            defined among its own elements.
+
+            Example: $\R$ with normal $+$ and $\cdot$ is a field, denoted as: 
+            ``$F:\R, +, \cdot$''.
+
+            Formally, a field is also established using a set of axiom. Note 
+            that field is ``equipped with'': $0, (-1)$ elements.
+    \end{itemize}
+
+    Axiomatically, $\forall u,v,w \in V$ and $a,b \in F$, the following shall be 
+    satisfied: 
+    \begin{enumerate}[\textbf{{\textit{Axiom}}} 1]
+        \item $u + (v+w) = (u+v) + w$;
+        \item $u + v = v  + u$;
+        \item $\exists \theta \in V$ s.t. $u + \theta = u$;
+        \item $\exists \upphi (u) \in V$ s.t. $u + \upphi(u) = \theta$;
+        \item $a\cdot(u+v) = a\cdot u + a\cdots v$;
+        \item $(a+b) \cdot u = a\cdot u + b \cdot u$;
+        \item $a\cdot (b \cdot u) = b \cdot (a \cdot u)$;
+        \item $V$ is closed under vector addition and scalar multiplication;
+        \item $1 \cdot u  = u$, where $1$ is the identity in $F$.
+    \end{enumerate}
+
+    Note that, the last axiom was not stated in lecture.
+\end{definition}
+
+\begin{proposition}
+    Using the axioms, we can show the following equalities hold: 
+    \begin{enumerate}
+        \item $0 \cdot u = \theta$; 
+        \item $\upphi (u) = (-1) \cdot u$;
+        \item $a\theta  = \theta$;
+        \item $\theta$ is unique.
+    \end{enumerate}
+    \begin{proof}
+        Relies heavily on algebraic tricks. Omitted as of  2015-08-29 15:01:15.
+    \end{proof}
+\end{proposition}
+
+\begin{example}
+    [Example for vector spaces]
+    \begin{enumerate}
+        \item $V = \R^n$ and $F: R, +, \cdot$\quad ;
+        \item $V = \{ax^2 + bx + c: $ $a, b, c\in \R, x \in [0,1]\}$, for $F:\R, 
+            +, \cdot$ \quad .
+    \end{enumerate}
+\end{example}
+
+\begin{definition}
+    A vector space cna also be called a linear space.
+\end{definition}
+
+\begin{definition}
+    [Linear subspace]
+    For $V$ being a linear space and $U\subseteq V$, if $U$ itself is a 
+    \underline{linear space} with \underline{\textit{the same} vector additions 
+    and scalar multiplication}, then we say $U$ is a \textbf{\small linear subspace of $V$}.
+
+    Note that, this definition admits the case where $U = V$, i.e. though 
+    trivially, $V$ is a linear subspace of itself.
+\end{definition}
+
+\subsubsection{*Finite* Linear combination, span and linear independence of vectors}
+From now on, we limit the discussion to the following case:
+\begin{enumerate}
+    \item Adopt $\R$ with normal addition and multiplication to be the field 
+        $F$;
+    \item Consider only finite operations when defining linear combination and 
+        span;
+    \item Note that: it is still permissible for $V$ to be an arbitrary set.
+\end{enumerate}
+
+\begin{definition}
+    [Linear Combination] For $U \subseteq V$, 
+    \begin{enumerate}[(i)]
+        \item If $U = \{v_1, \ldots, v_n\}$ for some $n \in \N$, i.e. $U$ is a finite subset of $V$, 
+            then a linear combination of $U$ is a new vector: 
+            \[
+                v = \sum_{i=1}^n a_i v_i, \; a_i \in \R, \;\; i = 1, \ldots, n
+            \]
+        \item If $U$ is no longer finite, regardless of whether is is countably 
+            infinite or uncountable, a \textbf{linear combination of $U$} is a vector 
+            that is \textit{a linear combination of finitely many vector of $U$}.
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}
+    [span of a set of vectors] For $A = \{ v_1, \ldots, v_n\}$, 
+    \[
+        span(A) = \{ \sum_{i=1}^n a_i v_i : a_i \in \R, \; i = 1, \ldots, n\}
+    \]
+\end{definition}
+
+\begin{proposition}
+    The span of any $U\subset V$ is a linear subspace of linear space $V$.
+\end{proposition}
+\begin{proof}[Scatch of proof]
+    Note that, by construction of $span(A)$, arbitrary coefficient is allows. 
+    Letting all coefficients to be $0$ gives raise to the $\theta$; other 
+    properties may follow from standard algebra in $\R$ (the field). 
+\end{proof}
+
+\begin{definition}
+    [Linear independence]
+
+    A (finite) set of vectors $A$ is linearly independent if $\not\exists v \in A$ can be 
+    written as linear combinations of the others. Formally, 
+    \[
+        A = \{ v_1, \ldots, v_n \} \text{ is linearly independent if } 
+        \sum_{i=1}^n a_i v_i = \varepsilon \implies a_i = 0 \forall i
+    \]
+    \begin{proof}
+        Suppose not, that is $\sum_{i=1}^n a_i v_i = \varepsilon$ yet $a_j \not= 
+        0$ for some $j$, then we can write: 
+        \[
+            -a_j v_j = \sum_{k\not=j} a_k v_k
+        \]
+        where, upon simplification, $v_j$ could be written as a linear 
+        combination of the other vectors.
+    \end{proof}
+\end{definition}
+
+\begin{proposition}
+    For $A \subseteq V$, $span(A)$ is the smallest linear space that contains 
+    $A$.
+
+    Alternatively, one can define $span(A)$ to be the intersection of all linear 
+    subspaces of $V$ that contains $A$.
+\end{proposition}
+
+\begin{definition}
+    [base and dimension of $V$]
+    If $\{v_1, \ldots, v_n\}$ are linearly independent and $span(\{v_1, \ldots, 
+        v_n\} = V$ (the linear space), then $\{v_1,\ldots, v_n\}$ is called a 
+        \textbf{base of $V$}.
+
+        In this case, the \textbf{dimension} of $V$ is $dim(V) = n$.
+\end{definition}
+
+\begin{theorem}
+    If $A$ and $B$ are two bases of $V$ and $A, B$ are finite, then $|A| = |B|$.
+    \begin{proof}[Idea of the proof]
+        Suppose $A = \{ u_1, u_2 \}$ and $B = \{v\}$. Then one can write: 
+        \[
+            u_1 = a v; \qquad u_2 = bv \text{ for some } a, b\in \R
+        \]
+        Therefore, $u_1$ and $u_2$ are not linearly independent.
+        
+    \end{proof}
+
+    Note that, it seems to me that the finiteness assumption only serves the 
+    need of simplifying the proof.
+\end{theorem}
+
+
+\bibliographystyle{plainnat}
+\bibliography{ref}
 
 \end{document}
