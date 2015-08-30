@@ -145,6 +145,13 @@
 % For := symbol \coloneqq
 \usepackage{mathtools}
 
+% For large \mid (as conditional)
+\usepackage{mleftright}
+%\[
+%L = \sup \mleft\{\, \sum_{x \in F} a(x) \;\middle|\; F \subset X,\, |F| < \infty \,\mright\},
+%\]
+\newcommand{\suchthat}{\;\ifnum\currentgrouptype=16 \middle\fi|\;}
+
 
 \title{Econ 600: taught by Prof. Shaowei Ke}
 \author{Linfeng Li \\ llinfeng@umich.edu}
@@ -1615,7 +1622,9 @@ From now on, we limit the discussion to the following case:
     [Extreme Value Theorem]
     If $f: [a,b] \to \R$ is continuous, then $\exists x_1, x_2 \in [a,b]$ s.t. 
     \[
-        f(x_1) = \sup f([a,b])\\
+        f(x_1) = \sup f([a,b])
+    \]
+    \[
         f(x_2) = \inf f([a,b])
     \]
     Comment: using $\max$ and $\inf$ in the statement would be more precise 
@@ -1686,7 +1695,210 @@ From now on, we limit the discussion to the following case:
     \end{proof}
 \end{exercise}
 
+\subsection{Differentiation}
+\setcounter{theorem}{0}
+\begin{remark}
+    ``Differentiation'' is essentially a process of taking linear approximation.
+\end{remark}
+
+\begin{definition}
+    [Tangent line]
+    The tangent line to a function $y = f(x)$ at the point $(x_0, 
+    f(x_0))$, when exists, is 
+    the line through $(x_0, f(x_0)$ with slope 
+        \[
+            \alpha = \lim_{x \to x_0} \frac{f(x) - f(x_0)}{x - x_0} = 
+            \lim_{\Delta x \to 0 } \frac{f(x + \Delta x) - f(x)}{\Delta x}
+        \]
+    When $\alpha$ exists, the tangent line exists. It could be written as:
+    \[
+        y = f(x_0) + \alpha(x - x_0)
+    \]
+\end{definition}
+
+\begin{definition}
+    [Differentiation]
+    The \textbf{derivative of $f: x \to \R$} {\textbf{at} $\highlight{x_0 \in X}$} is 
+    \[
+        f'(x) = \lim_{x \to x_0} \frac{f(x) - f(x_0)}{ x - x_0}
+    \]
+    We may also write the derivative as: 
+    \[
+        \mleft( \frac{df(x)}{dx} \;\middle|_{x = x_0}
+        \mright)
+%        \frac{df(x)}{dx} \suchthat_{x = x_0}
+    \]
+    The \textbf{derivative of $f$} is denoted by 
+    \[
+        \frac{df(x)}{dx}
+    \]
+\end{definition}
+
+
+\begin{remark}
+    [Properties of derivatives] For $f,g$ as functions and $a,b \in \R$:
+    \begin{enumerate}[(i)]
+        \item $(a f + b g) ' = a f' + b g'$
+        \item $(fg)' = f'g + fg'$
+        \item $\left( \frac{f}{g} \right)' = \frac{f'g - fg'}{g^2}$
+    \end{enumerate}
+\end{remark}
+\begin{proposition}
+    [Chain Rule] If $g: x\to \R$ is differentiable at $x_0 \in X$ and $f: Y \to 
+    \R$ is differentiable at $g(x_0) \in Y$, then $f(g(x))$ is differentiable at 
+    $x = x_0$, we write: 
+    \[
+        \mleft( 
+            \frac{df(g(x))}{dx} \;\middle|_{x = x_0}
+        \mright) 
+        = f'(g(x_0)) g'(x_0)
+    \]
+\end{proposition}
+
+\begin{proposition}
+    [Inverse function theorem]
+    If $f: X \to Y$ is bijective, then derivative of $f^{-1}: Y \to X$ is 
+    \[
+        \frac{d f^{-1}(y)}{dy } = \frac{1}{f'(f^{-1}(y))}
+    \]
+    \begin{proof}
+        Since $f$ is bijective function, we have: 
+        $f(f^{-1}(y)) = y$. Differentiating w.r.t.\footnote{with respect 
+        to} $y$ gives: 
+        \[
+            f'(f^{-1} (y)) \cdot \frac{d f^{-1}(y)}{dy } = 1
+            \implies 
+            \frac{d f^{-1}(y)}{dy } = \frac{1}{f'(f^{-1}(y))}
+        \]
+    \end{proof}
+\end{proposition}
+
+\begin{definition}
+    [local maximum]
+    Function $f: X \to \R$ has a local maximum at $x_0 \in X$ if $\exists \delta 
+    > 0$, s.t. 
+    \[
+        f(x_0) \ge f(x), \qquad \forall x \in \{ x \in X: |x - x_0| < \delta\}
+    \]
+\end{definition}
+
+\begin{proposition}
+    [Condition for interior local maximum]
+    If $f: X \to \R$ is differentiable, and has a local maximum at 
+    \textit{an interor point} $x = x_0$ 
+    \footnote{$x_0$ is an interior point of $X$, i.e. $\exists \delta > 0$ s.t. $\{x \in 
+    X: |x - x_0| < \delta\} \subseteq X$}, then $f'(x_0) = 0$
+
+    \begin{proof}
+        First consider the right limit: 
+        $
+        \underset{\Delta \to 0^+} \lim \frac{f(x_0+\Delta x) - f(x_0)}{\Delta x}
+        $. For $\Delta x > 0$ and $f(x_0+\Delta x) -f (x_0) \le 0$ (by local 
+        maximum), we see: 
+        \[
+        \underset{\Delta \to 0^+} \lim \frac{f(x_0+\Delta x) - f(x_0)}{\Delta x} \le 0
+        \]
+
+        In similar spirit, we conclude that: 
+        \[
+        \underset{\Delta \to 0^-} \lim \frac{f(x_0+\Delta x) - f(x_0)}{\Delta x} \ge 0
+        \]
+
+        Thus we conclude that $f'(x_0) = 0$ due to differentiability of $f$ at 
+        $x_0$.
+
+    \end{proof}
+
+    Note that, if $x_0$ is at the boundary of $X$, whether this proposition 
+    holds (or not) depends on how we define the derivative at the boundary point.
+\end{proposition}
+
+\begin{theorem}
+    [Rolle's Theorem]
+    If $f:[a,b] \to \R$ is differentiable and  $f(a) = f(b) = 0$, then $\exists 
+    x_0 \in (a,b)$ s.t. $f'(x_0) = 0$.
+    \begin{proof}
+        Since $f: [a,b] \to \R$ is differentiable and hence continuous, if $\sup 
+        f([a,b]) > 0$, then we can locate a $x_0$ as local maximum. 
+        Then, by the previous proposition, $f'(x_0)=0$;
+
+        Alternatively, if $ \inf(f[a,b]) < 0$, we can find a $x_1$ as local 
+        minimum. This also gives raise that $f'(x_1) = 0$.
+
+        Otherwise, $f$ is flat, and $f'(x) = 0$ $\forall x \in [a,b]$.
+    \end{proof}
+
+    Note that, this is like reaching a plateau/basin when leaving at sea-level 
+    and reaching another point at sea-level.
+\end{theorem}
+
+\begin{theorem}
+    [Mean Value Theorem]
+    If $f: [a,b] \to \R$ is differentiable, then $\exists x _ 0 \in (a,b)$ s.t. 
+    \[
+        f'(x_0) = \frac{f(b) - f(a)}{b-a}
+    \]
+    \begin{proof}
+        Subtract a line function: $y = f(a) - \frac{f(b) - f(a)}{ b-a } (x - a)$ 
+        from $f(x)$ to get $g(x)$, we can apply Rolle's Theorem and find a $x_0$ 
+        that satisfies $g'(x_0) = 0$.
+
+        Note that, one can envision subtracting a line-function as a 
+        transformation of coordinate system.
+    \end{proof}
+\end{theorem}
+
+\begin{theorem}
+    [Generalized Mean Value Theorem]
+    Let $f: [a,b] \to \R$, $g:[a,b] \to \R$ be both differentiable, then 
+    $\exists x_0 \in [a,b]$ s.t. 
+    \[
+        g'(x_0) (f(b) - f(a)) = f'(x_0) (g(b) - g(a))
+    \]
+
+    Note that, we can rationalize this theorem as: the ratio of average speed 
+    shall equal the ratio of travel speed at some point of time\footnote{Though, 
+    Prof Ke did not specify which one is the ``time variable''.}.
+\end{theorem}
+
+\begin{theorem}
+    [L'Hopital Rule]
+    $f$ and $g$ are differentiable, with $g'(x) \not = 0$, $\forall x \in X$. 
+    Suppose $\underset{x \to x_0} \lim \frac{f'(x)}{g'(x)} = q$, then if either 
+    of the following conditions is satisfied, $\underset{x \to x_0} \lim 
+    \frac{f(x)}{g(x)} = q$.
+    \begin{enumerate}[(i)]
+        \item If $f(x), g(x) \to 0$ as $x \to x_0$;
+        \item If $f(x), g(x) \to \infty$ as $x \to x_0$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proposition}
+    [Derivative is continuous at $x_0$]
+    If $\underset{x \to x_0} \lim f'(x)$ exists, then $f'(x_0) = \underset{x \to 
+    x_0} \lim
+    f'(x)$.
+
+    \begin{proof}
+        Define $h(x) = f(x) - f(x_0)$, we see that $h(x) \to 0$ as $x \to x_0$; 
+        then, define $g(x) = x - x_0$, we also see that $g(x) \to 0$ as $x \to 
+        x_0$. 
+        
+        Thus, by L' Hopital's rule, we have: 
+        \[
+            \underset{x \to x_0} \lim \frac{h(x)}{g(x)} = \underset{x \to x_0}  
+            \lim
+            \frac{h'(x)}{g'(x)} = \frac{f'(x)}{ 1} = f'(x)
+        \]
+        Note that, what we started with is by definition $f'(x_0) = \underset{x 
+        \to x_0} \lim \frac{f(x) - f(x_0)}{ x - x_0}$. So, we are done.
+    \end{proof}
+\end{proposition}
+
+
 \bibliographystyle{plainnat}
 \bibliography{ref}
 
+
 \end{document}
+\usepackage{natbib}
