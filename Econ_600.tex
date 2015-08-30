@@ -1541,6 +1541,121 @@ From now on, we limit the discussion to the following case:
     need of simplifying the proof.
 \end{theorem}
 
+\subsubsection{Matrix}
+
+\begin{definition}
+    A $m \times n$ matrix could be written as: 
+    \[
+        A = 
+    \begin{bmatrix}
+        v_1 \\ \vdots \\ v_m
+    \end{bmatrix}  = 
+    [u_1 \ldots u_n]
+    \]
+    where $v_i$ is a $1\times n$ (row) vector, and $u_i$ is a $m\times 1$ 
+    (column) vector.
+\end{definition}
+
+\begin{definition}
+    [Rank of a matrix] The \textit{maximum number} of linearly independent 
+    row/column vectors denotes the rank of a matrix.
+
+    Comment: implicitly, by definition, $rank(A) = rank(A^T)$.
+    
+\end{definition}
+
+\setcounter{theorem}{12}
+\begin{definition}
+    [Linear transformation] $T: U \to V$ is a linear transformation if 
+    \[ T(a u_1 + b u_2) =a T(u_1) + b T(u_2)
+        , \qquad \forall a,b \in \R
+    \]
+\end{definition}
+
+\begin{remark}
+    A $m \times n$ matrix $A$ is a linear transformation from $\R^n \to \R^m$.
+\end{remark}
+
+\subsection{Real-Valued functions continued}
+\setcounter{theorem}{0}
+
+\subsubsection{Continuity and its corollaries}
+\begin{definition}
+    [Interval]
+    An interval of $\R$ is either $[a,b]$, $(a,b]$, $[a,b)$ or $(a,b)$; where 
+    $a, b \in \R\bigcup \{ +\infty, -\infty\}$ (the extended real line).
+\end{definition}
+
+\begin{theorem}
+    [Intermediate Value Theorem]
+
+    If $I$ is an interval of $\R$ \footnote{ $I$ could be a connected set 
+    in Euclidean space ($\R^n$).}, and $f:I \to \R$ is continuous, then $f(I)$ is also an 
+    interval of $\R$\footnote{Correspondingly, $f(I)$ would be a connected set.}.
+\end{theorem}
+
+\begin{proposition}
+    If $f$ is continuous and bijective (thus invertible, i.e. $f^{-1}$ is a 
+    function), ten $f$ is either strictly increasing or strictly decreasing.
+
+    Note that: 
+    \begin{itemize}
+        \item Continuity forced bijections to be monotone;
+        \item ``Strictness'' is used to support bijection;
+        \item A stronger statement (yet correct) goes as follows: 
+        \begin{quote}
+            Let $I$ and $J$ be both intervals, then 
+            $f:I \to J$ is continuous and bijective if and only if it is strictly 
+            monotonic.
+        \end{quote}
+    \end{itemize}
+\end{proposition}
+
+\begin{theorem}
+    [Extreme Value Theorem]
+    If $f: [a,b] \to \R$ is continuous, then $\exists x_1, x_2 \in [a,b]$ s.t. 
+    \[
+        f(x_1) = \sup f([a,b])\\
+        f(x_2) = \inf f([a,b])
+    \]
+    Comment: using $\max$ and $\inf$ in the statement would be more precise 
+    though.
+\end{theorem}
+
+\begin{definition}
+    [Uniformly continuity]
+    $f : x \to \R$ is said to be uniformly continuous if $\forall \varepsilon > 
+    0$, $\exists \delta > 0$, s.t. 
+    \[
+        |f(x) - f(y)| < \varepsilon, \qquad \forall |x - y| < \delta
+    \]
+    Note that: 
+    \begin{enumerate}
+        \item We no longer specify a certain point $x_0 \in X$;
+        \item Instead, the $\delta$ applies to all $x,y\in X$ as long 
+            as they are within $\delta$ distance away.
+    \end{enumerate}
+\end{definition}
+\begin{exercise}
+    Prove that $f(x) = \frac{1}{x}$ ($x > 0$) is not uniformly continuous.
+    \begin{proof}
+        Without loss of generality, suppose $\varepsilon = \frac{1}{2}$. Now we 
+        want ot show that $\not\exists$ $\delta > 0$ s.t. if $|x-y| < \delta$, 
+        $|f(x) - f(y)| < \frac{1}{2}$. 
+
+        By the property of $f(x)$, we look for a threshold $z^*(\varepsilon, 
+        \delta)$ at which:
+        \[
+            \left| \frac{1}{z^*} - \frac{1}{z^* + \delta}\right| = 
+            \frac{1}{2}
+        \]
+        Then, for arbitrary $\delta> 0$, write $z^* = z^*(\varepsilon, \delta)$, 
+        we have:
+        \[
+            |f(z') - f(z' + \delta)| > \frac{1}{2}, \qquad \forall z' < z^*
+        \]
+    \end{proof}
+\end{exercise}
 
 \bibliographystyle{plainnat}
 \bibliography{ref}
