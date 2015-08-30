@@ -1638,7 +1638,7 @@ From now on, we limit the discussion to the following case:
 \end{definition}
 \begin{exercise}
     Prove that $f(x) = \frac{1}{x}$ ($x > 0$) is not uniformly continuous.
-    \begin{proof}
+    \begin{proof}[Professor's Proof]
         Without loss of generality, suppose $\varepsilon = \frac{1}{2}$. Now we 
         want ot show that $\not\exists$ $\delta > 0$ s.t. if $|x-y| < \delta$, 
         $|f(x) - f(y)| < \frac{1}{2}$. 
@@ -1654,6 +1654,35 @@ From now on, we limit the discussion to the following case:
         \[
             |f(z') - f(z' + \delta)| > \frac{1}{2}, \qquad \forall z' < z^*
         \]
+        Thus, we see that for $\varepsilon  = \frac{1}{2}$, there does not exist 
+        a $\delta >0$ that satisfies $|f(x) - f(y)| <  \frac{1}{2}$ $\forall 
+        |x-y| < \delta$.
+    \end{proof}
+    Comment: in professor's proof, there is a flaw: choosing $z'$ and $z' 
+    +\delta$ won't help disprove the original statement.  This could easily be 
+    fixed as shown in the alternative proof.
+    \begin{proof}[Alternative proof]
+        Without loss of generality, suppose $\varepsilon = \frac{1}{2}$. Now we 
+        want ot show that $\not\exists$ $\delta > 0$ s.t. if $|x-y| < \delta$, 
+        $|f(x) - f(y)| < \frac{1}{2}$. 
+
+        By the property of $f(x)$, we look for a threshold $z^*(\varepsilon, 
+        \delta)$ at which:
+        \[
+            \left| \frac{1}{z^*} - \frac{1}{z^* + \frac{\delta}{2}}\right| = 
+            \frac{1}{2}
+        \]
+        Then, for arbitrary $\delta> 0$, write $z^* = z^*(\varepsilon, \delta)$, 
+        we have:
+        \[
+            |f(z') - f(z' + \frac{\delta}{2})| > \frac{1}{2}, \qquad \forall z' < z^*
+        \]
+        Thus, we see that for $\varepsilon  = \frac{1}{2}$, there does not exist 
+        a $\delta >0$ that satisfies $|f(x) - f(y)| <  \frac{1}{2}$ 
+        $\highlight{\forall |x-y| < \delta}$.
+
+        Note that, it is the highlighted condition that has been disproved.
+        
     \end{proof}
 \end{exercise}
 
