@@ -1962,6 +1962,7 @@ From now on, we limit the discussion to the following case:
 \subsubsection{Multi-variable Calculus}
 \begin{definition}
     [Differentiable multi-variate vector-valued function]
+    \label{sec:multi_variable_matrix_A_as_gradient}
     For $f: X\to \R^m$, $X \subseteq \R^n$, we say that \textbf{$f$ is 
     differentiable at $x_0 \in X$} if $\exists A$ ($m$ by $n$ matrix) s.t. 
     \[
@@ -1970,10 +1971,294 @@ From now on, we limit the discussion to the following case:
         {||x - 
         x_0||} = 0
     \]
+    where the norm of $x$ is defined as: $||x|| = \sqrt{x_1^2 + x_2^2 + \cdots + 
+    x_n^2}$.
 \end{definition}
 Note that, $f(x_0) + A \cdot (x - x_0)$ is a local approximation of $f(x)$ at 
 $x_0$. Here, $f(x_0)$ is a $m \times 1$ vector, $x - x_0$ is a $n\times 1$ 
 vector, and $A$ is a linear transformation from $\R^n$ to $\R^m$.
+
+\paragraph{Exercise: L'Hopital's Rule}
+\begin{itemize}
+    \item $\underset{x \to 0} \lim  \frac{e^x- 1}{x} = \underset{x \to 0} 
+        \lim \frac{e^x}{1} = 1$ (By L'Hopital's Rule).
+    \item $\underset{x \to 0} \lim x \cdot ln ( 1 + \frac{1}{x}) = 
+        \underset{x \to 0}\lim \frac{ln(1 + \frac{1}{x}}{\frac{1}{x}} = 
+            \underset{x \to 0} \lim \frac{\frac{1}{1+\frac{1}{x}} \cdot \left( 
+            -\frac{1}{x^2} \right)}{-\frac{1}{x^2}} = \underset{x \to 0}\lim 
+            \frac{1}{1 + \frac{1}{x}} = 0$ (Again, by L'Hopital's Rule)
+\end{itemize}
+
+\subsubsection{Partial Derivatives }
+\begin{definition}
+    [Partial Derivatives] For $x : x \to \R$ with $x \in\R^n$, the partial 
+    derivative of $f$ at $x = (x_1, \ldots, x_n)$ with respect to $x_i$ is defined as: 
+    \[
+        \frac{\partial f(x)}{\partial x_i} \coloneqq f_i(x) = \lim_{\lambda \to 
+        0} \frac{f(x + \lambda e_i)  - f(x)}{\lambda}
+    \]
+    where $e_i = [0,\ldots, 0, 1, 0,\ldots]^T \in \R^n$ ($1$ is at the $i$-th 
+    element).
+\end{definition}
+
+\begin{definition}
+    [$\partial x_i \partial x_j$]
+If we take the partial derivative of $\frac{\partial f(x)}{\partial x_i}$ with 
+respect to $x_j$, we have: 
+\[
+\frac{\partial \left( \frac{\partial f(x)}{\partial x_i} \right)}{\partial x_j} 
+\coloneqq \frac{\partial^2 f(x)}{ \partial x_i \cdot \partial x_j} \coloneqq 
+f_{ij}
+\]
+\end{definition}
+
+\begin{proposition}
+If $f_i$, $f_j$ and $f_{ij}$ exists, and $f_{ij}$ is continuous at $x_0 \in x$, 
+then $f_{ji}$ exists at $x_0$ and $f_{ij} = f_{ji}$.
+\end{proposition}
+
+\subsubsection{Gradient}
+\begin{definition}
+    [Gradient $\nabla$]
+    Remember the matrix $A$ we defined in Definition 
+    \ref{sec:multi_variable_matrix_A_as_gradient}? Let $A = \nabla f(x)$, then 
+    $\nabla f(x)$ is called the gradient of $f$ at $x$, i.e. $\nabla f(x)$ is a 
+    $m\times n$ matrix s.t. 
+    \[
+        \lim_{x \to x_0} \frac{||f(x) -\left( f(x_0) + \nabla f(x_0)(x - x_0) 
+        \right)||}{||x - x_0||}
+    \]
+    It turns out that we are essentially defining $\nabla f(x_0)$ as a $m \times n$ matrix without 
+    transpose? Note: $\nabla f(x_0) = [f_1(x_0), f_2(x_0), \ldots, 
+    f_n(x_n)]$. (Simon and Blume page 321 defined gradient to be a $n \times m$ 
+    matrix.
+\end{definition}
+
+\begin{definition}
+    [Inner product]
+    In $\R^2$, the inner product of $(x_1, y_1)$ and $(x_2, y_2)$ is 
+    \[
+        <(x_1, y_1), (x_2, y_2)> \qquad \coloneqq \qquad 
+        (x_1, y_1) 
+        \cdot 
+        \begin{pmatrix}
+            x_2 \\ y_2 
+        \end{pmatrix}
+        = x_1 x_2 + y_1 y_2
+    \]
+
+    Additionally, one can define the norm as $||(x,y)|| = \sqrt{<(x,y), 
+    (x,y)>}$. Further more, one can write: 
+    \[
+        <(x_1, y_1), (x_2, y_2)> = ||(x_1, y_1)|| \cdot ||(x_2, y_2)|| \cdot 
+        \cos \theta
+    \]
+    where $\theta$ is the angle from vector $(x_1, y_1)$ to $(x_2, y_2)$.
+\end{definition}
+
+\begin{remark}
+    [Tangential plane example]
+    \label{remark:tangential_in_R_2}
+    For $f: \R^2 \to \R$,  let $X\times Y = \R^2$ be the domain and $Z = \R$ be 
+    the codomain. Then, we can define a tangential plane at $x_0 = (x',y')$ as follows: 
+    \begin{itemize}
+        \item Fix the $y$ component, we can define the following plane that is 
+            parallel to $Z-X$ plane: 
+            \[
+                z = f(x_0) + \frac{\partial f(x_0)}{ \partial x} (x - x')
+            \]
+        \item Fix the $x$ component, we can define the following plane that is 
+            parallel to $Z-Y$ plane:
+            \[
+                z = f(x_0) + \frac{\partial f(x_0)}{ \partial y} (y - y')
+            \]
+    \end{itemize}
+    Then, the tangential plane is defined as: 
+    \[
+        f(x_0) + \left( \frac{\partial f(x_0)}{\partial x}, 
+        \frac{\partial f(x_0)}{\partial y} \right)\cdot(x - x_0)
+    \]
+\end{remark}
+
+\paragraph{Projection}
+(Continued from the previous $f:\R^2 \to \R$ function) In $X\times Y$, we can 
+draw a set of contour-lines at which $f(x)$ achieves the same $Z$-value.
+
+Under the projection, the tangential plane we defined previous now becomes a 
+tangent line. More importantly, the projection of \textit{gradient vector} is 
+orthogonal to such tangent line in $X-Y$.
+
+In general, the gradient is also orthogonal to the tangent plane.
+
+\begin{proposition}
+    The gradient is the direction along which $f(x)$ increases the fastest.
+\end{proposition}
+
+
+\paragraph{Implication of gradient}
+Formally, Remark \ref{remark:tangential_in_R_2} could be stated as follows: 
+\begin{itemize}
+    \item $\frac{\partial f(\bar x)}{\partial x_i}$ indicates the slope of the 
+        function $f$ restricted to the subset of $\R^n$ s.t. 
+        \[
+            x_j = \bar x_j , \qquad \forall j \not = i
+        \]
+        Therefore, the vector of the slopes
+        $ \left( \frac{\partial f}{ \partial x_1}, \cdots, \frac{\partial f}{\partial x_n} \right) $
+        denotes the tangent plane's ``slope''.
+
+    \item The gradient $\left( \frac{\partial f}{ \partial x_1}, \cdots, 
+        \frac{\partial f}{\partial x_n} \right)$ points out the direction in 
+        $\R^n$ along which $f$ increases the fastest.
+\end{itemize}
+
+\paragraph{Example interpreting properties of gradient: $z= 2x + y$}
+\begin{enumerate}
+    \item Plot it in $x-y-z$;
+    \item Calculate the gradient at $(1,2)$ as: $\nabla f(1,2) = (2,1)$ through 
+        definition.
+    \item Demonstrate the solution to the following optimization problem 
+        \[
+            \underset{\Delta x, \Delta y} \lim 2(\bar x + \Delta x) + (\bar y + 
+            \Delta y)
+        \]
+        \[\qquad \qquad s.t. || (\Delta x , \Delta y) || =  1\]
+\end{enumerate}
+
+\subsection{Vector \& Matrix Differentiation}
+\setcounter{theorem}{0}
+\begin{definition}
+    For $f: \R^n \to \R^m$, write $f(x) = 
+    \begin{bmatrix}
+        f^{(1)}(x) \\
+        \vdots \\
+        f^{(m)}(x)
+    \end{bmatrix}
+    $.
+    Define the derivative of $f$ as $f'(x) = Df(x) = D
+    \begin{bmatrix}
+        f^{(1)}(x) \\
+        \vdots \\
+        f^{(m)}(x)
+    \end{bmatrix} = 
+    \begin{bmatrix}
+        f_1^{(1)} (x)  & \cdots  & f_n^{(1)} (x)\\
+        \vdots & \ddots & \vdots \\
+        f_1^{(m)}(x) & \cdots & f_n^{(m)} (x)
+    \end{bmatrix}
+    $, where $f'(x)$ is defined to be a $m \times n$ matrix.
+
+    Convention here is different from what we used for multi-variable 
+    single-valued functions, where $f^{(n)} \coloneqq \frac{d^n f}{d x^n}$ for 
+    $f: \R^n \to \R$.
+    \textbf{Here}, $f^{(m)}(x)$ is the $m$-th in the codomain.
+
+    Example: for $f(x,y) = 
+    \begin{bmatrix}
+        2x + y\\3x^2
+    \end{bmatrix}$, then 
+    $D f(x,y) = 
+    \begin{bmatrix}
+        2   & 1 \\
+        6 x & 0
+    \end{bmatrix}
+    $.
+
+    \begin{definition}
+        [Higher order (partial) derivatives for single-valued function]
+        The Higher order (partial) derivatives for $f: \R^n \to \R$ is a $1 
+        \times n$ vector defined as: 
+        \[
+            \frac{df }{d x} = Df = [f_1(x), \cdots, f_n(x)].
+        \]
+        For the second order derivative: 
+        \[
+            \frac{d}{dx}\left( \frac{d f}{dx} \right) = D^2 f = 
+            \begin{bmatrix}
+                f_{11}(x) & \cdots & f_{1n}(x) \\
+                \vdots & \ddots & \vdots \\
+                f_{n1}(x) & \cdots & f_{nn} (x)
+            \end{bmatrix}
+            = \frac{\partial^2 f }{\partial x \partial x^T}
+        \]
+        Here, $x$ is a vector, and $\partial x \partial x^T \simeq x^2$ in 
+        $\R^1$, where $\simeq$ is defined in terms of equivalent expression.
+
+        Note that, the goal here is to let $f' \cdot x$ yield a scalar, instead 
+        of a matrix.
+    \end{definition}
+\end{definition}
+
+\begin{exercise}
+    (Example: for taking derivative of composite functions.)
+
+    \begin{enumerate}
+        \item $f(x,y)$ is a real-valued function, and $x = u + \log v$ and 
+            $y = u - \log v$. Show that: 
+            \[
+                \frac{\partial^2 f}{\partial u^2 } = \frac{\partial^2 
+                    f}{\partial x^2} + 2 \frac{\partial^2 f}{\partial x 
+                \partial y} + \frac{\partial ^2 f }{ \partial y^2}
+            \]
+            \begin{proof}
+                Write first taht $f(x(u,v), y(u,v))$ where $x(u,v) = u + 
+                \log v$; $y(u,v) = u  - \log v$.
+                \[
+                    \frac{\partial f(x(u,v), y(u,v))}{\partial u} = f_x 
+                    \frac{\partial x}{\partial u} + f_y 
+                    \frac{\partial y}{ \partial u} = f_x + f_y
+                \]
+                (note that, $\frac{\partial x}{\partial u}  = 1$ and 
+                $\frac{\partial y}{\partial u} = 1$, by evaluating the 
+                    functional form.)
+
+                    Now, take this simplified functional form for 
+                    $\frac{\partial f }{ \partial u} = f_x + f_y$, look 
+                    into: 
+                    \[
+                        \frac{\partial^2 f}{\partial u^2} = f_{xx} \cdot 
+                        \frac{\partial x}{ \partial u} + f_{xy} \cdot 
+                        \frac{\partial y}{\partial u} + f_{yx} \cdot 
+                        \frac{\partial x}{\partial u} + 
+                        f_{y y} \cdot \frac{\partial 
+                        y}{\partial u}
+                    \]
+                    Simplify this by evaluating $\frac{\partial x}{\partial 
+                    u} = 1 = \frac{\partial y}{\partial u}$ and get the 
+                    expression we wanted to show.
+            \end{proof}
+        \item $f(x,y) = g(\frac{x}{y})$, $g$ is differentiable, show that: 
+            \[ 
+                x \cdot \frac{\partial f }{ \partial x} + y 
+                \frac{\partial f}{ \partial y}
+            \]
+            \begin{proof}
+                Take the original equality and differentiated w.r.t $x$ and 
+                $y$, we have: 
+                \[
+                    \frac{\partial f}{\partial x} = g' \frac{\partial 
+                    \left( \frac{x}{y} \right)}{\partial x} = \frac{1}{y} \cdot g'
+                \]
+                \[
+                    \frac{\partial f}{\partial y} = g' \frac{\partial \left( 
+                    \frac{x}{y} \right)}{\partial y} =  \frac{x}{-y^2} g'
+                \]
+            \end{proof}
+    \end{enumerate}
+\end{exercise}
+
+\begin{definition}
+    [Inner product]
+    For matrices and vectors that are made of real numbers, inner product is 
+    defined as: 
+    \[
+        a^T\cdot x = \sum_{i=1}^n a_i x_i,
+    \]
+    where $x = (x_1, \ldots, x_n)^T$ (as a $n\times 1$ (column) vector); and $a = 
+    (a_1, \ldots, a_n)^T$ (as a $n\times 1$ (column) vector).
+\end{definition}
+
+
 
 
 
