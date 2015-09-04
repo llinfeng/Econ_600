@@ -2,7 +2,7 @@
 %     Created: Mon Aug 24 07:00 AM 2015 EDT
 %
 \documentclass[12pt]{article}
-% Package for non-breaking words 
+% Package for non-breaking words
 \usepackage[none]{hyphenat}
 \usepackage[margin=1in]{geometry}
 
@@ -75,13 +75,14 @@
 \newtheorem{conclusion}[theorem]{Conclusion}
 \newtheorem{condition}[theorem]{Condition}
 \newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{cookbook}[theorem]{Cookbook}
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{criterion}[theorem]{Criterion}
 \newtheorem{definition}[theorem]{Definition}
 %\newtheorem{example}[theorem]{Example}
 \newtheorem{exercise}[theorem]{Exercise}
 \newtheorem*{exercise_nonum}{Exercise}
-\newtheorem{fact}[theorem]{fact}
+\newtheorem{fact}[theorem]{Facts}
 \newtheorem{idea}[theorem]{Idea}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{notation}[theorem]{Notation}
@@ -176,35 +177,35 @@
 \maketitle
 
 \section*{Disclaimer}
-This is a personal note of mine. I will try to follow professor Ke's lecture as 
-close as possible. However, neither is this an official lecture note, nor will 
-Linfeng be responsible for any errors + typos. 
+This is a personal note of mine. I will try to follow professor Ke's lecture as
+close as possible. However, neither is this an official lecture note, nor will
+Linfeng be responsible for any errors + typos.
 \underline{Nevertheless, corrections and suggestions are always welcomed.}
 
 \smallskip
 
-As this lecture note will be maintained on Github, PLEASE: 
+As this lecture note will be maintained on Github, PLEASE:
 \begin{itemize}
     \item Use the \href{https://github.com/llinfeng/Econ_600/issues}{``Issues''} feature on Github to post suggestions;
     \item Feel free to fork this repo and send me pull requests.
 \end{itemize}
-Paragraphs starting with ``Note that \ldots'' are most likely my personal 
+Paragraphs starting with ``Note that \ldots'' are most likely my personal
 reflections. Please be aware of this.
 
-\section{Lecture 1: Logic, Sets and some Real Analysis\footnote{Relation, 
+\section{Lecture 1: Logic, Sets and some Real Analysis\footnote{Relation,
 Function, Correspondence and Sequences in $\R$}}
 
 \subsection{Logic}
 \begin{definition}
-    \textbf{Proposition} is a sentence that is either \textit{true} or 
+    \textbf{Proposition} is a sentence that is either \textit{true} or
     \textit{false}. It cannot be both true and false.
 \end{definition}
-Note: ``true'' and ``false'' may not necessarily be based on any (objective/subjective) 
-factual basis. However, to give a concrete example, contextually correct 
+Note: ``true'' and ``false'' may not necessarily be based on any (objective/subjective)
+factual basis. However, to give a concrete example, contextually correct
 propositions are usually employed.
 
 \begin{definition}
-    Logic Connectives: $\land$ and $\lor$. Let $P$ and $Q$ be propositions 
+    Logic Connectives: $\land$ and $\lor$. Let $P$ and $Q$ be propositions
     \begin{itemize}
         \item Conjunction of $P$ and $Q$ is denoted as $P \land Q$;
         \item Disjunction of $P$ and $Q$ is denoted as $P \lor  Q$.
@@ -212,10 +213,10 @@ propositions are usually employed.
     \end{itemize}
 \end{definition}
 
-\paragraph{Truth Table} is vaguely defined, with each row being a possible 
-``state of the world''. On top of this, 
+\paragraph{Truth Table} is vaguely defined, with each row being a possible
+``state of the world''. On top of this,
 
-\begin{table}[htpl]
+\begin{table}[htp!]
     \centering
     \begin{tabular}{c|c|c|c|c}
         $P$    & $Q$ & $P\land Q$ & $P\lor Q$ & $\neg P$ \\
@@ -228,15 +229,15 @@ propositions are usually employed.
     \caption{Truth Table for logic connectives}
 \end{table}
 
-\begin{definition}[ Conditionals and Biconditionals] Let $P ,Q, R $ be 
-    propositions, 
+\begin{definition}[ Conditionals and Biconditionals] Let $P ,Q, R $ be
+    propositions,
     \begin{enumerate}
         \item Conditional of $P$ and $Q$ is $P \implies Q$;
         \item Biconditional of $P$ and $Q$ is $P \iff Q$.
     \end{enumerate}
 
-    
-    \begin{table}[htpl]
+
+    \begin{table}[htp!]
         \centering
         \begin{tabular}{c|c|c|c}
             $P$    & $Q$ & $P \implies Q$ & $P \iff Q$ \\
@@ -248,8 +249,8 @@ propositions are usually employed.
         \end{tabular}
         \caption{Truth Table for Conditionals and Biconditionals}
     \end{table}
-    Note that, the two \yverb|1|'s are obtained for free. Conditional of $P$ and 
-    $Q$ are trivially true if $P$ is false (thus the conditional is not entered, 
+    Note that, the two \yverb|1|'s are obtained for free. Conditional of $P$ and
+    $Q$ are trivially true if $P$ is false (thus the conditional is not entered,
     thereby cannot be disproved?). \marginnote{$\Leftarrow$Check This.}
 
     Additionally, from \href{http://www.regentsprep.org/regents/math/geometry/gp1/ifthen.htm}
@@ -257,14 +258,14 @@ propositions are usually employed.
     \begin{quote}
         % These font-modifiers are only valid within such environment.
         \small
-        Conditionals are FALSE only when the first condition (if) is true and 
+        Conditionals are FALSE only when the first condition (if) is true and
         the second condition (then) is false.  All other cases are TRUE.
     \end{quote}
 
 \end{definition}
 
 \begin{definition}
-    Two propositions are \textbf{equivalent} if they have the same truth table, 
+    Two propositions are \textbf{equivalent} if they have the same truth table,
     denoted using ``$\equiv$''.
 \end{definition}
 
@@ -272,22 +273,22 @@ propositions are usually employed.
     Claim: that $P \implies Q$ and $\neg Q \implies \neg P$ are equivalent.
 
     \begin{proof}
-        Refer to table \ref{table:equivalence_of_two_statements}: that by 
+        Refer to table \ref{table:equivalence_of_two_statements}: that by
         definition, the truth table of the two conditionals are the same.
     \end{proof}
 
-    Note, (it seems that)\footnote{Since ``truth table'' was not explicitly 
-    defined.} truth tables are the same if the two ``column vectors'' denoting 
+    Note, (it seems that)\footnote{Since ``truth table'' was not explicitly
+    defined.} truth tables are the same if the two ``column vectors'' denoting
     the true/false status are the same.
 \end{example}
 
-\begin{table}[htpl]
+\begin{table}[htp!]
     \caption{Truth Table: equivalence of $P \implies Q$ and $\neg Q \implies \neg P$}
     \bigskip
     \centering
     \begin{tabular}{c|c|c|c}
         $P$ & $Q$ & $P \implies Q$ & $\neg Q \implies \neg P$ \\
-        \hline 
+        \hline
         1      & 1   & 1              & 1          \\
         1      & 0   & 0              & 0          \\
         0      & 1   & 1              & 1          \\
@@ -297,7 +298,7 @@ propositions are usually employed.
 \end{table}
 
 \begin{definition}[Tautology]
-    A proposition whose truth table consists only $1$'s is called 
+    A proposition whose truth table consists only $1$'s is called
     \textbf{tautology}.
 \end{definition}
 
@@ -324,31 +325,31 @@ propositions are usually employed.
 
 
 \begin{remark}
-    We introduce the following 4 types of proof: 
+    We introduce the following 4 types of proof:
     \begin{enumerate}
         \item Direct proof: to follow the direction of the statement.
             \begin{itemize}
-                \item \textbf{Proposition}: For odd integers $x,y$, $x+y$ is an 
+                \item \textbf{Proposition}: For odd integers $x,y$, $x+y$ is an
                     even integer.
             \end{itemize}
-        \item Proof by contrapositive: (restate the proposition and prove the 
+        \item Proof by contrapositive: (restate the proposition and prove the
             easier direction).
             \begin{itemize}
-                \item \textbf{Proposition}: If $n^2$ is an odd integer 
+                \item \textbf{Proposition}: If $n^2$ is an odd integer
                     ($P$), then $n$ is an odd integer.
                     \begin{proof}
-                        Prove instead that: ``if $n$ is an even integer, then 
+                        Prove instead that: ``if $n$ is an even integer, then
                         $n^2$ is an even integer''.
                     \end{proof}
             \end{itemize}
-        \item Proof by contradiction: (construct a structure that leads to 
+        \item Proof by contradiction: (construct a structure that leads to
             contradiction between derived conditions and given conditions.).
             \begin{itemize}
-                \item That $\sqrt 2$ is rational number\footnote{The set of 
+                \item That $\sqrt 2$ is rational number\footnote{The set of
                     rational numbers is denoted as $Q$.}.
             \end{itemize}
-        \item Proving a ``if and only if'' statement/proposition to be true: 
-            either one of the following 4 are valid strategies: 
+        \item Proving a ``if and only if'' statement/proposition to be true:
+            either one of the following 4 are valid strategies:
             \begin{enumerate}
                 \item $P \implies Q$ and $Q \implies P$;
                 \item $P \implies Q$ and $\neg P \implies \neg Q$;
@@ -361,7 +362,7 @@ propositions are usually employed.
 \subsection{Sets}
 %\addtocounter{theorem}{6}
 \begin{remark}[Russell's paradox]
-    The barber is a man who shaves all those and only those who do not shave 
+    The barber is a man who shaves all those and only those who do not shave
     themselves.
 
     In terms of set theory, let $R = \{ x : x \not \in x\}$, then:
@@ -372,20 +373,20 @@ propositions are usually employed.
 \end{remark}
 
 \begin{definition}[Sets]
-    There are two definition of sets: 
+    There are two definition of sets:
     \begin{enumerate}
         \item (Enumerating all elements)
 
-            A set is a collection of objects, e.g. $\{1,2,\ldots\}$ \footnote{a countably 
+            A set is a collection of objects, e.g. $\{1,2,\ldots\}$ \footnote{a countably
             infinite set.} or $\{1,2\}$ \footnote{a finite set.}.
         \item (Describing properties to be satisfied by elements in the set)
 
-            If $A$ is a set of all objects that satisfies property $P$, then we 
-            can write 
+            If $A$ is a set of all objects that satisfies property $P$, then we
+            can write
             \[
                 A = \{ x : P(x)\}
             \]
-            where the colon means ``such that'', and $P(x)$ means that $x$ 
+            where the colon means ``such that'', and $P(x)$ means that $x$
             satisfies property $P$.
     \end{enumerate}
 \end{definition}
@@ -393,27 +394,27 @@ propositions are usually employed.
 Now, we can define the following \textbf{sets} using the two definitions of sets:
 \begin{itemize}
     \item (Natural Number) $N = \{ 1, 2, \ldots\}$;
-    \item (Integer) $Z = \{ x: x = n \text{ or } x = -n \text{ or } x = 0, 
+    \item (Integer) $Z = \{ x: x = n \text{ or } x = -n \text{ or } x = 0,
         \text{ for some } n \in N\}$;
     \item (Rational number) $Q = \{ x : x = \frac{m}{n}, m,n \in Z\}.$
 \end{itemize}
 
 \begin{definition}
     [Set Equality]
-    Two sets $A$ and $B$ are equal if they have the same elements. That is: 
+    Two sets $A$ and $B$ are equal if they have the same elements. That is:
     \[
         A = B \text{ if and only if } x \in A \iff x \in B, \forall x
     \]
-    Note, that the notion $\forall x$ was used sloppily here. Without loss of 
+    Note, that the notion $\forall x$ was used sloppily here. Without loss of
     generality, it shall better be $\forall x \in A \bigcup B$.
 \end{definition}
 
 \begin{definition}
     [Set Containment]
-    A set $A$ is contained in a set $B$, denoted by $A \subseteq B$, if $\forall 
+    A set $A$ is contained in a set $B$, denoted by $A \subseteq B$, if $\forall
     x\in A \implies x \in B$.
 
-    As a consequence, $A = B$ if and only if $A \subseteq B$ and $B \subseteq 
+    As a consequence, $A = B$ if and only if $A \subseteq B$ and $B \subseteq
     A$.
 
 \end{definition}
@@ -421,8 +422,8 @@ Now, we can define the following \textbf{sets} using the two definitions of sets
 \begin{definition}
     [Cardinality (finite case)]
 
-    If a set $A$ has $n\in N$\footnote{Natural number.} distinct elements, then $n$ is the cardinality of $A$ 
-    and we call $A$ a finite set. The \textbf{cardinality of $A$} is denoted by 
+    If a set $A$ has $n\in N$\footnote{Natural number.} distinct elements, then $n$ is the cardinality of $A$
+    and we call $A$ a finite set. The \textbf{cardinality of $A$} is denoted by
     $|A|$.
 \end{definition}
 
@@ -433,45 +434,45 @@ Now, we can define the following \textbf{sets} using the two definitions of sets
 
 \begin{definition}
     [Power set $2^A$]
-    Let $A$ be a set. The \textbf{power set of $A$} is the collection of all 
-    subsets of $A$. 
+    Let $A$ be a set. The \textbf{power set of $A$} is the collection of all
+    subsets of $A$.
 
-    Note that, $A$ is an arbitrary set. It could be finite, in which case $2^A$ 
-    easy to envision; At the other extreme, it could be a uncountable set. 
-    Nevertheless, the following equality shall hold: 
+    Note that, $A$ is an arbitrary set. It could be finite, in which case $2^A$
+    easy to envision; At the other extreme, it could be a uncountable set.
+    Nevertheless, the following equality shall hold:
 
     \[
         |2 ^ A| = 2 ^{|A|}
     \]
 
     \begin{example}
-        Let $A = \{ 1, 3\}$, then $2^A = \big\{ \emptyset, \{1\}, \{3\}, \{1,3\} 
-        \big\}$. In terms of notation, note that $1$ is an element in $A$, thus 
+        Let $A = \{ 1, 3\}$, then $2^A = \big\{ \emptyset, \{1\}, \{3\}, \{1,3\}
+        \big\}$. In terms of notation, note that $1$ is an element in $A$, thus
         $1 \in A$; yet, $\{1\}$ is a subset of $A$, thus $\{1 \} \subset A$.
     \end{example}
 \end{definition}
 
 
 \begin{definition}
-    [Operations on sets: $\bigcup$, $\bigcap$, $\setminus$ and $\cdot^c$.] Let 
+    [Operations on sets: $\bigcup$, $\bigcap$, $\setminus$ and $\cdot^c$.] Let
     $A$ and $B$ be two sets:
     \verb| |
 
     \begin{itemize}
         \item Union: $A \bigcup B \coloneqq \{ x : x \in A \lor x \in B\}$;
-        \item Intersection: $A \bigcap B \coloneqq \{ x : x \in A \land x \in 
+        \item Intersection: $A \bigcap B \coloneqq \{ x : x \in A \land x \in
             B\}$;
         \item $A$ and $B$ is disjoint if $A \bigcup B = \emptyset$;
-        \item Difference of $A$ and $B$ is defined as: $A \setminus B \coloneqq 
+        \item Difference of $A$ and $B$ is defined as: $A \setminus B \coloneqq
             \{ x \in A \land x \not \in B\}$;
         \item Complements of $A$: $A^c \coloneqq \{ x : x \not \in A\}$.
     \end{itemize}
 \end{definition}
 
-\noindent Side note: \textbf{Index set} $I$ is a countable set. 
+\noindent Side note: \textbf{Index set} $I$ is a countable set.
 \[
-    \underset{i \in I}{\bigcup} A_i 
-    = 
+    \underset{i \in I}{\bigcup} A_i
+    =
     \{ x : x \in A_i \text{ for some } i \in I \}
 \]
 
@@ -481,11 +482,11 @@ Now, we can define the following \textbf{sets} using the two definitions of sets
     [de Morgan's law]
 
     \[
-        \left( \underset{i \in I } {\bigcup} A_i  \right)^c 
+        \left( \underset{i \in I } {\bigcup} A_i  \right)^c
         =
         \underset{i \in I}{\bigcap} \left( A_i ^c \right)
         \text{ and }
-        \left( \underset{i \in I } {\bigcap} A_i  \right)^c 
+        \left( \underset{i \in I } {\bigcap} A_i  \right)^c
         =
         \underset{i \in I}{\bigcup} \left( A_i ^c \right)
     \]
@@ -501,7 +502,7 @@ Now, we can define the following \textbf{sets} using the two definitions of sets
 
 \noindent\rule{\textwidth}{1pt} % I am a line!
 \begin{center}
-    \vspace{-11pt} 
+    \vspace{-11pt}
     Counters reset
 \end{center}
     \vspace{-16pt}
@@ -514,24 +515,24 @@ Now, we can define the following \textbf{sets} using the two definitions of sets
 \setcounter{theorem}{0}
 \begin{definition}
     [Ordered pair]
-    For two sets $A$ and $B$, an ordered pair is $(a,b)$ such that $a \in A$ and $b 
+    For two sets $A$ and $B$, an ordered pair is $(a,b)$ such that $a \in A$ and $b
     \in B$.
 \end{definition}
 
 \begin{definition}
     [$n$-taple]
-    Let there be $n$ sets: $A_1, \ldots, A_n$, 
-     an $n$-taple is $(a_1, \ldots, a_n)$ such that $a_i \in A_i$, $\forall i = 
+    Let there be $n$ sets: $A_1, \ldots, A_n$,
+     an $n$-taple is $(a_1, \ldots, a_n)$ such that $a_i \in A_i$, $\forall i =
     1,2,\ldots n$.
 \end{definition}
 
 \begin{definition}
     [Cartesian Product]
 
-    Let $A_1, \ldots, A_n$ be non-empty sets. Cartesion product of $A_1, \ldots, 
-    A_n$ is $A_1 \times \cdots \times A_n$, defined as: 
+    Let $A_1, \ldots, A_n$ be non-empty sets. Cartesion product of $A_1, \ldots,
+    A_n$ is $A_1 \times \cdots \times A_n$, defined as:
     \[
-        \Pi_{i=1}^n A_i = \{ (a_1, \ldots, a_n): a_i \in A_i, \forall i  =1,  
+        \Pi_{i=1}^n A_i = \{ (a_1, \ldots, a_n): a_i \in A_i, \forall i  =1,
         \ldots, n\}
     \]
 
@@ -539,8 +540,8 @@ Now, we can define the following \textbf{sets} using the two definitions of sets
 
 \begin{definition}
     [Relation]
-    A relation from set $A$ to set $B$ is a subset of $A\times B$, denoted by 
-    $R$. 
+    A relation from set $A$ to set $B$ is a subset of $A\times B$, denoted by
+    $R$.
     \[
         a R b \iff (a,b) \in R
     \]
@@ -550,24 +551,24 @@ Now, we can define the following \textbf{sets} using the two definitions of sets
 \end{definition}
 
 \begin{definition}
-    A relation $R \subseteq A \times A$ is said to be: 
+    A relation $R \subseteq A \times A$ is said to be:
     \begin{itemize}
-        \item \emph{reflective} if $a R a$ $\forall a \in A$. (That is, $(a,a) \in R 
+        \item \emph{reflective} if $a R a$ $\forall a \in A$. (That is, $(a,a) \in R
             $, $\forall a \in A$.);
 
         \item \emph{complete} if either $aRb$ or $b R a$, $\forall a, b \in A$;
 
         \item \emph{symmetric} if $\forall a, b \in A$, $aR b \implies b R a$;
 
-        \item \emph{antisymmetric} if $\forall a, b \in A$, $a R b $ and $ b R a 
+        \item \emph{antisymmetric} if $\forall a, b \in A$, $a R b $ and $ b R a
             \implies a = b$.
 
-        \item \emph{transitive} if $\forall a,b,c \in A$ s.t. $aRb$ and $bRc$, 
+        \item \emph{transitive} if $\forall a,b,c \in A$ s.t. $aRb$ and $bRc$,
             $aRc$ (is implied).
     \end{itemize}
 \end{definition}
 
-\begin{table}[htpl]
+\begin{table}[htp!]
     \caption{Property of common relations}
     \bigskip
     \centering
@@ -583,8 +584,8 @@ Now, we can define the following \textbf{sets} using the two definitions of sets
 \end{table}
 
 
-Note that, $<$ and $\le$ are defined on $\R$; $\in$ and $\subseteq$ are 
-defined on sets; $\succeq$ is preference relation that represents ``weakly 
+Note that, $<$ and $\le$ are defined on $\R$; $\in$ and $\subseteq$ are
+defined on sets; $\succeq$ is preference relation that represents ``weakly
 prefer''.
 
 Also note that, completeness implies reflectiveness.
@@ -592,63 +593,63 @@ Also note that, completeness implies reflectiveness.
 \begin{definition}
     [Equivilance relation]
 
-    An \textbf{equivalence} on set $A$ is a relation $E$ that is 
+    An \textbf{equivalence} on set $A$ is a relation $E$ that is
     \emph{reflective, symmetric and transitive}. It is denoted as $\sim$.
 
-    For any $a \in A$, the \textbf{equivalence class} of $a$ with respect to 
-    $\sim$ is defined to be the set 
+    For any $a \in A$, the \textbf{equivalence class} of $a$ with respect to
+    $\sim$ is defined to be the set
     \[E_\sim(a) = \{ b \in A, b\sim a\}\]
 \end{definition}
 
-Remark: by construction in Definition \ref{def:a_relation_on_A},  equivalence 
-($\sim$) is defined as ``a relation on $A$'', which is thereby defined in the 
+Remark: by construction in Definition \ref{def:a_relation_on_A},  equivalence
+($\sim$) is defined as ``a relation on $A$'', which is thereby defined in the
 Cartesian space.
 
 \begin{definition}
     [Function: defined using Relation from $A$ to $B$]
-    A function from set $A$ to set $B$ is a relation $f$ from $A$ to $B$ such 
-    that: 
+    A function from set $A$ to set $B$ is a relation $f$ from $A$ to $B$ such
+    that:
     \begin{enumerate}[(i)]
-        \item $\forall a \in A$, $\exists b \in B$ such that $(a,b) \in f$, i.e. 
+        \item $\forall a \in A$, $\exists b \in B$ such that $(a,b) \in f$, i.e.
             $a f b$
-        \item $\forall a \in A$, if $(a,b) \in f$ and $(a,c) \in f$ for some $b, 
+        \item $\forall a \in A$, if $(a,b) \in f$ and $(a,c) \in f$ for some $b,
             c \in B$, then $b = c$.
     \end{enumerate}
 
-    Note that, alternatively, the two conditions could be written in short as: 
+    Note that, alternatively, the two conditions could be written in short as:
     \begin{enumerate}[(iii)]
-        \item $\forall a \in A$, $\exists ! b \in B$ such that $(a,b) \in f$, i.e. 
+        \item $\forall a \in A$, $\exists ! b \in B$ such that $(a,b) \in f$, i.e.
             $a f b$
     \end{enumerate}
 
 \end{definition}
-\paragraph{Convention for $f$:} If $(a,b) \in f$, we write $f(a) = b$. And, $f$ 
+\paragraph{Convention for $f$:} If $(a,b) \in f$, we write $f(a) = b$. And, $f$
 could be interpreted as a ``mapping'': ``$f: A\to B$''.
 
 \begin{definition}[Domain and Rnage]
-    If $f$ is a function from $A$ to $B$, then $A$ is called the 
-    \textbf{domain } of $f$ and $B$ is the \textbf{codomain} of $f$. The 
+    If $f$ is a function from $A$ to $B$, then $A$ is called the
+    \textbf{domain } of $f$ and $B$ is the \textbf{codomain} of $f$. The
     \textbf{range} of $f$ is the set:
     \[
-        Ran (f) = \{ b \in B: \exists a \in A 
+        Ran (f) = \{ b \in B: \exists a \in A
         \text{ s.t. } f(a) = b\}.
     \]
 \end{definition}
 
 \begin{definition}
-    [Propoteries of functions] Let $f$ be a function, then: 
+    [Propoteries of functions] Let $f$ be a function, then:
     \begin{enumerate}[(i)]
         \item $f$ is \textbf{surjective} if $Ran(f) = B$; \marginnote{onto}
-        \item $f$ is \textbf{injective} if $a_1 \not = a_2 \in A \implies f(a_1) 
+        \item $f$ is \textbf{injective} if $a_1 \not = a_2 \in A \implies f(a_1)
             \not = f(a_2)$; \marginnote{1-to-1}
         \item $f$ is bijective if $f$ is surjective and injective.
     \end{enumerate}
 \end{definition}
 
-\noindent Side note: a \textit{indicator function} is defined as following: for 
-$A$ being a set and $S\subseteq A$, 
+\noindent Side note: a \textit{indicator function} is defined as following: for
+$A$ being a set and $S\subseteq A$,
 \[
-    \mathcal X_S(a) = 
+    \mathcal X_S(a) =
     \begin{cases}
         1 & \text{ if } a \in S \\
         0 & \text{ otherwise }
@@ -658,17 +659,17 @@ $A$ being a set and $S\subseteq A$,
 \begin{definition}
     [Image and Preimage]
 
-    For $f: A \to B$ and $C\subseteq A$, \underline{ the \textbf{image} of $C$ under 
+    For $f: A \to B$ and $C\subseteq A$, \underline{ the \textbf{image} of $C$ under
     $f$ is }
     \[
-        f(C) = 
-        \{ 
+        f(C) =
+        \{
             b \in B : \exists a \in C \text{ s.t. } f(a) = b
         \}
     \]
-    \underline{The \textbf{preimage} of $D\subseteq B$} is 
+    \underline{The \textbf{preimage} of $D\subseteq B$} is
     \[
-        f^{-1}(D) = 
+        f^{-1}(D) =
         \{
             a \in A : f(a) \in D
         \}
@@ -677,7 +678,7 @@ $A$ being a set and $S\subseteq A$,
 \end{definition}
 
 \begin{exercise_nonum}
-    Prove that 
+    Prove that
     \begin{enumerate}
         \item $f^{-1}(f(A)) = A$, and
         \item $f(f^{-1}(B)) = B$ if and only if $f$ is surjective.
@@ -685,16 +686,16 @@ $A$ being a set and $S\subseteq A$,
 \end{exercise_nonum}
 
 \begin{proposition}
-    Given $f: A \to B$, then $f^{-1}: B \to A$ is a function if and only if $f$ 
+    Given $f: A \to B$, then $f^{-1}: B \to A$ is a function if and only if $f$
     is bijective.
 \end{proposition}
 
 \begin{definition}
     [Sequence]
 
-    A sequence is a function $f: N \to A$, denoted by $\{a_1, a_2, \ldots\} = \{ 
+    A sequence is a function $f: N \to A$, denoted by $\{a_1, a_2, \ldots\} = \{
     a_i \}_{i=1}^\infty $\footnote{This is an ordered set.}
-    i.e. the set of all sequence is the following set: 
+    i.e. the set of all sequence is the following set:
     \[
         A^\infty = A \times A \times \cdots
     \]
@@ -702,13 +703,13 @@ $A$ being a set and $S\subseteq A$,
 
 \begin{definition}
     [Cardinality, for (infinite) sequences]
-    Two sets $A, B$ have the same cardinality if $\exists$ a bijective function 
-    $f : A\to B$. 
+    Two sets $A, B$ have the same cardinality if $\exists$ a bijective function
+    $f : A\to B$.
 
     Then, $|A|\ge |B|$ if there exists an injective function $f: B \to A$.
-    (Example: $|Z|\ge |N|$ by using identify mapping from $N$ to $Z$; $|N|\ge 
-    |Z|$ by enumerating elements in $Z$ using $N$. Thus, $|Z| = |N|$.) 
-    Eventually, we have: 
+    (Example: $|Z|\ge |N|$ by using identify mapping from $N$ to $Z$; $|N|\ge
+    |Z|$ by enumerating elements in $Z$ using $N$. Thus, $|Z| = |N|$.)
+    Eventually, we have:
     \[
         |\R^2| = |\R| > |Q| = |Z| = |N|
     \]
@@ -725,7 +726,7 @@ $A$ being a set and $S\subseteq A$,
 \setcounter{theorem}{0}
 \begin{definition}
     [Sequence in $\R$]
-    A sequence of real number is a function $a : N \to \R$ s.t. $a(i) = a_i$ is 
+    A sequence of real number is a function $a : N \to \R$ s.t. $a(i) = a_i$ is
     the $i$-th component of the sequence $\{a_j\}_{j=1}^\infty$.
 \end{definition}
 \begin{definition}
@@ -735,12 +736,12 @@ $A$ being a set and $S\subseteq A$,
 \begin{definition}
     [Bounded and Bounded (from) above/below]
     A real sequence is
-    
+
     \begin{itemize}
-        \item \textbf{bounded above} if $\exists \bar m \in \R$ s.t. $a_n \le 
+        \item \textbf{bounded above} if $\exists \bar m \in \R$ s.t. $a_n \le
             \bar m$ $\forall n \in N$.
 
-        \item \textbf{bounded below} if $\exists \underline m \in \R$ s.t. $a_n 
+        \item \textbf{bounded below} if $\exists \underline m \in \R$ s.t. $a_n
             \ge \underline m$ $\forall n \in N$.
         \item \textbf{bounded} if it is bounded above and bounded below.
     \end{itemize}
@@ -748,17 +749,17 @@ $A$ being a set and $S\subseteq A$,
 
 \begin{definition}
     [Least upper bound]
-    $a \in \R$ is the least upper bound of a sequence $\{a_n\}$ if 
+    $a \in \R$ is the least upper bound of a sequence $\{a_n\}$ if
     \begin{enumerate}[(i)]
         \item $a$ is an upper bound;
-        \item $a$ is the smallest upper bound, i.e. $\not \exists b \in \R$ s.t. 
+        \item $a$ is the smallest upper bound, i.e. $\not \exists b \in \R$ s.t.
             $b < a$ and $b$ is a upper bound of $\{a_n\}$.
     \end{enumerate}
 \end{definition}
 
 \begin{axiom}
     [Axiom of Real Number: completeness axiom]
-    If $S$ is a nonempty set of real numbers that is bounded above, then there 
+    If $S$ is a nonempty set of real numbers that is bounded above, then there
     exists a least upper bound \sout{that is also a real number}.
 
     Note, that, claiming that the upper bound is in $\R$ is redundant.
@@ -767,7 +768,7 @@ $A$ being a set and $S\subseteq A$,
 
 \begin{definition}
     [Convergence sequences]
-    A real sequence $\{a_n\}$ converges to the limit $a\in \R$ if $\forall 
+    A real sequence $\{a_n\}$ converges to the limit $a\in \R$ if $\forall
     \varepsilon > 0$, $\exists N$ s.t. $\forall n \ge N$
     \[
         |a_n - a| < \varepsilon
@@ -776,21 +777,21 @@ $A$ being a set and $S\subseteq A$,
 \end{definition}
 
 \begin{itemize}
-    \item If a sequence does not converge, then it diverges. (To $+\infty$ or 
+    \item If a sequence does not converge, then it diverges. (To $+\infty$ or
         $-\infty$.)
 \end{itemize}
 
 \begin{THM}
     A monotone bounded sequence converges.
     \begin{proof}
-        Discuss two cases where 1) $\{a_n\}$ is an increasing sequence, and 2) $\{a_n\}$ 
-        is a decreasing sequence. Then, proof is completed through using either 
-        least upper bound (for increasing sequence) or largest lower bound (for 
+        Discuss two cases where 1) $\{a_n\}$ is an increasing sequence, and 2) $\{a_n\}$
+        is a decreasing sequence. Then, proof is completed through using either
+        least upper bound (for increasing sequence) or largest lower bound (for
         decreasing sequence).
     \end{proof}
 %    \begin{proof}
-%        Let $a = \sup a_n$ (the least upper bound of $\{a_n\}$), we want to show 
-%        that: $\forall \varepsilon > 0$, $\exists N $ s.t. $\forall n > N$, 
+%        Let $a = \sup a_n$ (the least upper bound of $\{a_n\}$), we want to show
+%        that: $\forall \varepsilon > 0$, $\exists N $ s.t. $\forall n > N$,
 %        $|a_n -a | < \varepsilon$
 %    \end{proof}
 \end{THM}
@@ -801,41 +802,41 @@ $A$ being a set and $S\subseteq A$,
 
 \subsection{Sequence and Convergence}
 \begin{definition}
-    A set $S \subset X$ is a linearly ordered set if there is a relation 
+    A set $S \subset X$ is a linearly ordered set if there is a relation
     ``$\le$'' on $X$ s.t.
 
     \begin{center}
         $\le$ is complete, transitive and antisymmetric.
     \end{center}
 
-    Note that, given the linear ordering, we can define $<$ accordingly. 
-    (For arbitrary $a,b \in X$ and $a \le b$, then we say $a<b$ if $a \le b$ and 
+    Note that, given the linear ordering, we can define $<$ accordingly.
+    (For arbitrary $a,b \in X$ and $a \le b$, then we say $a<b$ if $a \le b$ and
     $a \not = b$.)
 \end{definition}
 
 \begin{definition}
     [Boundedness for an arbitrary set.]
 
-    Let $X$ be a linearly ordered set and $S \subset X$, then $a \in X$ is 
-    the \textbf{supremum} (or \textit{least upper bound) }of $X$ if: 
+    Let $X$ be a linearly ordered set and $S \subset X$, then $a \in X$ is
+    the \textbf{supremum} (or \textit{least upper bound) }of $X$ if:
     \begin{enumerate}
-        \item $a$ itself is an upper bound of $S$, i.e. 
+        \item $a$ itself is an upper bound of $S$, i.e.
         \item for $b \in X$, $b < a$, then $b$ is not an upper bound of $S$.
     \end{enumerate}
 
-    \textbf{Corollary: } For $a = \sup X$, $\forall \varepsilon > 0$, there 
+    \textbf{Corollary: } For $a = \sup X$, $\forall \varepsilon > 0$, there
     exists $x \in S$ s.t. $x > a - \varepsilon$.
 \end{definition}
 
 \begin{axiom}
-    [Completeness Axiom] 
-    If $S$ is a nonempty set of real numbers that is bounded above, then there 
+    [Completeness Axiom]
+    If $S$ is a nonempty set of real numbers that is bounded above, then there
     exists a least upper bound.
 \end{axiom}
 
 \begin{definition}
     [Sequence in $\R$]
-    A sequence of real number is a function $a : N \to \R$ s.t. $a(i) = a_i$ is 
+    A sequence of real number is a function $a : N \to \R$ s.t. $a(i) = a_i$ is
     the $i$-th component of the sequence $\{a_j\}_{j=1}^\infty$.
 \end{definition}
 
@@ -843,8 +844,8 @@ $A$ being a set and $S\subseteq A$,
 \begin{remark}
     $\{a_n\}$ is bounded if $a(N)$ is bounded.
 
-    Note, here $N$ is the set of all natural numbers $\{1,2,\ldots,\}$. Thus, 
-    we hereby define the boundedness of a sequence using the our previous 
+    Note, here $N$ is the set of all natural numbers $\{1,2,\ldots,\}$. Thus,
+    we hereby define the boundedness of a sequence using the our previous
     definition of set-boundedness.
 \end{remark}
 
@@ -856,11 +857,11 @@ $A$ being a set and $S\subseteq A$,
 \begin{definition}
     [Subsequence]
 
-    A subsequence $\{a_{n_i}\}$ of $\{a_n\}$ is a sequence s.t. $1 \le n_1 \le 
-    n_2 \le \ldots$. That is: 
+    A subsequence $\{a_{n_i}\}$ of $\{a_n\}$ is a sequence s.t. $1 \le n_1 \le
+    n_2 \le \ldots$. That is:
 
-    $ \exists $  conversion function $\Phi : N \to N$ s.t. $n_ i = \Phi(i)$ and 
-    $\Phi(i) < \Phi(j)$ whenever $i < j$. We can also write: $a_{n_i} = 
+    $ \exists $  conversion function $\Phi : N \to N$ s.t. $n_ i = \Phi(i)$ and
+    $\Phi(i) < \Phi(j)$ whenever $i < j$. We can also write: $a_{n_i} =
     a_{\Phi(i)}$.
 \end{definition}
 
@@ -869,20 +870,20 @@ $A$ being a set and $S\subseteq A$,
     Every sequence of $\R$ has a monotone subsequence.
 
     \begin{proof}
-        Proof by doodling: try to construct a decreasing sequence first, if 
-        failed (cannot identify infinitely many of elements as candidate of the 
+        Proof by doodling: try to construct a decreasing sequence first, if
+        failed (cannot identify infinitely many of elements as candidate of the
         sequence), construct an increasing one.
 
-        Formally: let $S = \{ i : \text{ if } j > i, \text{ then } a _j < a_i 
-        \}$. 
+        Formally: let $S = \{ i : \text{ if } j > i, \text{ then } a _j < a_i
+        \}$.
         \begin{itemize}
             \item if $|S| = |N|$ (countably infinite)
-                \footnote{Writing $|S| = \infty$ is not rigorous enough, since 
-                uncountably infinite could also be denoted similarly.}, we have 
+                \footnote{Writing $|S| = \infty$ is not rigorous enough, since
+                uncountably infinite could also be denoted similarly.}, we have
                 found a monotone (decreasing) sequence.
 
-            \item If $|S| < \infty$, let $\max S = N$, then by construction, 
-                $\exists n_1$ s.t. $a_{n_1} \ge a_{N+1}$. Since $n_1 \notin X$, 
+            \item If $|S| < \infty$, let $\max S = N$, then by construction,
+                $\exists n_1$ s.t. $a_{n_1} \ge a_{N+1}$. Since $n_1 \notin X$,
                 there exists $n_2 > n_1$ s.t. $a_{n_2} \ge a_{n_1} \ge a_N$.
 
                 We can construct an increasing sequence in this fashion.
@@ -895,10 +896,10 @@ $A$ being a set and $S\subseteq A$,
     \label{thm:BW_theorem}
     A bounded sequence of $\R$ has a convergent subsequence.
     \begin{proof}
-        By Lemma \ref{lemma:2_B_W_Thm}, such bounded sequence of $\R$ has a 
+        By Lemma \ref{lemma:2_B_W_Thm}, such bounded sequence of $\R$ has a
         monotone subsequence, which inebriates the boundedness property.
-        
-        Thus, by Lemma \ref{lemma:1_B_W_Thm}, such bounded monotone sequence 
+
+        Thus, by Lemma \ref{lemma:1_B_W_Thm}, such bounded monotone sequence
         converges.
     \end{proof}
 \end{theorem}
@@ -910,37 +911,37 @@ $A$ being a set and $S\subseteq A$,
         \item $c \cdot a_n \to c\cdot a$, for $c \in \R$;
         \item $a_n + b_n \to a + b$
         \item $a_n \cdot b_n \to a\cdot b$
-        \item $\frac{a_n}{b_n} \to \frac{a}{b}$ s.t. $b \not = 0$ and $b_n \not= 
+        \item $\frac{a_n}{b_n} \to \frac{a}{b}$ s.t. $b \not = 0$ and $b_n \not=
             0$ $\forall n$.
-        \item $\forall n \in N$, if  $c \le a_n$, then $c \le a$. (Note that we have 
+        \item $\forall n \in N$, if  $c \le a_n$, then $c \le a$. (Note that we have
             defined only one linear ordering $\le$.)
 
-            However, $a_n > c$ does not imply $a > c$. (e.g.: 
+            However, $a_n > c$ does not imply $a > c$. (e.g.:
             $\frac{1}{n} > 0, \forall n$, yet $\frac{1}{n}\to 0 = 0$.)
 
         \item $\forall n$, if $b_n \le a_n$, then $b\le a$.
-    \end{enumerate}    
+    \end{enumerate}
 \end{remark}
 
 \begin{definition}
     [Cauchy sequence]
 
-    $\{a_n\}$ is a Cauchy sequence if $\forall \varepsilon> 0$, $\exists N$ s.t. 
+    $\{a_n\}$ is a Cauchy sequence if $\forall \varepsilon> 0$, $\exists N$ s.t.
     $\forall m , n \ge N$, $|a_m-a_n| < \varepsilon$.
 \end{definition}
 
-Note that, since the definition of convergent sequence relies on knowing the 
+Note that, since the definition of convergent sequence relies on knowing the
 limit $a$, when such limit is not attainable, Cauchy becomes handy.
 
 \begin{theorem}
     \label{thm_convergent_is_Cauchy}
     Every convergent sequence is Cauchy.
     \begin{proof}
-        Given $\{a _n\} \to a$, thus $\forall \frac{\varepsilon}{2} > 
-        0$ $\exists N$ s.t. $|a_n - a| < \frac{\varepsilon}{2}$, $\forall n > 
+        Given $\{a _n\} \to a$, thus $\forall \frac{\varepsilon}{2} >
+        0$ $\exists N$ s.t. $|a_n - a| < \frac{\varepsilon}{2}$, $\forall n >
         N$.
 
-        Now, for any $m, n \ge N$, we have: 
+        Now, for any $m, n \ge N$, we have:
         \[
             \aligned
             |a_m - a_n| & = | a_m - a + a - a_n|\\
@@ -950,203 +951,203 @@ limit $a$, when such limit is not attainable, Cauchy becomes handy.
     \end{proof}
 \end{theorem}
 
-\paragraph{Example}: 
+\paragraph{Example}:
 Prove that $a_{n+1} = \frac{a_n + 2a_{n-1}}{3}$ converges for $a_1 = 0$, $a_2 = 1$.
 
 \begin{proof}
     \begin{enumerate}[Step 1]
-        \item First observe that: $a_n$ is an average of two real numbers that are in $[0,1]$. Thus, 
+        \item First observe that: $a_n$ is an average of two real numbers that are in $[0,1]$. Thus,
             $a_n \in [0,1]$.
 
-        \item Also observe that by rearranging the terms in the equality, we 
-            have: 
+        \item Also observe that by rearranging the terms in the equality, we
+            have:
             \[
                 \frac{a_{n+1} - a_n}{a_n - a_{n-1}} = - \frac{2}{3}
             \]
     \end{enumerate}
-    At this point, we check definition of Cauchy sequence by showing that: for 
-    arbitrary $\epsilon$, we can find a $N$ such that $|a_m - a_n| < 
-    \varepsilon$. Deriving the functional form of $|a_m  -a_n|$ suffices. (We 
+    At this point, we check definition of Cauchy sequence by showing that: for
+    arbitrary $\epsilon$, we can find a $N$ such that $|a_m - a_n| <
+    \varepsilon$. Deriving the functional form of $|a_m  -a_n|$ suffices. (We
     can then use this functional form to find a proper $N$.)
 
     Without loss of generality, let $m > n$, then:
     \[
         \aligned
         |a_m - a_n|& = |a_n - a_{n+1} + a_{n+1} - \cdots - a_m|\\
-        & \le |a_n - a_{n+1}| + |a_{n+1} - a_{n+2} | + \cdots + |a_{m-1} - a_m| 
+        & \le |a_n - a_{n+1}| + |a_{n+1} - a_{n+2} | + \cdots + |a_{m-1} - a_m|
         \\
-        & \le \left( \frac{2}{3} \right)^{n-1} + \left( \frac{2}{3} \right)^n + 
+        & \le \left( \frac{2}{3} \right)^{n-1} + \left( \frac{2}{3} \right)^n +
         \cdots + \left( \frac{2}{3} \right)^{m-2} \\
-        & = \frac{\left( \frac{2}{3} \right)^{n-1}\left( 1 - \left( 
-                    \frac{2}{3} 
+        & = \frac{\left( \frac{2}{3} \right)^{n-1}\left( 1 - \left(
+                    \frac{2}{3}
         \right)^{m-n+2} \right)}{1 -  \frac{2}{3}} \\
         & = O(\left( \frac{2}{3} \right)^n)
         \endaligned
     \]
-    By now, we can easily demonstrate that the definition of Cauchy sequence 
-    could be satisfied by choosing a proper $N$ for any given 
+    By now, we can easily demonstrate that the definition of Cauchy sequence
+    could be satisfied by choosing a proper $N$ for any given
     $\varepsilon$.
 \end{proof}
 
 \begin{lemma}
     Every Cauchy sequence is bounded.
     \label{lemma:Cauchy_is_bounded}
-    \begin{proof} Let $\{a_n\}$ be an arbitrary Cauchy sequence. Then, for 
-        arbitrary $\varepsilon>0$, we know that $\exists N_\varepsilon > 0$ such 
+    \begin{proof} Let $\{a_n\}$ be an arbitrary Cauchy sequence. Then, for
+        arbitrary $\varepsilon>0$, we know that $\exists N_\varepsilon > 0$ such
         that $\forall m,n > N$, $|a_m - a_n | < \varepsilon$.
 
-        Now, to construct an upper bound for $\{a_n\}$, without loss of 
-        generality, let $\varepsilon = 1$. Then, we know that there exists $N_1 
-        > 0$ such that $\forall n,m > N_1$, $|a_n - a_m| < 1$. Then, let $M_1$ 
-        denote the bound (either upper or lower). Then, in absolute value, we can 
-        define it to be: 
+        Now, to construct an upper bound for $\{a_n\}$, without loss of
+        generality, let $\varepsilon = 1$. Then, we know that there exists $N_1
+        > 0$ such that $\forall n,m > N_1$, $|a_n - a_m| < 1$. Then, let $M_1$
+        denote the bound (either upper or lower). Then, in absolute value, we can
+        define it to be:
         \[
-            |M_1| = \max \{|a_1|, \ldots, |a_{N_{1}}|, |a_{N_1+1}| +  
+            |M_1| = \max \{|a_1|, \ldots, |a_{N_{1}}|, |a_{N_1+1}| +
             1\}
         \]
-        Through more careful, yet unnecessary, discussions, we can derive the 
+        Through more careful, yet unnecessary, discussions, we can derive the
         exact bound using the absolute value $|M_1|$.
 
-        Note that, the bound we found above is only \textit{one of the upper 
+        Note that, the bound we found above is only \textit{one of the upper
         bound}. It is not necessarily the $\sup$ nor $\inf$.
     \end{proof}
 \end{lemma}
 
 \begin{theorem}
     \label{thm:Cauchy_convergent_in_R}
-    Every Cauchy sequence \yverb|in |$\highlight{\R}$ 
-    \footnote{Note that, for $\{\frac{1}{n}\}$ defined on $(0,1]$, it does not 
+    Every Cauchy sequence \yverb|in |$\highlight{\R}$
+    \footnote{Note that, for $\{\frac{1}{n}\}$ defined on $(0,1]$, it does not
     converge in this space since $0\not\in (0,1]$.}
     %
     converges.
-    \begin{proof} Let $\{a_n\}$ be an arbitrary Cauchy sequence. 
-        We want to show $\{a_n \}$ converges to some $a \in \R$. That is to 
-        show: $\forall \varepsilon > 0$, $\exists N_0 \in \N$ s.t. $\forall n 
+    \begin{proof} Let $\{a_n\}$ be an arbitrary Cauchy sequence.
+        We want to show $\{a_n \}$ converges to some $a \in \R$. That is to
+        show: $\forall \varepsilon > 0$, $\exists N_0 \in \N$ s.t. $\forall n
         \ge N_0$, $|a_n - a| < \varepsilon$.
 
-        (Step 1:) For arbitrary $\varepsilon > 0$, given that $\{a_n \}$ is a Cauchy 
-        sequence, for $\frac{\varepsilon}{2} > 0$, $\exists N_1 \in \N$ s.t. 
+        (Step 1:) For arbitrary $\varepsilon > 0$, given that $\{a_n \}$ is a Cauchy
+        sequence, for $\frac{\varepsilon}{2} > 0$, $\exists N_1 \in \N$ s.t.
         \[
             |a_m - a_n| < \varepsilon, \qquad \forall m, n > N_1
         \]
 
-        (Step 2:) By Lemma \ref{lemma:Cauchy_is_bounded}, we know that every Cauchy 
+        (Step 2:) By Lemma \ref{lemma:Cauchy_is_bounded}, we know that every Cauchy
         sequence is bounded.
-        Thus, by Bolzano-Weierstrass Theorem (Theorem \ref{thm:BW_theorem}), we 
-        know that $\exists \{a_{n_i}\} \to a$ for some certain real number $a  
-        \in \R$. \marginnote{$\Leftarrow$ \textbf{\tiny a is Limit!}} \\ By definition of 
-        convergence of (sub)sequence, for the arbitrary $\varepsilon$ that we 
+        Thus, by Bolzano-Weierstrass Theorem (Theorem \ref{thm:BW_theorem}), we
+        know that $\exists \{a_{n_i}\} \to a$ for some certain real number $a
+        \in \R$. \marginnote{$\Leftarrow$ \textbf{\tiny a is Limit!}} \\ By definition of
+        convergence of (sub)sequence, for the arbitrary $\varepsilon$ that we
         started with, $\exists I \in \N$ s.t.
         \[
             |a_{n_j} - a | < \frac{\varepsilon}{2}, \qquad \forall j > I
         \]
 
-        Now, let $N_0 = \max \{ n_I, N_1\}$, we see that $\forall n > N_0$ and 
-        $n_j > N_0$, we have: 
+        Now, let $N_0 = \max \{ n_I, N_1\}$, we see that $\forall n > N_0$ and
+        $n_j > N_0$, we have:
         \[
-            \aligned 
+            \aligned
             |a_n - a \ & = | a_n - a_{n_j} + a_{n_j} - a | \\
                        & \le |a_n - a_{n_j}| + |a_{n_j} - a| < \varepsilon
            \endaligned
         \]
-        Note: $a_{n_j}$ is an arbitrary element of the subsequence $\{a_{n_i}\}$ 
+        Note: $a_{n_j}$ is an arbitrary element of the subsequence $\{a_{n_i}\}$
         that we found convergent through B-W Theorem.\\
-        Also note that, $|a_n - a_{n_j}| < \frac{\varepsilon}{2}$ follows from 
+        Also note that, $|a_n - a_{n_j}| < \frac{\varepsilon}{2}$ follows from
         Step 1 that $\{a_n\}$ is Cauchy to start with.
     \end{proof}
 \end{theorem}
 
 \begin{definition}
     [Cauchy Criterion]
-    A sequence in $\R$ is a convergent sequence if and only if it is a Cauchy 
-    Sequence. 
+    A sequence in $\R$ is a convergent sequence if and only if it is a Cauchy
+    Sequence.
 
-    Demonstration: 
-    Theorem \ref{thm_convergent_is_Cauchy} applies in $\R$, thereby convergent 
-    sequence in $\R$ is Cauchy; Theorem \ref{thm:Cauchy_convergent_in_R} 
+    Demonstration:
+    Theorem \ref{thm_convergent_is_Cauchy} applies in $\R$, thereby convergent
+    sequence in $\R$ is Cauchy; Theorem \ref{thm:Cauchy_convergent_in_R}
     completes the proof.
 \end{definition}
 
 \begin{remark}
     [Useful limits] Limits of sequences as $n \to \infty$:
     \begin{itemize}
-        \item $\underset{n\to\infty}  \lim \frac{n^\alpha}{(1+p)^n} = 0$ for $p 
-            > 0$ and $\alpha> 0$. (This demonstrates exponential function 
+        \item $\underset{n\to\infty}  \lim \frac{n^\alpha}{(1+p)^n} = 0$ for $p
+            > 0$ and $\alpha> 0$. (This demonstrates exponential function
             dominates polynomials in the limit.)
         \item $\underset{n\to\infty} \lim \sqrt[n]{n} =  1$
-        \item $\underset{n\to\infty} \lim \left( 1 + \frac{1}{n} \right)^n = e$; then 
+        \item $\underset{n\to\infty} \lim \left( 1 + \frac{1}{n} \right)^n = e$; then
             $\underset{n\to\infty} \lim \left( 1 + \frac{t}{n} \right)^n = e^t$.
         \item $\underset{n\to\infty} \lim \sqrt[n]{p} = 1$ if $p  > 0$.
     \end{itemize}
 
-    Refer to page 57 of \cite{rudin1976principles} Theorem 3.20 for detailed 
+    Refer to page 57 of \cite{rudin1976principles} Theorem 3.20 for detailed
     proofs.
 \end{remark}
 
 \begin{definition}
     [limsup, liminf]
-    Let $\{a_n\}$ be a sequence in $\R$, we say: 
+    Let $\{a_n\}$ be a sequence in $\R$, we say:
     $
         \lim\sup \{a_n\} = a
     $
-    if $\sup S = a$, where $S = \{ b \in \R : \exists \text{ subsequence } 
+    if $\sup S = a$, where $S = \{ b \in \R : \exists \text{ subsequence }
     \{a_{n_i}\} \text{ s.t. } a_{n_i} \to b\}$.
 
-    Not surprisingly, we can define 
+    Not surprisingly, we can define
     \[
         \lim\inf \{ a_n \} = - \lim \sup \{ - a_n\}
     \]
 \end{definition}
 
-\paragraph{Exercise: equivalent definition of limsup} Prove that $\lim\sup a_n = 
-a$ if and only if: 
+\paragraph{Exercise: equivalent definition of limsup} Prove that $\lim\sup a_n =
+a$ if and only if:
 \begin{enumerate}[(i)]
-    \item $\forall \varepsilon > 0$, $\exists N > 0$ s.t. $a_n < a + 
+    \item $\forall \varepsilon > 0$, $\exists N > 0$ s.t. $a_n < a +
         \varepsilon$, $\forall n > N$;
-    \item $\forall \varepsilon > 0$, $\forall n \in N$, $\exists k > n$ s.t. 
+    \item $\forall \varepsilon > 0$, $\forall n \in N$, $\exists k > n$ s.t.
         $a_k > a - \varepsilon$.
 \end{enumerate}
-Note that, (i) specified a property for subsequence; and (ii) is merely about 
-the existence of one element in the sequence, to be found for all $(\varepsilon, 
+Note that, (i) specified a property for subsequence; and (ii) is merely about
+the existence of one element in the sequence, to be found for all $(\varepsilon,
 n) \in \R_{++} \times N$.
 
 \begin{proof} The iff statement will be established in the following three steps:
     \begin{itemize}
         \item Prove that $\lim\sup a_n = a$ implies (i).
     \end{itemize}
-    WTS: $\forall \varepsilon > 0$, $\exists N > 0$ s.t. $a_n < a + 
+    WTS: $\forall \varepsilon > 0$, $\exists N > 0$ s.t. $a_n < a +
         \varepsilon$, $\forall n > N$;
 
-        First, suppose that $a = +\infty$, that is $\{a_n\}$ is not bounded from 
+        First, suppose that $a = +\infty$, that is $\{a_n\}$ is not bounded from
         above. Then we are done.
 
-        Then, suppose that $\{a_n\}$ is bounded from above. We now prove by 
-        contradiction. Suppose that $\exists \varepsilon > 0$ s.t. no such $N 
-        \in \N$ exists. Then, we know that $1$ cannot serve the role of $N$. 
-        So, for some $n_1 > 1$, 
+        Then, suppose that $\{a_n\}$ is bounded from above. We now prove by
+        contradiction. Suppose that $\exists \varepsilon > 0$ s.t. no such $N
+        \in \N$ exists. Then, we know that $1$ cannot serve the role of $N$.
+        So, for some $n_1 > 1$,
         \[
             a_{n_1} \ge a + \varepsilon
         \]
-        Still, $n_1 + 1$ cannot serve the role of $N$, then for some $n_2 > n_1 
-        + 1$, 
+        Still, $n_1 + 1$ cannot serve the role of $N$, then for some $n_2 > n_1
+        + 1$,
         $$a_{n_2} \ge a + \varepsilon$$
-        By induction, we can construct a subsequence that is bounded from below by 
-        $a + \varepsilon$. Note that, the original sequence is bounded from 
-        above, by Bolzano-Weierstrass Theorem, we know that a bounded sequence 
-        converges. However, the limit of such subsequence shall be larger than $a$, 
+        By induction, we can construct a subsequence that is bounded from below by
+        $a + \varepsilon$. Note that, the original sequence is bounded from
+        above, by Bolzano-Weierstrass Theorem, we know that a bounded sequence
+        converges. However, the limit of such subsequence shall be larger than $a$,
         contradicting $\lim\sup a_n = a$.
 
-        Thus what we assumed is wrong. We thereby proved the original claim in 
+        Thus what we assumed is wrong. We thereby proved the original claim in
         (ii).
     \begin{mdframed}
-        Note that, the converse of the following claim: 
+        Note that, the converse of the following claim:
         \[
-            \forall \varepsilon > 0, \quad \exists N \in \N \text{ s.t. } 
+            \forall \varepsilon > 0, \quad \exists N \in \N \text{ s.t. }
             \forall n \ge N, \text{ proposition } P \text{ is true.}
         \]
         \[
-            \overset{\text{converse}} \implies \qquad 
-            \exists \varepsilon > 0, \quad \forall N \in \N \text{ s.t. } 
+            \overset{\text{converse}} \implies \qquad
+            \exists \varepsilon > 0, \quad \forall N \in \N \text{ s.t. }
             \exists n \ge N, \text{ proposition } P \text{ is \textbf{not} true.}
         \]
     \end{mdframed}
@@ -1156,36 +1157,36 @@ n) \in \R_{++} \times N$.
         \item Prove that $\lim\sup a_n = a$ implies (ii).
     \end{itemize}
     WTS: Given that $\lim\sup a_n = a$,
-    $\forall \varepsilon > 0$, $\forall n \in N$, $\exists k > n$ s.t. 
+    $\forall \varepsilon > 0$, $\forall n \in N$, $\exists k > n$ s.t.
         $a_k > a - \varepsilon$.
 
-    Now, for arbitrary $\varepsilon > 0$, by definition of limsup, we know that 
-    $\exists 
-    a' \in (a - \frac{\varepsilon}{2}, a)$ s.t. $\exists \{a_{n_j}\}$ (a 
+    Now, for arbitrary $\varepsilon > 0$, by definition of limsup, we know that
+    $\exists
+    a' \in (a - \frac{\varepsilon}{2}, a)$ s.t. $\exists \{a_{n_j}\}$ (a
     subsequence of $\{a_n\}$) s.t. $a_{n_j} \to a'$.
 
-    For this convergent subsequence per se, given the arbitrary $\varepsilon$ we 
-    have specified in the very beginning, we know that $\exists J > 0$ s.t. 
+    For this convergent subsequence per se, given the arbitrary $\varepsilon$ we
+    have specified in the very beginning, we know that $\exists J > 0$ s.t.
     \[
-        |a_{n_j} - a'| < \frac{\varepsilon}{2}, \qquad 
+        |a_{n_j} - a'| < \frac{\varepsilon}{2}, \qquad
         \text{ for all } j > J
     \]
 
-    Now, for arbitrary $n \in N$, we can always find a $k = n_i$ with $i> J$, 
-    such that $a_k = a_{n_i}$ is within $\frac{\varepsilon}{2}$ distance away 
-    from $a'$. Combining this fact with the construction that $a' \in (a - 
-    \frac{\varepsilon}{2}, a)$, it is clear the $a_k$ we found specifically for 
+    Now, for arbitrary $n \in N$, we can always find a $k = n_i$ with $i> J$,
+    such that $a_k = a_{n_i}$ is within $\frac{\varepsilon}{2}$ distance away
+    from $a'$. Combining this fact with the construction that $a' \in (a -
+    \frac{\varepsilon}{2}, a)$, it is clear the $a_k$ we found specifically for
     $\varepsilon$ and $n\in N$ satisfies: $a_k > a - \varepsilon$.
-    
+
 
 
 %    \begin{mdframed}
 %       These are due to incorrect reading of (ii) in the proposition.
 %
-%        Now, for elements in $\{a_n\}$, $\forall k > n_J$: if $a_k \in \{a_{n_j}\}$, 
-%        then by construction we have: $a_k > a - \varepsilon$; if $a_k \notin 
-%        \{a_{n_j}\}$, then \textbf{it is not necessary that } $a_k > a - 
-%        \varepsilon$. These points may well diverge to $-\infty$, or pursue a limit 
+%        Now, for elements in $\{a_n\}$, $\forall k > n_J$: if $a_k \in \{a_{n_j}\}$,
+%        then by construction we have: $a_k > a - \varepsilon$; if $a_k \notin
+%        \{a_{n_j}\}$, then \textbf{it is not necessary that } $a_k > a -
+%        \varepsilon$. These points may well diverge to $-\infty$, or pursue a limit
 %        of $a' < a$ as a subsequence.
 %
 %    \end{mdframed}
@@ -1193,113 +1194,113 @@ n) \in \R_{++} \times N$.
     \begin{itemize}
         \item Prove that (i) and (ii) implies that $\lim\sup a_n = a$.
     \end{itemize}
-    To prove that $\lim\sup a_n = a$, we first show that $a$ is the limit of a 
-    subsequence of $\{a_n\}$; then we show that $\not\exists a' > a$ s.t. $a'$ 
+    To prove that $\lim\sup a_n = a$, we first show that $a$ is the limit of a
+    subsequence of $\{a_n\}$; then we show that $\not\exists a' > a$ s.t. $a'$
     is the limit of a subsequence of $\{a_n\}$.
 
-    Firstly, by (i) and (ii), for arbitrary $\varepsilon>  0$, we can find a 
-    subsequence $\{a_{n_j}\}$ with certain $N\in \N$ 
-    such that $a - \varepsilon < a_{n_j} < a + \varepsilon$, $\forall n_j > N$. 
-    (Step 1: by (i), we can find a $N^\varepsilon$ for arbitrary $\varepsilon > 
-           0$, so that: $a_n < a + \varepsilon$ $\forall n > N^\varepsilon$; Step 2, for the $\varepsilon$ 
-           and all $\tilde n \ge N^\varepsilon$, we can find a $a_{k_{\tilde n}}$ 
-           s.t.  $a - \varepsilon < a_{k_{\tilde n}}$. Thus, we have composed a 
+    Firstly, by (i) and (ii), for arbitrary $\varepsilon>  0$, we can find a
+    subsequence $\{a_{n_j}\}$ with certain $N\in \N$
+    such that $a - \varepsilon < a_{n_j} < a + \varepsilon$, $\forall n_j > N$.
+    (Step 1: by (i), we can find a $N^\varepsilon$ for arbitrary $\varepsilon >
+           0$, so that: $a_n < a + \varepsilon$ $\forall n > N^\varepsilon$; Step 2, for the $\varepsilon$
+           and all $\tilde n \ge N^\varepsilon$, we can find a $a_{k_{\tilde n}}$
+           s.t.  $a - \varepsilon < a_{k_{\tilde n}}$. Thus, we have composed a
        subsequence $\{a_{k_{\tilde n}}\}$.)
 
-    Then, suppose $\exists a' > a$ as the limsup, then $\forall \varepsilon > 0$ 
-    $\exists N' $ s.t. $\forall n' > N'$, $|a_{n'} - a'| < \varepsilon$. 
-    However, (i) is violated when $\varepsilon < \frac{a' - a}{2}$: suppose that 
-    $a_{n_k} \to a'$. Then, $\exists N' > 0$ s.t. $\forall k > N'$, $|a_{n_k} - a'| < 
-    \varepsilon$. Given that $\varepsilon < \frac{a'-a}{2}$, there does not 
-    exist a $N$ that may satisfy (i). (The ``$\forall n > N$'' statement is 
+    Then, suppose $\exists a' > a$ as the limsup, then $\forall \varepsilon > 0$
+    $\exists N' $ s.t. $\forall n' > N'$, $|a_{n'} - a'| < \varepsilon$.
+    However, (i) is violated when $\varepsilon < \frac{a' - a}{2}$: suppose that
+    $a_{n_k} \to a'$. Then, $\exists N' > 0$ s.t. $\forall k > N'$, $|a_{n_k} - a'| <
+    \varepsilon$. Given that $\varepsilon < \frac{a'-a}{2}$, there does not
+    exist a $N$ that may satisfy (i). (The ``$\forall n > N$'' statement is
     violated due to the subsequence that converges to $a'$.)
     \noindent\rule{\textwidth}{1pt} % I am a line!
 
-    Alternatively, one can prove the statement using an equivalent definition of 
-    limsup: 
+    Alternatively, one can prove the statement using an equivalent definition of
+    limsup:
     \[
-        \underset{n \to \infty} {\lim\sup} a_n = \lim_{n\to\infty} \sup_{k \ge 
+        \underset{n \to \infty} {\lim\sup} a_n = \lim_{n\to\infty} \sup_{k \ge
         n} a_k
     \]
 
-    Thus, (i) implies that $\forall \varepsilon > 0$, $\exists N$ s.t. $\forall 
+    Thus, (i) implies that $\forall \varepsilon > 0$, $\exists N$ s.t. $\forall
     n > N$:
     \[
         \sup_{k\ge n} a_k < a + \varepsilon
     \]
-    Therefore, $\underset{n \to \infty} {\lim\sup} a_n < a + \varepsilon \iff 
+    Therefore, $\underset{n \to \infty} {\lim\sup} a_n < a + \varepsilon \iff
     \underset{n \to \infty} {\lim\sup} a_n \le a$ ;
 
-    At the same time, (ii) implies that $\forall \varepsilon > 0$, for arbitrary 
+    At the same time, (ii) implies that $\forall \varepsilon > 0$, for arbitrary
     $n \in N$, $\exists k > n$ s.t. $a_k > a - \varepsilon$. Then:
     \[
         \sup_{j\ge n} a_j > a - \varepsilon
     \]
-    Therefore, $\underset{n \to \infty} {\lim\sup} a_n > a - \varepsilon \iff 
+    Therefore, $\underset{n \to \infty} {\lim\sup} a_n > a - \varepsilon \iff
     \underset{n \to \infty} {\lim\sup} a_n \ge a$ ;
 \end{proof}
 
 \begin{definition}
     [Infinite series]
-    Given a sequence $\{a_n\}$, let $s_n = \sum_{i=1}^n a_i$ be a sequence 
-    $\{s_n\}$, it is called \textbf{infinite series}. 
+    Given a sequence $\{a_n\}$, let $s_n = \sum_{i=1}^n a_i$ be a sequence
+    $\{s_n\}$, it is called \textbf{infinite series}.
     We write $\sum_{n=1}^\infty a_n = a$ if $\{s_n\}$ converges to $a$.
     \begin{example}
-        For $a_n = \frac{1}{2^n}$, we can obtain an expression for $\sum_{n=1}^M 
-        a_n$; 
+        For $a_n = \frac{1}{2^n}$, we can obtain an expression for $\sum_{n=1}^M
+        a_n$;
         and $\sum_{n=1}^\infty \frac{1}{n} = \infty$.
 
-        Also note that the sum of arbitrary segment of $\{\frac{1}{n}\}$ can be 
+        Also note that the sum of arbitrary segment of $\{\frac{1}{n}\}$ can be
         arbitrarily large if the length of such segment is long enough.
     \end{example}
 \end{definition}
 
 \begin{definition}
     [Rearrangement]
-    $\{n_i\}_{i=1}^\infty$ is a sequence of natural numbers in which each 
-    natural number appears exactly once. Let $b_i = a_{n_i}$, then $b_i$ is 
+    $\{n_i\}_{i=1}^\infty$ is a sequence of natural numbers in which each
+    natural number appears exactly once. Let $b_i = a_{n_i}$, then $b_i$ is
     \textbf{a rearrangement } of $\{a_i\}_{i=1}^\infty$.
 \end{definition}
 
 \begin{definition}
     [Absolute convergence]
-    If $\sum_{n=1}^\infty |a_n|$ converges, we say that $\sum_{n=1}^\infty a_n$ 
+    If $\sum_{n=1}^\infty |a_n|$ converges, we say that $\sum_{n=1}^\infty a_n$
     converges absolutely.
     %
-    (e.g. for $a_n = (-1)^n \frac{1}{n}$, $\sum_{n=1}^\infty < \infty$, yet 
+    (e.g. for $a_n = (-1)^n \frac{1}{n}$, $\sum_{n=1}^\infty < \infty$, yet
     $\sum_{n=1}^\infty |a_n| \to \infty$.)
 \end{definition}
 
 \begin{proposition}
-    If $\sum_{n=1}^\infty a_n$ converges absolutely, then $\sum_{n=1}^\infty b_i 
+    If $\sum_{n=1}^\infty a_n$ converges absolutely, then $\sum_{n=1}^\infty b_i
     = \sum_{n=1}^\infty a_n$, where $\{b_n\}$ is a rearrangement of $\{a_n\}$.
-    
-    Note that, rearranging $\{(-1)^n\}_{n=1}^\infty$ can give raise to arbitrary 
+
+    Note that, rearranging $\{(-1)^n\}_{n=1}^\infty$ can give raise to arbitrary
     partial sum $\in \Z$.
 \end{proposition}
 
 \paragraph{Review: subsets in $\R$}
-Epistemic-wise, we established the construction of following sets sequentially: 
+Epistemic-wise, we established the construction of following sets sequentially:
 \begin{enumerate}
     \item $\N$: The set of natural number; [It is countable.]
     \item $\Z$: The set of integers; [It is also countable. In fact, $|\N| = |\Z|$.
-    \item $\Q$: The set of rational number; [It is also countable, and 
+    \item $\Q$: The set of rational number; [It is also countable, and
         \textbf{dense}.]
     \item $\R$: The real line. [Completeness Axiom]
 \end{enumerate}
 
 \begin{definition}
     [Principle of Mathematical Induction]
-    The set of natual numbers is the smallest set that satisfies the axiom of 
+    The set of natual numbers is the smallest set that satisfies the axiom of
     Mathematical Induction.
 
     \begin{example}
         Prove that $1 + 2 + \cdots + n = \frac{n(n+1)}{2}$.
         \begin{proof}[Proof method:]
-            To prove by induction: 
+            To prove by induction:
             \begin{itemize}
                 \item When $n = 1$, LHS = RHS;
-                \item Suppose that, for some $n_0 \in \N$, LSH = RHS $\forall n \in N$ s.t. $n \le n_0$, then 
+                \item Suppose that, for some $n_0 \in \N$, LSH = RHS $\forall n \in N$ s.t. $n \le n_0$, then
                     we show that LHS = RHS for $n = n_0 + 1$.
             \end{itemize}
         \end{proof}
@@ -1310,18 +1311,18 @@ Epistemic-wise, we established the construction of following sets sequentially:
 \setcounter{theorem}{0}
 
 \begin{definition}
-    A real valued function defined on $X$ (an arbitrary set) is represented as following, with $\R$ as the 
+    A real valued function defined on $X$ (an arbitrary set) is represented as following, with $\R$ as the
     codomain:
     \[
         f: x \to \R
     \]
 \end{definition}
-\begin{notation} For $a \in \R$ and $f,g$ being real value functions, 
+\begin{notation} For $a \in \R$ and $f,g$ being real value functions,
     ``$=, \ge , > , \gg$, function addition and (scalar) multiplcation'' are defined as follows:
     \begin{itemize}
         \item If $f(x) =  a$ $\forall x \in X$, we write $f = a$;
         \item If $f(x) \ge g(x)$ $\forall x \in X$, we write $f \ge g$;
-        \item If $f\ge g$, but not the other way, then $f > g$. ($f(x) = g(x)$ 
+        \item If $f\ge g$, but not the other way, then $f > g$. ($f(x) = g(x)$
             is permissible for some $x \in X$).
         \item If $f(x) > g(x)$ $\forall x \in X$, then we write $f \gg g$.
         \item $(f+g)(x) \coloneqq  f(x) + g(x)$;
@@ -1332,17 +1333,17 @@ Epistemic-wise, we established the construction of following sets sequentially:
 \end{notation}
 
 \begin{definition}
-    [strictly/weakly increasing/decreasing] Construction is intuitive and 
+    [strictly/weakly increasing/decreasing] Construction is intuitive and
     thereby omitted.
 \end{definition}
 
 \begin{definition}
-    [Limit of function] A function $f : x \to \R$ converges to $a \in \R$ as $x$ 
-    approaches some $x_0 \in X$ if 
+    [Limit of function] A function $f : x \to \R$ converges to $a \in \R$ as $x$
+    approaches some $x_0 \in X$ if
     \[
-        \forall \varepsilon > 0, \; \exists \delta > 0 \text{ s.t. } \forall x  
+        \forall \varepsilon > 0, \; \exists \delta > 0 \text{ s.t. } \forall x
         \in
-        (\highlight{x_0 - \delta}, x_0 + \delta) 
+        (\highlight{x_0 - \delta}, x_0 + \delta)
     \]
     \[
         |f(x) - a | < \varepsilon
@@ -1351,10 +1352,10 @@ Epistemic-wise, we established the construction of following sets sequentially:
 \end{definition}
 \begin{definition}
     [Right limit]
-    A function $f : x \to \R$ converges to $a \in \R$ from right as $x$ 
-    approaches $x_0$ if 
+    A function $f : x \to \R$ converges to $a \in \R$ from right as $x$
+    approaches $x_0$ if
     \[
-        \forall \varepsilon > 0, \; \exists \delta > 0 \text{ s.t. } \forall x 
+        \forall \varepsilon > 0, \; \exists \delta > 0 \text{ s.t. } \forall x
         \in (\highlight{x_0}, x_0 + \delta),
     \]
     \[
@@ -1364,22 +1365,22 @@ Epistemic-wise, we established the construction of following sets sequentially:
 \end{definition}
 
 \begin{proposition}
-    Suppose $f: X \to \R$ and $g: X \to \R$, with $\underset{x\to x_0} \lim 
+    Suppose $f: X \to \R$ and $g: X \to \R$, with $\underset{x\to x_0} \lim
     f(x) = a$ and $\underset{x\to x_0} \lim g(x) = b$.
     \begin{enumerate}[(i)]
         \item $\underset{x\to x_0} \lim f(x) \pm g(x) = a + b$;
         \item $\underset{x\to x_0} \lim f(x) \cdot g(x) = a\cdot b$;
-        \item $\underset{x\to x_0} \lim \frac{f(x)}{g(x)} = \frac{a}{b}$ if $g 
+        \item $\underset{x\to x_0} \lim \frac{f(x)}{g(x)} = \frac{a}{b}$ if $g
             \not= 0$ and $b \not= 0$.
     \end{enumerate}
 \end{proposition}
 
 \begin{definition}
-    [Continuity] A function $f: X \to \R$ is continuous at $x_0 \in X$ if 
+    [Continuity] A function $f: X \to \R$ is continuous at $x_0 \in X$ if
     \[
         \underset{x\to x_0} \lim f(x) = f(x_0)
     \]
-    Note that, we can draw definition of \textit{limit of function} to formalize 
+    Note that, we can draw definition of \textit{limit of function} to formalize
     an $\varepsilon-\delta$ argument that defines a continuous function.
 \end{definition}
 
@@ -1390,21 +1391,21 @@ Epistemic-wise, we established the construction of following sets sequentially:
 
 \begin{definition}
     [Vector Space]
-    \textbf{Vector space} $V$ over a field $F$ is a set $V$ together with 
+    \textbf{Vector space} $V$ over a field $F$ is a set $V$ together with
     \textit{vector addition} and \textit{scalar multiplication}.
     \begin{itemize}
-        \item A field $F$ is a set with addition and multiplication operation 
+        \item A field $F$ is a set with addition and multiplication operation
             defined among its own elements.
 
-            Example: $\R$ with normal $+$ and $\cdot$ is a field, denoted as: 
+            Example: $\R$ with normal $+$ and $\cdot$ is a field, denoted as:
             ``$F:\R, +, \cdot$''.
 
-            Formally, a field is also established using a set of axiom. Note 
+            Formally, a field is also established using a set of axiom. Note
             that field is ``equipped with'': $0, (-1)$ elements.
     \end{itemize}
 
-    Axiomatically, $\forall u,v,w \in V$ and $a,b \in F$, the following shall be 
-    satisfied: 
+    Axiomatically, $\forall u,v,w \in V$ and $a,b \in F$, the following shall be
+    satisfied:
     \begin{enumerate}[\textbf{{\textit{Axiom}}} 1]
         \item $u + (v+w) = (u+v) + w$;
         \item $u + v = v  + u$;
@@ -1421,9 +1422,9 @@ Epistemic-wise, we established the construction of following sets sequentially:
 \end{definition}
 
 \begin{proposition}
-    Using the axioms, we can show the following equalities hold: 
+    Using the axioms, we can show the following equalities hold:
     \begin{enumerate}
-        \item $0 \cdot u = \theta$; 
+        \item $0 \cdot u = \theta$;
         \item $\upphi (u) = (-1) \cdot u$;
         \item $a\theta  = \theta$;
         \item $\theta$ is unique.
@@ -1437,7 +1438,7 @@ Epistemic-wise, we established the construction of following sets sequentially:
     [Example for vector spaces]
     \begin{enumerate}
         \item $V = \R^n$ and $F: R, +, \cdot$\quad ;
-        \item $V = \{ax^2 + bx + c: $ $a, b, c\in \R, x \in [0,1]\}$, for $F:\R, 
+        \item $V = \{ax^2 + bx + c: $ $a, b, c\in \R, x \in [0,1]\}$, for $F:\R,
             +, \cdot$ \quad .
     \end{enumerate}
 \end{example}
@@ -1448,40 +1449,40 @@ Epistemic-wise, we established the construction of following sets sequentially:
 
 \begin{definition}
     [Linear subspace]
-    For $V$ being a linear space and $U\subseteq V$, if $U$ itself is a 
-    \underline{linear space} with \underline{\textit{the same} vector additions 
+    For $V$ being a linear space and $U\subseteq V$, if $U$ itself is a
+    \underline{linear space} with \underline{\textit{the same} vector additions
     and scalar multiplication}, then we say $U$ is a \textbf{\small linear subspace of $V$}.
 
-    Note that, this definition admits the case where $U = V$, i.e. though 
+    Note that, this definition admits the case where $U = V$, i.e. though
     trivially, $V$ is a linear subspace of itself.
 \end{definition}
 
 \subsubsection{*Finite* Linear combination, span and linear independence of vectors}
 From now on, we limit the discussion to the following case:
 \begin{enumerate}
-    \item Adopt $\R$ with normal addition and multiplication to be the field 
+    \item Adopt $\R$ with normal addition and multiplication to be the field
         $F$;
-    \item Consider only finite operations when defining linear combination and 
+    \item Consider only finite operations when defining linear combination and
         span;
     \item Note that: it is still permissible for $V$ to be an arbitrary set.
 \end{enumerate}
 
 \begin{definition}
-    [Linear Combination] For $U \subseteq V$, 
+    [Linear Combination] For $U \subseteq V$,
     \begin{enumerate}[(i)]
-        \item If $U = \{v_1, \ldots, v_n\}$ for some $n \in \N$, i.e. $U$ is a finite subset of $V$, 
-            then a linear combination of $U$ is a new vector: 
+        \item If $U = \{v_1, \ldots, v_n\}$ for some $n \in \N$, i.e. $U$ is a finite subset of $V$,
+            then a linear combination of $U$ is a new vector:
             \[
                 v = \sum_{i=1}^n a_i v_i, \; a_i \in \R, \;\; i = 1, \ldots, n
             \]
-        \item If $U$ is no longer finite, regardless of whether is is countably 
-            infinite or uncountable, a \textbf{linear combination of $U$} is a vector 
+        \item If $U$ is no longer finite, regardless of whether is is countably
+            infinite or uncountable, a \textbf{linear combination of $U$} is a vector
             that is \textit{a linear combination of finitely many vector of $U$}.
     \end{enumerate}
 \end{definition}
 
 \begin{definition}
-    [span of a set of vectors] For $A = \{ v_1, \ldots, v_n\}$, 
+    [span of a set of vectors] For $A = \{ v_1, \ldots, v_n\}$,
     \[
         span(A) = \{ \sum_{i=1}^n a_i v_i : a_i \in \R, \; i = 1, \ldots, n\}
     \]
@@ -1491,43 +1492,43 @@ From now on, we limit the discussion to the following case:
     The span of any $U\subset V$ is a linear subspace of linear space $V$.
 \end{proposition}
 \begin{proof}[Scatch of proof]
-    Note that, by construction of $span(A)$, arbitrary coefficient is allows. 
-    Letting all coefficients to be $0$ gives raise to the $\theta$; other 
-    properties may follow from standard algebra in $\R$ (the field). 
+    Note that, by construction of $span(A)$, arbitrary coefficient is allows.
+    Letting all coefficients to be $0$ gives raise to the $\theta$; other
+    properties may follow from standard algebra in $\R$ (the field).
 \end{proof}
 
 \begin{definition}
     [Linear independence]
 
-    A (finite) set of vectors $A$ is linearly independent if $\not\exists v \in A$ can be 
-    written as linear combinations of the others. Formally, 
+    A (finite) set of vectors $A$ is linearly independent if $\not\exists v \in A$ can be
+    written as linear combinations of the others. Formally,
     \[
-        A = \{ v_1, \ldots, v_n \} \text{ is linearly independent if } 
+        A = \{ v_1, \ldots, v_n \} \text{ is linearly independent if }
         \sum_{i=1}^n a_i v_i = \varepsilon \implies a_i = 0 \forall i
     \]
     \begin{proof}
-        Suppose not, that is $\sum_{i=1}^n a_i v_i = \varepsilon$ yet $a_j \not= 
-        0$ for some $j$, then we can write: 
+        Suppose not, that is $\sum_{i=1}^n a_i v_i = \varepsilon$ yet $a_j \not=
+        0$ for some $j$, then we can write:
         \[
             -a_j v_j = \sum_{k\not=j} a_k v_k
         \]
-        where, upon simplification, $v_j$ could be written as a linear 
+        where, upon simplification, $v_j$ could be written as a linear
         combination of the other vectors.
     \end{proof}
 \end{definition}
 
 \begin{proposition}
-    For $A \subseteq V$, $span(A)$ is the smallest linear space that contains 
+    For $A \subseteq V$, $span(A)$ is the smallest linear space that contains
     $A$.
 
-    Alternatively, one can define $span(A)$ to be the intersection of all linear 
+    Alternatively, one can define $span(A)$ to be the intersection of all linear
     subspaces of $V$ that contains $A$.
 \end{proposition}
 
 \begin{definition}
     [base and dimension of $V$]
-    If $\{v_1, \ldots, v_n\}$ are linearly independent and $span(\{v_1, \ldots, 
-        v_n\} = V$ (the linear space), then $\{v_1,\ldots, v_n\}$ is called a 
+    If $\{v_1, \ldots, v_n\}$ are linearly independent and $span(\{v_1, \ldots,
+        v_n\} = V$ (the linear space), then $\{v_1,\ldots, v_n\}$ is called a
         \textbf{base of $V$}.
 
         In this case, the \textbf{dimension} of $V$ is $dim(V) = n$.
@@ -1536,44 +1537,44 @@ From now on, we limit the discussion to the following case:
 \begin{theorem}
     If $A$ and $B$ are two bases of $V$ and $A, B$ are finite, then $|A| = |B|$.
     \begin{proof}[Idea of the proof]
-        Suppose $A = \{ u_1, u_2 \}$ and $B = \{v\}$. Then one can write: 
+        Suppose $A = \{ u_1, u_2 \}$ and $B = \{v\}$. Then one can write:
         \[
             u_1 = a v; \qquad u_2 = bv \text{ for some } a, b\in \R
         \]
         Therefore, $u_1$ and $u_2$ are not linearly independent.
-        
+
     \end{proof}
 
-    Note that, it seems to me that the finiteness assumption only serves the 
+    Note that, it seems to me that the finiteness assumption only serves the
     need of simplifying the proof.
 \end{theorem}
 
 \subsubsection{Matrix}
 
 \begin{definition}
-    A $m \times n$ matrix could be written as: 
+    A $m \times n$ matrix could be written as:
     \[
-        A = 
+        A =
     \begin{bmatrix}
         v_1 \\ \vdots \\ v_m
-    \end{bmatrix}  = 
+    \end{bmatrix}  =
     [u_1 \ldots u_n]
     \]
-    where $v_i$ is a $1\times n$ (row) vector, and $u_i$ is a $m\times 1$ 
+    where $v_i$ is a $1\times n$ (row) vector, and $u_i$ is a $m\times 1$
     (column) vector.
 \end{definition}
 
 \begin{definition}
-    [Rank of a matrix] The \textit{maximum number} of linearly independent 
+    [Rank of a matrix] The \textit{maximum number} of linearly independent
     row/column vectors denotes the rank of a matrix.
 
     Comment: implicitly, by definition, $rank(A) = rank(A^T)$.
-    
+
 \end{definition}
 
 \setcounter{theorem}{12}
 \begin{definition}
-    [Linear transformation] $T: U \to V$ is a linear transformation if 
+    [Linear transformation] $T: U \to V$ is a linear transformation if
     \[ T(a u_1 + b u_2) =a T(u_1) + b T(u_2)
         , \qquad \forall a,b \in \R
     \]
@@ -1589,30 +1590,30 @@ From now on, we limit the discussion to the following case:
 \subsubsection{Continuity and its corollaries}
 \begin{definition}
     [Interval]
-    An interval of $\R$ is either $[a,b]$, $(a,b]$, $[a,b)$ or $(a,b)$; where 
+    An interval of $\R$ is either $[a,b]$, $(a,b]$, $[a,b)$ or $(a,b)$; where
     $a, b \in \R\bigcup \{ +\infty, -\infty\}$ (the extended real line).
 \end{definition}
 
 \begin{theorem}
     [Intermediate Value Theorem]
 
-    If $I$ is an interval of $\R$ \footnote{ $I$ could be a connected set 
-    in Euclidean space ($\R^n$).}, and $f:I \to \R$ is continuous, then $f(I)$ is also an 
+    If $I$ is an interval of $\R$ \footnote{ $I$ could be a connected set
+    in Euclidean space ($\R^n$).}, and $f:I \to \R$ is continuous, then $f(I)$ is also an
     interval of $\R$\footnote{Correspondingly, $f(I)$ would be a connected set.}.
 \end{theorem}
 
 \begin{proposition}
-    If $f$ is continuous and bijective (thus invertible, i.e. $f^{-1}$ is a 
+    If $f$ is continuous and bijective (thus invertible, i.e. $f^{-1}$ is a
     function), ten $f$ is either strictly increasing or strictly decreasing.
 
-    Note that: 
+    Note that:
     \begin{itemize}
         \item Continuity forced bijections to be monotone;
         \item ``Strictness'' is used to support bijection;
-        \item A stronger statement (yet correct) goes as follows: 
+        \item A stronger statement (yet correct) goes as follows:
         \begin{quote}
-            Let $I$ and $J$ be both intervals, then 
-            $f:I \to J$ is continuous and bijective if and only if it is strictly 
+            Let $I$ and $J$ be both intervals, then
+            $f:I \to J$ is continuous and bijective if and only if it is strictly
             monotonic.
         \end{quote}
     \end{itemize}
@@ -1620,78 +1621,78 @@ From now on, we limit the discussion to the following case:
 
 \begin{theorem}
     [Extreme Value Theorem]
-    If $f: [a,b] \to \R$ is continuous, then $\exists x_1, x_2 \in [a,b]$ s.t. 
+    If $f: [a,b] \to \R$ is continuous, then $\exists x_1, x_2 \in [a,b]$ s.t.
     \[
         f(x_1) = \sup f([a,b])
     \]
     \[
         f(x_2) = \inf f([a,b])
     \]
-    Comment: using $\max$ and $\inf$ in the statement would be more precise 
+    Comment: using $\max$ and $\inf$ in the statement would be more precise
     though.
 \end{theorem}
 
 \begin{definition}
     [Uniformly continuity]
-    $f : x \to \R$ is said to be uniformly continuous if $\forall \varepsilon > 
-    0$, $\exists \delta > 0$, s.t. 
+    $f : x \to \R$ is said to be uniformly continuous if $\forall \varepsilon >
+    0$, $\exists \delta > 0$, s.t.
     \[
         |f(x) - f(y)| < \varepsilon, \qquad \forall |x - y| < \delta
     \]
-    Note that: 
+    Note that:
     \begin{enumerate}
         \item We no longer specify a certain point $x_0 \in X$;
-        \item Instead, the $\delta$ applies to all $x,y\in X$ as long 
+        \item Instead, the $\delta$ applies to all $x,y\in X$ as long
             as they are within $\delta$ distance away.
     \end{enumerate}
 \end{definition}
 \begin{exercise}
     Prove that $f(x) = \frac{1}{x}$ ($x > 0$) is not uniformly continuous.
     \begin{proof}[Professor's Proof]
-        Without loss of generality, suppose $\varepsilon = \frac{1}{2}$. Now we 
-        want ot show that $\not\exists$ $\delta > 0$ s.t. if $|x-y| < \delta$, 
-        $|f(x) - f(y)| < \frac{1}{2}$. 
+        Without loss of generality, suppose $\varepsilon = \frac{1}{2}$. Now we
+        want ot show that $\not\exists$ $\delta > 0$ s.t. if $|x-y| < \delta$,
+        $|f(x) - f(y)| < \frac{1}{2}$.
 
-        By the property of $f(x)$, we look for a threshold $z^*(\varepsilon, 
+        By the property of $f(x)$, we look for a threshold $z^*(\varepsilon,
         \delta)$ at which:
         \[
-            \left| \frac{1}{z^*} - \frac{1}{z^* + \delta}\right| = 
+            \left| \frac{1}{z^*} - \frac{1}{z^* + \delta}\right| =
             \frac{1}{2}
         \]
-        Then, for arbitrary $\delta> 0$, write $z^* = z^*(\varepsilon, \delta)$, 
+        Then, for arbitrary $\delta> 0$, write $z^* = z^*(\varepsilon, \delta)$,
         we have:
         \[
             |f(z') - f(z' + \delta)| > \frac{1}{2}, \qquad \forall z' < z^*
         \]
-        Thus, we see that for $\varepsilon  = \frac{1}{2}$, there does not exist 
-        a $\delta >0$ that satisfies $|f(x) - f(y)| <  \frac{1}{2}$ $\forall 
+        Thus, we see that for $\varepsilon  = \frac{1}{2}$, there does not exist
+        a $\delta >0$ that satisfies $|f(x) - f(y)| <  \frac{1}{2}$ $\forall
         |x-y| < \delta$.
     \end{proof}
-    Comment: in professor's proof, there is a flaw: choosing $z'$ and $z' 
-    +\delta$ won't help disprove the original statement.  This could easily be 
+    Comment: in professor's proof, there is a flaw: choosing $z'$ and $z'
+    +\delta$ won't help disprove the original statement.  This could easily be
     fixed as shown in the alternative proof.
     \begin{proof}[Alternative proof]
-        Without loss of generality, suppose $\varepsilon = \frac{1}{2}$. Now we 
-        want ot show that $\not\exists$ $\delta > 0$ s.t. if $|x-y| < \delta$, 
-        $|f(x) - f(y)| < \frac{1}{2}$. 
+        Without loss of generality, suppose $\varepsilon = \frac{1}{2}$. Now we
+        want ot show that $\not\exists$ $\delta > 0$ s.t. if $|x-y| < \delta$,
+        $|f(x) - f(y)| < \frac{1}{2}$.
 
-        By the property of $f(x)$, we look for a threshold $z^*(\varepsilon, 
+        By the property of $f(x)$, we look for a threshold $z^*(\varepsilon,
         \delta)$ at which:
         \[
-            \left| \frac{1}{z^*} - \frac{1}{z^* + \frac{\delta}{2}}\right| = 
+            \left| \frac{1}{z^*} - \frac{1}{z^* + \frac{\delta}{2}}\right| =
             \frac{1}{2}
         \]
-        Then, for arbitrary $\delta> 0$, write $z^* = z^*(\varepsilon, \delta)$, 
+        Then, for arbitrary $\delta> 0$, write $z^* = z^*(\varepsilon, \delta)$,
         we have:
         \[
             |f(z') - f(z' + \frac{\delta}{2})| > \frac{1}{2}, \qquad \forall z' < z^*
         \]
-        Thus, we see that for $\varepsilon  = \frac{1}{2}$, there does not exist 
-        a $\delta >0$ that satisfies $|f(x) - f(y)| <  \frac{1}{2}$ 
+        Thus, we see that for $\varepsilon  = \frac{1}{2}$, there does not exist
+        a $\delta >0$ that satisfies $|f(x) - f(y)| <  \frac{1}{2}$
         $\highlight{\forall |x-y| < \delta}$.
 
         Note that, it is the highlighted condition that has been disproved.
-        
+
     \end{proof}
 \end{exercise}
 
@@ -1703,11 +1704,11 @@ From now on, we limit the discussion to the following case:
 
 \begin{definition}
     [Tangent line]
-    The tangent line to a function $y = f(x)$ at the point $(x_0, 
-    f(x_0))$, when exists, is 
-    the line through $(x_0, f(x_0)$ with slope 
+    The tangent line to a function $y = f(x)$ at the point $(x_0,
+    f(x_0))$, when exists, is
+    the line through $(x_0, f(x_0)$ with slope
         \[
-            \alpha = \lim_{x \to x_0} \frac{f(x) - f(x_0)}{x - x_0} = 
+            \alpha = \lim_{x \to x_0} \frac{f(x) - f(x_0)}{x - x_0} =
             \lim_{\Delta x \to 0 } \frac{f(x + \Delta x) - f(x)}{\Delta x}
         \]
     When $\alpha$ exists, the tangent line exists. It could be written as:
@@ -1718,17 +1719,17 @@ From now on, we limit the discussion to the following case:
 
 \begin{definition}
     [Differentiation]
-    The \textbf{derivative of $f: x \to \R$} {\textbf{at} $\highlight{x_0 \in X}$} is 
+    The \textbf{derivative of $f: x \to \R$} {\textbf{at} $\highlight{x_0 \in X}$} is
     \[
         f'(x) = \lim_{x \to x_0} \frac{f(x) - f(x_0)}{ x - x_0}
     \]
-    We may also write the derivative as: 
+    We may also write the derivative as:
     \[
         \mleft( \frac{df(x)}{dx} \;\middle|_{x = x_0}
         \mright)
 %        \frac{df(x)}{dx} \suchthat_{x = x_0}
     \]
-    The \textbf{derivative of $f$} is denoted by 
+    The \textbf{derivative of $f$} is denoted by
     \[
         \frac{df(x)}{dx}
     \]
@@ -1744,30 +1745,30 @@ From now on, we limit the discussion to the following case:
     \end{enumerate}
 \end{remark}
 \begin{proposition}
-    [Chain Rule] If $g: x\to \R$ is differentiable at $x_0 \in X$ and $f: Y \to 
-    \R$ is differentiable at $g(x_0) \in Y$, then $f(g(x))$ is differentiable at 
-    $x = x_0$, we write: 
+    [Chain Rule] If $g: x\to \R$ is differentiable at $x_0 \in X$ and $f: Y \to
+    \R$ is differentiable at $g(x_0) \in Y$, then $f(g(x))$ is differentiable at
+    $x = x_0$, we write:
     \[
-        \mleft( 
+        \mleft(
             \frac{df(g(x))}{dx} \;\middle|_{x = x_0}
-        \mright) 
+        \mright)
         = f'(g(x_0)) g'(x_0)
     \]
 \end{proposition}
 
 \begin{proposition}
     [Inverse function theorem]
-    If $f: X \to Y$ is bijective, then derivative of $f^{-1}: Y \to X$ is 
+    If $f: X \to Y$ is bijective, then derivative of $f^{-1}: Y \to X$ is
     \[
         \frac{d f^{-1}(y)}{dy } = \frac{1}{f'(f^{-1}(y))}
     \]
     \begin{proof}
-        Since $f$ is bijective function, we have: 
-        $f(f^{-1}(y)) = y$. Differentiating w.r.t.\footnote{with respect 
-        to} $y$ gives: 
+        Since $f$ is bijective function, we have:
+        $f(f^{-1}(y)) = y$. Differentiating w.r.t.\footnote{with respect
+        to} $y$ gives:
         \[
             f'(f^{-1} (y)) \cdot \frac{d f^{-1}(y)}{dy } = 1
-            \implies 
+            \implies
             \frac{d f^{-1}(y)}{dy } = \frac{1}{f'(f^{-1}(y))}
         \]
     \end{proof}
@@ -1775,8 +1776,8 @@ From now on, we limit the discussion to the following case:
 
 \begin{definition}
     [local maximum]
-    Function $f: X \to \R$ has a local maximum at $x_0 \in X$ if $\exists \delta 
-    > 0$, s.t. 
+    Function $f: X \to \R$ has a local maximum at $x_0 \in X$ if $\exists \delta
+    > 0$, s.t.
     \[
         f(x_0) \ge f(x), \qquad \forall x \in \{ x \in X: |x - x_0| < \delta\}
     \]
@@ -1784,88 +1785,88 @@ From now on, we limit the discussion to the following case:
 
 \begin{proposition}
     [Condition for interior local maximum]
-    If $f: X \to \R$ is differentiable, and has a local maximum at 
-    \textit{an interor point} $x = x_0$ 
-    \footnote{$x_0$ is an interior point of $X$, i.e. $\exists \delta > 0$ s.t. $\{x \in 
+    If $f: X \to \R$ is differentiable, and has a local maximum at
+    \textit{an interor point} $x = x_0$
+    \footnote{$x_0$ is an interior point of $X$, i.e. $\exists \delta > 0$ s.t. $\{x \in
     X: |x - x_0| < \delta\} \subseteq X$}, then $f'(x_0) = 0$
 
     \begin{proof}
-        First consider the right limit: 
+        First consider the right limit:
         $
         \underset{\Delta \to 0^+} \lim \frac{f(x_0+\Delta x) - f(x_0)}{\Delta x}
-        $. For $\Delta x > 0$ and $f(x_0+\Delta x) -f (x_0) \le 0$ (by local 
-        maximum), we see: 
+        $. For $\Delta x > 0$ and $f(x_0+\Delta x) -f (x_0) \le 0$ (by local
+        maximum), we see:
         \[
         \underset{\Delta \to 0^+} \lim \frac{f(x_0+\Delta x) - f(x_0)}{\Delta x} \le 0
         \]
 
-        In similar spirit, we conclude that: 
+        In similar spirit, we conclude that:
         \[
         \underset{\Delta \to 0^-} \lim \frac{f(x_0+\Delta x) - f(x_0)}{\Delta x} \ge 0
         \]
 
-        Thus we conclude that $f'(x_0) = 0$ due to differentiability of $f$ at 
+        Thus we conclude that $f'(x_0) = 0$ due to differentiability of $f$ at
         $x_0$.
 
     \end{proof}
 
-    Note that, if $x_0$ is at the boundary of $X$, whether this proposition 
+    Note that, if $x_0$ is at the boundary of $X$, whether this proposition
     holds (or not) depends on how we define the derivative at the boundary point.
 \end{proposition}
 
 \begin{theorem}
     [Rolle's Theorem]
-    If $f:[a,b] \to \R$ is differentiable and  $f(a) = f(b) = 0$, then $\exists 
+    If $f:[a,b] \to \R$ is differentiable and  $f(a) = f(b) = 0$, then $\exists
     x_0 \in (a,b)$ s.t. $f'(x_0) = 0$.
     \begin{proof}
-        Since $f: [a,b] \to \R$ is differentiable and hence continuous, if $\sup 
-        f([a,b]) > 0$, then we can locate a $x_0$ as local maximum. 
+        Since $f: [a,b] \to \R$ is differentiable and hence continuous, if $\sup
+        f([a,b]) > 0$, then we can locate a $x_0$ as local maximum.
         Then, by the previous proposition, $f'(x_0)=0$;
 
-        Alternatively, if $ \inf(f[a,b]) < 0$, we can find a $x_1$ as local 
+        Alternatively, if $ \inf(f[a,b]) < 0$, we can find a $x_1$ as local
         minimum. This also gives raise that $f'(x_1) = 0$.
 
         Otherwise, $f$ is flat, and $f'(x) = 0$ $\forall x \in [a,b]$.
     \end{proof}
 
-    Note that, this is like reaching a plateau/basin when leaving at sea-level 
+    Note that, this is like reaching a plateau/basin when leaving at sea-level
     and reaching another point at sea-level.
 \end{theorem}
 
 \begin{theorem}
     [Mean Value Theorem]
-    If $f: [a,b] \to \R$ is differentiable, then $\exists x _ 0 \in (a,b)$ s.t. 
+    If $f: [a,b] \to \R$ is differentiable, then $\exists x _ 0 \in (a,b)$ s.t.
     \[
         f'(x_0) = \frac{f(b) - f(a)}{b-a}
     \]
     \begin{proof}
-        Subtract a line function: $y = f(a) - \frac{f(b) - f(a)}{ b-a } (x - a)$ 
-        from $f(x)$ to get $g(x)$, we can apply Rolle's Theorem and find a $x_0$ 
+        Subtract a line function: $y = f(a) - \frac{f(b) - f(a)}{ b-a } (x - a)$
+        from $f(x)$ to get $g(x)$, we can apply Rolle's Theorem and find a $x_0$
         that satisfies $g'(x_0) = 0$.
 
-        Note that, one can envision subtracting a line-function as a 
+        Note that, one can envision subtracting a line-function as a
         transformation of coordinate system.
     \end{proof}
 \end{theorem}
 
 \begin{theorem}
     [Generalized Mean Value Theorem]
-    Let $f: [a,b] \to \R$, $g:[a,b] \to \R$ be both differentiable, then 
-    $\exists x_0 \in [a,b]$ s.t. 
+    Let $f: [a,b] \to \R$, $g:[a,b] \to \R$ be both differentiable, then
+    $\exists x_0 \in [a,b]$ s.t.
     \[
         g'(x_0) (f(b) - f(a)) = f'(x_0) (g(b) - g(a))
     \]
 
-    Note that, we can rationalize this theorem as: the ratio of average speed 
-    shall equal the ratio of travel speed at some point of time\footnote{Though, 
+    Note that, we can rationalize this theorem as: the ratio of average speed
+    shall equal the ratio of travel speed at some point of time\footnote{Though,
     Prof Ke did not specify which one is the ``time variable''.}.
 \end{theorem}
 
 \begin{theorem}
     [L'Hopital Rule]
-    $f$ and $g$ are differentiable, with $g'(x) \not = 0$, $\forall x \in X$. 
-    Suppose $\underset{x \to x_0} \lim \frac{f'(x)}{g'(x)} = q$, then if either 
-    of the following conditions is satisfied, $\underset{x \to x_0} \lim 
+    $f$ and $g$ are differentiable, with $g'(x) \not = 0$, $\forall x \in X$.
+    Suppose $\underset{x \to x_0} \lim \frac{f'(x)}{g'(x)} = q$, then if either
+    of the following conditions is satisfied, $\underset{x \to x_0} \lim
     \frac{f(x)}{g(x)} = q$.
     \begin{enumerate}[(i)]
         \item If $f(x), g(x) \to 0$ as $x \to x_0$;
@@ -1875,22 +1876,22 @@ From now on, we limit the discussion to the following case:
 
 \begin{proposition}
     [Derivative is continuous at $x_0$]
-    If $\underset{x \to x_0} \lim f'(x)$ exists, then $f'(x_0) = \underset{x \to 
+    If $\underset{x \to x_0} \lim f'(x)$ exists, then $f'(x_0) = \underset{x \to
     x_0} \lim
     f'(x)$.
 
     \begin{proof}
-        Define $h(x) = f(x) - f(x_0)$, we see that $h(x) \to 0$ as $x \to x_0$; 
-        then, define $g(x) = x - x_0$, we also see that $g(x) \to 0$ as $x \to 
-        x_0$. 
-        
-        Thus, by L' Hopital's rule, we have: 
+        Define $h(x) = f(x) - f(x_0)$, we see that $h(x) \to 0$ as $x \to x_0$;
+        then, define $g(x) = x - x_0$, we also see that $g(x) \to 0$ as $x \to
+        x_0$.
+
+        Thus, by L' Hopital's rule, we have:
         \[
-            \underset{x \to x_0} \lim \frac{h(x)}{g(x)} = \underset{x \to x_0}  
+            \underset{x \to x_0} \lim \frac{h(x)}{g(x)} = \underset{x \to x_0}
             \lim
             \frac{h'(x)}{g'(x)} = \frac{f'(x)}{ 1} = f'(x)
         \]
-        Note that, what we started with is by definition $f'(x_0) = \underset{x 
+        Note that, what we started with is by definition $f'(x_0) = \underset{x
         \to x_0} \lim \frac{f(x) - f(x_0)}{ x - x_0}$. So, we are done.
     \end{proof}
 \end{proposition}
@@ -1901,34 +1902,34 @@ From now on, we limit the discussion to the following case:
 
 \begin{definition}
     [derivative]
-    If $f$ has a derivative $f'$, and $f'$ itsef is also differnetiable, then we 
-    write the derivative of $f'$, $f''$. The we also derive the other higher 
-    order derivatives: 
+    If $f$ has a derivative $f'$, and $f'$ itsef is also differnetiable, then we
+    write the derivative of $f'$, $f''$. The we also derive the other higher
+    order derivatives:
     \[
         f', f'', f^{(3)}, f^{(4)}, \ldots, \frac{d ^n f(x)}{d x^n} = f^{(n)}
     \]
 \end{definition}
 
 \begin{theorem}
-    For $f:[a,b] \to \R$, suppose $f^{(n-1)}$ is continuous (i.e. $f\in 
-    C^{n-1}$), and $f^{(n)}$ exists. Then for $x_0, \bar x \in [a,b]$, $\exists 
-    \tilde x \in \left( \min\{x_0, \bar x\}, \max \{ x_n, \bar x \} \right)$ 
-    s.t. 
+    For $f:[a,b] \to \R$, suppose $f^{(n-1)}$ is continuous (i.e. $f\in
+    C^{n-1}$), and $f^{(n)}$ exists. Then for $x_0, \bar x \in [a,b]$, $\exists
+    \tilde x \in \left( \min\{x_0, \bar x\}, \max \{ x_n, \bar x \} \right)$
+    s.t.
     \[
         \aligned
-        f(\bar x ) = & f(x_0) + f'(x_0) ( \bar  x- x_0) + \frac{1}{2} f''(x_0) 
+        f(\bar x ) = & f(x_0) + f'(x_0) ( \bar  x- x_0) + \frac{1}{2} f''(x_0)
         (\bar x - x_0)^2 + \frac{1}{3!} f^{(3)} (x_0) (\bar x - x_0)^3 \\
-        & + \ldots  + \frac{1}{(n-1)!} f^{(n-1)} (x_0) (\bar x - x_0) ^ {n-1} + 
+        & + \ldots  + \frac{1}{(n-1)!} f^{(n-1)} (x_0) (\bar x - x_0) ^ {n-1} +
         \frac{1}{n!} f^{(n)}(\tilde x)(\bar x - x_0)^n
         \endaligned
     \]
-    Alternatively, one can write: 
+    Alternatively, one can write:
     \[
-        f(\bar x) = \sum_{k=0}^{n-1} \frac{f^{(k)}(x_0)}{k!}(\bar x - x_0)^k + 
+        f(\bar x) = \sum_{k=0}^{n-1} \frac{f^{(k)}(x_0)}{k!}(\bar x - x_0)^k +
         \frac{1}{n!}f^{(n)}(\tilde x) (\bar x - x_0)^n
     \]
     \begin{proof}
-        This is a direct proof, which relies on Mean Value Theorem and a tricky 
+        This is a direct proof, which relies on Mean Value Theorem and a tricky
         construction.
     \end{proof}
 \end{theorem}
@@ -1937,24 +1938,24 @@ From now on, we limit the discussion to the following case:
 
 \begin{remark}
     [Limitation of Taylor series expansion]
-    If $f^{(n)}$ exists for all $n \in \N$, can we write down the Taylor series 
+    If $f^{(n)}$ exists for all $n \in \N$, can we write down the Taylor series
     as follows?
     \[
         f(\bar x) \stackrel{?}{=} \sum_{k=0}^\infty \frac{f^{(k)}(x_0)}{k!} (\bar x - x_0)^k
     \]
-    It turns out that: 
+    It turns out that:
     \begin{enumerate}[(i)]
-        \item RHS may not necessarily converge: for $x_0 = 0$, $f(x) =  
-            \frac{1}{1-x} \implies RHS = \sum_{k=0}^\infty x^k$. If $|x| > 1$, 
+        \item RHS may not necessarily converge: for $x_0 = 0$, $f(x) =
+            \frac{1}{1-x} \implies RHS = \sum_{k=0}^\infty x^k$. If $|x| > 1$,
             RHS does not converge.
         \item RHS converges but LHS $\not=$ RHS:
 
-            Let $e^{-\frac{1}{0}} = 0$, then $e^{-\frac{1}{x^2}}$ has a Taylor 
+            Let $e^{-\frac{1}{0}} = 0$, then $e^{-\frac{1}{x^2}}$ has a Taylor
             series expansion at $x_0 = 0$, yet RHS = 0.
-        \item The equality may hold, for example: 
+        \item The equality may hold, for example:
             \[
-                e^x = \sum_{n=0}^\infty \frac{x^n}{n!} \implies \text{ LHS } = 
-                \text{ RHS }, \; \forall x 
+                e^x = \sum_{n=0}^\infty \frac{x^n}{n!} \implies \text{ LHS } =
+                \text{ RHS }, \; \forall x
             \]
     \end{enumerate}
 \end{remark}
@@ -1963,94 +1964,94 @@ From now on, we limit the discussion to the following case:
 \begin{definition}
     [Differentiable multi-variate vector-valued function]
     \label{sec:multi_variable_matrix_A_as_gradient}
-    For $f: X\to \R^m$, $X \subseteq \R^n$, we say that \textbf{$f$ is 
-    differentiable at $x_0 \in X$} if $\exists A$ ($m$ by $n$ matrix) s.t. 
+    For $f: X\to \R^m$, $X \subseteq \R^n$, we say that \textbf{$f$ is
+    differentiable at $x_0 \in X$} if $\exists A$ ($m$ by $n$ matrix) s.t.
     \[
-        \lim_{x \to x_0} 
+        \lim_{x \to x_0}
         \frac{||f(x) - [f(x_0) + A \cdot (x - x_0)]||}
-        {||x - 
+        {||x -
         x_0||} = 0
     \]
-    where the norm of $x$ is defined as: $||x|| = \sqrt{x_1^2 + x_2^2 + \cdots + 
+    where the norm of $x$ is defined as: $||x|| = \sqrt{x_1^2 + x_2^2 + \cdots +
     x_n^2}$.
 \end{definition}
-Note that, $f(x_0) + A \cdot (x - x_0)$ is a local approximation of $f(x)$ at 
-$x_0$. Here, $f(x_0)$ is a $m \times 1$ vector, $x - x_0$ is a $n\times 1$ 
+Note that, $f(x_0) + A \cdot (x - x_0)$ is a local approximation of $f(x)$ at
+$x_0$. Here, $f(x_0)$ is a $m \times 1$ vector, $x - x_0$ is a $n\times 1$
 vector, and $A$ is a linear transformation from $\R^n$ to $\R^m$.
 
 \paragraph{Exercise: L'Hopital's Rule}
 \begin{itemize}
-    \item $\underset{x \to 0} \lim  \frac{e^x- 1}{x} = \underset{x \to 0} 
+    \item $\underset{x \to 0} \lim  \frac{e^x- 1}{x} = \underset{x \to 0}
         \lim \frac{e^x}{1} = 1$ (By L'Hopital's Rule).
-    \item $\underset{x \to 0} \lim x \cdot ln ( 1 + \frac{1}{x}) = 
-        \underset{x \to 0}\lim \frac{ln(1 + \frac{1}{x}}{\frac{1}{x}} = 
-            \underset{x \to 0} \lim \frac{\frac{1}{1+\frac{1}{x}} \cdot \left( 
-            -\frac{1}{x^2} \right)}{-\frac{1}{x^2}} = \underset{x \to 0}\lim 
+    \item $\underset{x \to 0} \lim x \cdot ln ( 1 + \frac{1}{x}) =
+        \underset{x \to 0}\lim \frac{ln(1 + \frac{1}{x}}{\frac{1}{x}} =
+            \underset{x \to 0} \lim \frac{\frac{1}{1+\frac{1}{x}} \cdot \left(
+            -\frac{1}{x^2} \right)}{-\frac{1}{x^2}} = \underset{x \to 0}\lim
             \frac{1}{1 + \frac{1}{x}} = 0$ (Again, by L'Hopital's Rule)
 \end{itemize}
 
 \subsubsection{Partial Derivatives }
 \begin{definition}
-    [Partial Derivatives] For $x : x \to \R$ with $x \in\R^n$, the partial 
-    derivative of $f$ at $x = (x_1, \ldots, x_n)$ with respect to $x_i$ is defined as: 
+    [Partial Derivatives] For $x : x \to \R$ with $x \in\R^n$, the partial
+    derivative of $f$ at $x = (x_1, \ldots, x_n)$ with respect to $x_i$ is defined as:
     \[
-        \frac{\partial f(x)}{\partial x_i} \coloneqq f_i(x) = \lim_{\lambda \to 
+        \frac{\partial f(x)}{\partial x_i} \coloneqq f_i(x) = \lim_{\lambda \to
         0} \frac{f(x + \lambda e_i)  - f(x)}{\lambda}
     \]
-    where $e_i = [0,\ldots, 0, 1, 0,\ldots]^T \in \R^n$ ($1$ is at the $i$-th 
+    where $e_i = [\underbrace{0,\ldots, 0}_{i-1}, 1, 0,\ldots]^T \in \R^n$ ($1$ is at the $i$-th
     element).
 \end{definition}
 
 \begin{definition}
     [$\partial x_i \partial x_j$]
-If we take the partial derivative of $\frac{\partial f(x)}{\partial x_i}$ with 
-respect to $x_j$, we have: 
+If we take the partial derivative of $\frac{\partial f(x)}{\partial x_i}$ with
+respect to $x_j$, we have:
 \[
-\frac{\partial \left( \frac{\partial f(x)}{\partial x_i} \right)}{\partial x_j} 
-\coloneqq \frac{\partial^2 f(x)}{ \partial x_i \cdot \partial x_j} \coloneqq 
+\frac{\partial \left( \frac{\partial f(x)}{\partial x_i} \right)}{\partial x_j}
+\coloneqq \frac{\partial^2 f(x)}{ \partial x_i \cdot \partial x_j} \coloneqq
 f_{ij}
 \]
 \end{definition}
 
 \begin{proposition}
-If $f_i$, $f_j$ and $f_{ij}$ exists, and $f_{ij}$ is continuous at $x_0 \in x$, 
+If $f_i$, $f_j$ and $f_{ij}$ exists, and $f_{ij}$ is continuous at $x_0 \in x$,
 then $f_{ji}$ exists at $x_0$ and $f_{ij} = f_{ji}$.
 \end{proposition}
 
 \subsubsection{Gradient}
 \begin{definition}
     [Gradient $\nabla$]
-    Remember the matrix $A$ we defined in Definition 
-    \ref{sec:multi_variable_matrix_A_as_gradient}? Let $A = \nabla f(x)$, then 
-    $\nabla f(x)$ is called the gradient of $f$ at $x$, i.e. $\nabla f(x)$ is a 
-    $m\times n$ matrix s.t. 
+    Remember the matrix $A$ we defined in Definition
+    \ref{sec:multi_variable_matrix_A_as_gradient}? Let $A = \nabla f(x)$, then
+    $\nabla f(x)$ is called the gradient of $f$ at $x$, i.e. $\nabla f(x)$ is a
+    $m\times n$ matrix s.t.
     \[
-        \lim_{x \to x_0} \frac{||f(x) -\left( f(x_0) + \nabla f(x_0)(x - x_0) 
+        \lim_{x \to x_0} \frac{||f(x) -\left( f(x_0) + \nabla f(x_0)(x - x_0)
         \right)||}{||x - x_0||}
     \]
-    It turns out that we are essentially defining $\nabla f(x_0)$ as a $m \times n$ matrix without 
-    transpose? Note: $\nabla f(x_0) = [f_1(x_0), f_2(x_0), \ldots, 
-    f_n(x_n)]$. (Simon and Blume page 321 defined gradient to be a $n \times m$ 
+    It turns out that we are essentially defining $\nabla f(x_0)$ as a $m \times n$ matrix without
+    transpose? Note: $\nabla f(x_0) = [f_1(x_0), f_2(x_0), \ldots,
+    f_n(x_n)]$. (Simon and Blume page 321 defined gradient to be a $n \times m$
     matrix.
 \end{definition}
 
 \begin{definition}
     [Inner product]
-    In $\R^2$, the inner product of $(x_1, y_1)$ and $(x_2, y_2)$ is 
+    In $\R^2$, the inner product of $(x_1, y_1)$ and $(x_2, y_2)$ is
     \[
-        <(x_1, y_1), (x_2, y_2)> \qquad \coloneqq \qquad 
-        (x_1, y_1) 
-        \cdot 
+        <(x_1, y_1), (x_2, y_2)> \qquad \coloneqq \qquad
+        (x_1, y_1)
+        \cdot
         \begin{pmatrix}
-            x_2 \\ y_2 
+            x_2 \\ y_2
         \end{pmatrix}
         = x_1 x_2 + y_1 y_2
     \]
 
-    Additionally, one can define the norm as $||(x,y)|| = \sqrt{<(x,y), 
-    (x,y)>}$. Further more, one can write: 
+    Additionally, one can define the norm as $||(x,y)|| = \sqrt{<(x,y),
+    (x,y)>}$. Further more, one can write:
     \[
-        <(x_1, y_1), (x_2, y_2)> = ||(x_1, y_1)|| \cdot ||(x_2, y_2)|| \cdot 
+        <(x_1, y_1), (x_2, y_2)> = ||(x_1, y_1)|| \cdot ||(x_2, y_2)|| \cdot
         \cos \theta
     \]
     where $\theta$ is the angle from vector $(x_1, y_1)$ to $(x_2, y_2)$.
@@ -2059,33 +2060,33 @@ then $f_{ji}$ exists at $x_0$ and $f_{ij} = f_{ji}$.
 \begin{remark}
     [Tangential plane example]
     \label{remark:tangential_in_R_2}
-    For $f: \R^2 \to \R$,  let $X\times Y = \R^2$ be the domain and $Z = \R$ be 
-    the codomain. Then, we can define a tangential plane at $x_0 = (x',y')$ as follows: 
+    For $f: \R^2 \to \R$,  let $X\times Y = \R^2$ be the domain and $Z = \R$ be
+    the codomain. Then, we can define a tangential plane at $x_0 = (x',y')$ as follows:
     \begin{itemize}
-        \item Fix the $y$ component, we can define the following plane that is 
-            parallel to $Z-X$ plane: 
+        \item Fix the $y$ component, we can define the following plane that is
+            parallel to $Z-X$ plane:
             \[
                 z = f(x_0) + \frac{\partial f(x_0)}{ \partial x} (x - x')
             \]
-        \item Fix the $x$ component, we can define the following plane that is 
+        \item Fix the $x$ component, we can define the following plane that is
             parallel to $Z-Y$ plane:
             \[
                 z = f(x_0) + \frac{\partial f(x_0)}{ \partial y} (y - y')
             \]
     \end{itemize}
-    Then, the tangential plane is defined as: 
+    Then, the tangential plane is defined as:
     \[
-        f(x_0) + \left( \frac{\partial f(x_0)}{\partial x}, 
+        f(x_0) + \left( \frac{\partial f(x_0)}{\partial x},
         \frac{\partial f(x_0)}{\partial y} \right)\cdot(x - x_0)
     \]
 \end{remark}
 
 \paragraph{Projection}
-(Continued from the previous $f:\R^2 \to \R$ function) In $X\times Y$, we can 
+(Continued from the previous $f:\R^2 \to \R$ function) In $X\times Y$, we can
 draw a set of contour-lines at which $f(x)$ achieves the same $Z$-value.
 
-Under the projection, the tangential plane we defined previous now becomes a 
-tangent line. More importantly, the projection of \textit{gradient vector} is 
+Under the projection, the tangential plane we defined previous now becomes a
+tangent line. More importantly, the projection of \textit{gradient vector} is
 orthogonal to such tangent line in $X-Y$.
 
 In general, the gradient is also orthogonal to the tangent plane.
@@ -2096,10 +2097,10 @@ In general, the gradient is also orthogonal to the tangent plane.
 
 
 \paragraph{Implication of gradient}
-Formally, Remark \ref{remark:tangential_in_R_2} could be stated as follows: 
+Formally, Remark \ref{remark:tangential_in_R_2} could be stated as follows:
 \begin{itemize}
-    \item $\frac{\partial f(\bar x)}{\partial x_i}$ indicates the slope of the 
-        function $f$ restricted to the subset of $\R^n$ s.t. 
+    \item $\frac{\partial f(\bar x)}{\partial x_i}$ indicates the slope of the
+        function $f$ restricted to the subset of $\R^n$ s.t.
         \[
             x_j = \bar x_j , \qquad \forall j \not = i
         \]
@@ -2107,19 +2108,19 @@ Formally, Remark \ref{remark:tangential_in_R_2} could be stated as follows:
         $ \left( \frac{\partial f}{ \partial x_1}, \cdots, \frac{\partial f}{\partial x_n} \right) $
         denotes the tangent plane's ``slope''.
 
-    \item The gradient $\left( \frac{\partial f}{ \partial x_1}, \cdots, 
-        \frac{\partial f}{\partial x_n} \right)$ points out the direction in 
+    \item The gradient $\left( \frac{\partial f}{ \partial x_1}, \cdots,
+        \frac{\partial f}{\partial x_n} \right)$ points out the direction in
         $\R^n$ along which $f$ increases the fastest.
 \end{itemize}
 
 \paragraph{Example interpreting properties of gradient: $z= 2x + y$}
 \begin{enumerate}
     \item Plot it in $x-y-z$;
-    \item Calculate the gradient at $(1,2)$ as: $\nabla f(1,2) = (2,1)$ through 
+    \item Calculate the gradient at $(1,2)$ as: $\nabla f(1,2) = (2,1)$ through
         definition.
-    \item Demonstrate the solution to the following optimization problem 
+    \item Demonstrate the solution to the following optimization problem
         \[
-            \underset{\Delta x, \Delta y} \lim 2(\bar x + \Delta x) + (\bar y + 
+            \underset{\Delta x, \Delta y} \lim 2(\bar x + \Delta x) + (\bar y +
             \Delta y)
         \]
         \[\qquad \qquad s.t. || (\Delta x , \Delta y) || =  1\]
@@ -2128,7 +2129,7 @@ Formally, Remark \ref{remark:tangential_in_R_2} could be stated as follows:
 \subsection{Vector \& Matrix Differentiation}
 \setcounter{theorem}{0}
 \begin{definition}
-    For $f: \R^n \to \R^m$, write $f(x) = 
+    For $f: \R^n \to \R^m$, write $f(x) =
     \begin{bmatrix}
         f^{(1)}(x) \\
         \vdots \\
@@ -2140,7 +2141,7 @@ Formally, Remark \ref{remark:tangential_in_R_2} could be stated as follows:
         f^{(1)}(x) \\
         \vdots \\
         f^{(m)}(x)
-    \end{bmatrix} = 
+    \end{bmatrix} =
     \begin{bmatrix}
         f_1^{(1)} (x)  & \cdots  & f_n^{(1)} (x)\\
         \vdots & \ddots & \vdots \\
@@ -2148,16 +2149,16 @@ Formally, Remark \ref{remark:tangential_in_R_2} could be stated as follows:
     \end{bmatrix}
     $, where $f'(x)$ is defined to be a $m \times n$ matrix.
 
-    Convention here is different from what we used for multi-variable 
-    single-valued functions, where $f^{(n)} \coloneqq \frac{d^n f}{d x^n}$ for 
+    Convention here is different from what we used for multi-variable
+    single-valued functions, where $f^{(n)} \coloneqq \frac{d^n f}{d x^n}$ for
     $f: \R^n \to \R$.
     \textbf{Here}, $f^{(m)}(x)$ is the $m$-th in the codomain.
 
-    Example: for $f(x,y) = 
+    Example: for $f(x,y) =
     \begin{bmatrix}
         2x + y\\3x^2
-    \end{bmatrix}$, then 
-    $D f(x,y) = 
+    \end{bmatrix}$, then
+    $D f(x,y) =
     \begin{bmatrix}
         2   & 1 \\
         6 x & 0
@@ -2166,14 +2167,14 @@ Formally, Remark \ref{remark:tangential_in_R_2} could be stated as follows:
 
     \begin{definition}
         [Higher order (partial) derivatives for single-valued function]
-        The Higher order (partial) derivatives for $f: \R^n \to \R$ is a $1 
-        \times n$ vector defined as: 
+        The Higher order (partial) derivatives for $f: \R^n \to \R$ is a $1
+        \times n$ vector defined as:
         \[
             \frac{df }{d x} = Df = [f_1(x), \cdots, f_n(x)].
         \]
-        For the second order derivative: 
+        For the second order derivative:
         \[
-            \frac{d}{dx}\left( \frac{d f}{dx} \right) = D^2 f = 
+            \frac{d}{dx}\left( \frac{d f}{dx} \right) = D^2 f =
             \begin{bmatrix}
                 f_{11}(x) & \cdots & f_{1n}(x) \\
                 \vdots & \ddots & \vdots \\
@@ -2181,11 +2182,28 @@ Formally, Remark \ref{remark:tangential_in_R_2} could be stated as follows:
             \end{bmatrix}
             = \frac{\partial^2 f }{\partial x \partial x^T}
         \]
-        Here, $x$ is a vector, and $\partial x \partial x^T \simeq x^2$ in 
+        Here, $x$ is a vector, and $\partial x \partial x^T \simeq x^2$ in
         $\R^1$, where $\simeq$ is defined in terms of equivalent expression.
+        %
+        \textbf{Note that,} the goal here is to let $f' \cdot x$ yield a scalar,
+        instead of a matrix.
 
-        Note that, the goal here is to let $f' \cdot x$ yield a scalar, instead 
-        of a matrix.
+        Additionally, for $f: \R^{m \times n} \to \R$, suppose $A \in \R^{m
+        \times n}$, then:
+        \[
+            D f(A) \coloneqq
+            \begin{bmatrix}
+                \frac{f(A)}{\partial A_{11}} & \cdots & \frac{\partial
+                f(A)}{\partial A_{1n}} \\
+                \vdots & \ddots & \vdots \\
+                \frac{\partial f(A)}{\partial A_{m1}} & \cdots &
+                \frac{\partial f(A)}{\partial A_{m\times n}}
+            \end{bmatrix}
+        \]
+        Note it here that $\R^{2\times 2}\not= \R^4$, in terms of expression of
+        the elements in such Euclidean space. However, the dimensionality of the
+        two spaces are the same, thereby there exists a bijection between
+        $\R^{2\times 2}$ and $\R^4$.
     \end{definition}
 \end{definition}
 
@@ -2193,54 +2211,54 @@ Formally, Remark \ref{remark:tangential_in_R_2} could be stated as follows:
     (Example: for taking derivative of composite functions.)
 
     \begin{enumerate}
-        \item $f(x,y)$ is a real-valued function, and $x = u + \log v$ and 
-            $y = u - \log v$. Show that: 
+        \item $f(x,y)$ is a real-valued function, and $x = u + \log v$ and
+            $y = u - \log v$. Show that:
             \[
-                \frac{\partial^2 f}{\partial u^2 } = \frac{\partial^2 
-                    f}{\partial x^2} + 2 \frac{\partial^2 f}{\partial x 
+                \frac{\partial^2 f}{\partial u^2 } = \frac{\partial^2
+                    f}{\partial x^2} + 2 \frac{\partial^2 f}{\partial x
                 \partial y} + \frac{\partial ^2 f }{ \partial y^2}
             \]
             \begin{proof}
-                Write first taht $f(x(u,v), y(u,v))$ where $x(u,v) = u + 
+                Write first taht $f(x(u,v), y(u,v))$ where $x(u,v) = u +
                 \log v$; $y(u,v) = u  - \log v$.
                 \[
-                    \frac{\partial f(x(u,v), y(u,v))}{\partial u} = f_x 
-                    \frac{\partial x}{\partial u} + f_y 
+                    \frac{\partial f(x(u,v), y(u,v))}{\partial u} = f_x
+                    \frac{\partial x}{\partial u} + f_y
                     \frac{\partial y}{ \partial u} = f_x + f_y
                 \]
-                (note that, $\frac{\partial x}{\partial u}  = 1$ and 
-                $\frac{\partial y}{\partial u} = 1$, by evaluating the 
+                (note that, $\frac{\partial x}{\partial u}  = 1$ and
+                $\frac{\partial y}{\partial u} = 1$, by evaluating the
                     functional form.)
 
-                    Now, take this simplified functional form for 
-                    $\frac{\partial f }{ \partial u} = f_x + f_y$, look 
-                    into: 
+                    Now, take this simplified functional form for
+                    $\frac{\partial f }{ \partial u} = f_x + f_y$, look
+                    into:
                     \[
-                        \frac{\partial^2 f}{\partial u^2} = f_{xx} \cdot 
-                        \frac{\partial x}{ \partial u} + f_{xy} \cdot 
-                        \frac{\partial y}{\partial u} + f_{yx} \cdot 
-                        \frac{\partial x}{\partial u} + 
-                        f_{y y} \cdot \frac{\partial 
+                        \frac{\partial^2 f}{\partial u^2} = f_{xx} \cdot
+                        \frac{\partial x}{ \partial u} + f_{xy} \cdot
+                        \frac{\partial y}{\partial u} + f_{yx} \cdot
+                        \frac{\partial x}{\partial u} +
+                        f_{y y} \cdot \frac{\partial
                         y}{\partial u}
                     \]
-                    Simplify this by evaluating $\frac{\partial x}{\partial 
-                    u} = 1 = \frac{\partial y}{\partial u}$ and get the 
+                    Simplify this by evaluating $\frac{\partial x}{\partial
+                    u} = 1 = \frac{\partial y}{\partial u}$ and get the
                     expression we wanted to show.
             \end{proof}
-        \item $f(x,y) = g(\frac{x}{y})$, $g$ is differentiable, show that: 
-            \[ 
-                x \cdot \frac{\partial f }{ \partial x} + y 
+        \item $f(x,y) = g(\frac{x}{y})$, $g$ is differentiable, show that:
+            \[
+                x \cdot \frac{\partial f }{ \partial x} + y
                 \frac{\partial f}{ \partial y}
             \]
             \begin{proof}
-                Take the original equality and differentiated w.r.t $x$ and 
-                $y$, we have: 
+                Take the original equality and differentiated w.r.t $x$ and
+                $y$, we have:
                 \[
-                    \frac{\partial f}{\partial x} = g' \frac{\partial 
+                    \frac{\partial f}{\partial x} = g' \frac{\partial
                     \left( \frac{x}{y} \right)}{\partial x} = \frac{1}{y} \cdot g'
                 \]
                 \[
-                    \frac{\partial f}{\partial y} = g' \frac{\partial \left( 
+                    \frac{\partial f}{\partial y} = g' \frac{\partial \left(
                     \frac{x}{y} \right)}{\partial y} =  \frac{x}{-y^2} g'
                 \]
             \end{proof}
@@ -2248,24 +2266,277 @@ Formally, Remark \ref{remark:tangential_in_R_2} could be stated as follows:
 \end{exercise}
 
 \begin{definition}
-    [Inner product]
-    For matrices and vectors that are made of real numbers, inner product is 
-    defined as: 
-    \[
+    [Derivative of a inner product]
+    For matrices and vectors that are made of real numbers, inner product is
+    defined as:
+    $
         a^T\cdot x = \sum_{i=1}^n a_i x_i,
+    $
+    where $x = (x_1, \ldots, x_n)^T$ (as a $n\times 1$ (column) vector); and $a =
+    (a_1, \ldots, a_n)^T$ (as a $n\times 1$ (column) vector). Then, the
+    derivative w.r.t to $x$ (a vector) is defined as:
+    \[
+        \frac{\partial a^T \cdot x}{\partial x} = a
     \]
-    where $x = (x_1, \ldots, x_n)^T$ (as a $n\times 1$ (column) vector); and $a = 
-    (a_1, \ldots, a_n)^T$ (as a $n\times 1$ (column) vector).
 \end{definition}
 
+\begin{definition}
+    [Derivative for  $A x$]
+    Let $A$ be a $m\times n$ matrix, then
+    \[
+        \frac{\partial (A x)}{\partial x} = A^T, \text{ simillarly, we have: }
+        \frac{\partial (Ax)}{\partial x^T} =A
+    \]
+\end{definition}
 
+\begin{definition}
+    [Derivative for $x^T A x$]
+    Let $A$ be a $ n \times n $ matrix, and $x =
+    \begin{bmatrix}
+        x_1\\\vdots\\x_n
+    \end{bmatrix}
+    $, then:
+    \[
+        \frac{\partial \left( x^T A x \right)}{\partial x} = (A + A^T) x
+    \]
+    On the other hand, we write:
+    \[
+        \frac{\partial \left( x^T A x \right)}{\partial A} = x  x^T \quad
+        \Leftarrow n \times n \text{
+        square matrix.}
+    \]
+    Remember that $x$ is defined to be a $n\times 1$ vector, upon
+    differentiating w.r.t. a square matrix, we get a square matrix in return.
+    (Though, it is yet unclear what each element in the matrix shall mean upon
+    this operation.)
+\end{definition}
 
+\subsection{Matrix}
+\setcounter{theorem}{0}
+\begin{definition}
+    [Inverse of a matrix]
+    Let $A$ be a $n\times n$ matrix, then $A$ is invertible if $\exists  B$
+    (also a $n \times n$ matrix) s.t.
+    \[
+        A B =  BA = I_n, \text{ where } I_n =
+        \begin{bmatrix}
+            1 & \cdots & 0 \\
+            \vdots & \ddots & \vdots \\
+            0 & \cdots & 1
+        \end{bmatrix} _ {n\times n}
+    \]
+\end{definition}
 
+\begin{fact}
+    If $A$ is a square matrix, then $A B = I_n \implies BA = I_n$.
+    \begin{proof}
+        [Idea of the proof]
+        Bijective and therefore invertible.
+        \begin{itemize}
+            \item $\exists$ left inverse $\iff$ injective;
+            \item $\exists$ right inverse $\iff$ surjective;
+            \item $BA =  I_n$ $\implies $ $A$ is injective $\implies$
+                $\dim(\ker(A)) = 0$.
+            \item The codomain $ V = \R^n$ $\implies \dim(V) = \dim(\text{im} A) +
+                \dim (\ker (A))$ where ``$\text{im} A$'' is the image of $A$.
+        \end{itemize}
+    \end{proof}
+\end{fact}
 
+\begin{definition}
+    [Orthogonal Matrix]
+    An orthogonal matrix is an $n \times n$ matrix $A$ s.t. $A A^T = A^T A =
+    I_n$, where $A^{-1} = A^T$. It has the following properties:
+    \begin{enumerate}[(1)]
+        \item Let $A = [u_1, \cdots, u_n]$ where $u_i$ is an $n\times 1$
+            (column) vector.
+            Then, each column vector has norm $1$, and for $i \not = j$, $u_i$
+            \& $u_j$ are orthogonal.
+            That is:
+            \[
+                u_i^T u_j = <u_i, u_j> = 0, \quad \forall i \not = j \text{ and
+                } ||u_i|| = \sqrt{<u_i,u_i>} = 1
+            \]
+        \item Let $A = \begin{bmatrix}
+            v_1 \\ \vdots \\ v_n
+        \end{bmatrix}$
+        where $v_i$ is a $1 \times n$ (row) vector. Similarly, we have:
+            \[
+                v_i v_j^T = <v_i, v_j> = 0, \quad \forall i \not = j \text{ and
+                } ||v_i|| = \sqrt{<v_i,v_i>} = 1
+            \]
+    \end{enumerate}
+\end{definition}
+
+\newpage
+\begin{definition}
+    [Determinant]
+    For $A= \begin{bmatrix}
+        a_{11} & a_{12} \\ a_{21} & a_{22}
+    \end{bmatrix}$, its determinant $\det(A)$ denotes the area enclosed by the
+    two column vectors, when letting them shooting out from origin.
+\end{definition}
+
+\begin{proposition}
+    $A$ is invertible if and only if rank$(A) = n$, or
+    $\det(A)\coloneqq |A| \not = 0$.
+\end{proposition}
+
+{\Huge Exam does require calculating the determinant of a $3\times 3$ matrix.}
+
+\begin{remark}
+    [Operation of matrixes as transformation, and Eigenvalues and Eigenvectors]
+    A matrix can realize any one of the following operations (casted upon
+    vectors of same length), as a linear transformation:
+    \begin{itemize}
+        \item rotate
+        \item shrink/extend
+        \item reflection
+        \item shifting (moving around)
+    \end{itemize}
+    The ``eigenvector'', if exists, specifies one of the directions along which
+    the matrix does only the job of shrinking/extending. On this very direction,
+    imposing the linear transformation on a  vector will shrink/extend the
+    vector by a factor of $\lambda$, the eigenvalue.
+\end{remark}
+
+\begin{definition}
+    [Eigenvalue and Eigenvectors]
+    For a $n \times n$ matrix, if there exists $v \in \R^n$ and $\lambda \in
+    \R$ s.t.
+    \[
+        A v = \lambda v
+    \]
+    then $v$ is called  a right-eigenvector of $A$, associated with eigenvalue
+    $\lambda$.
+
+    If $v^T A = \lambda v^T$, then $v$ is called the left eigenvector of $A$
+    associated with eigenvalue $\lambda$. Note that, by definition, for the
+    $\lambda$ and $v$, we can also write $A^T v = \lambda v$.
+\end{definition}
+
+\begin{cookbook}
+    [Cookbook procedure to deriver $\lambda$ and $v$]
+    Upon simply algebra, we see:
+    \[
+        A v - \lambda v = 0 \iff A v- \lambda I_n v = (A - \lambda I_n) v = 0
+    \]
+    Now, if $A - \lambda I_n$ is invertible (?? due to the construct of
+    matrix??), then we are hopeless to find a valid/meaningful eigenvector.
+
+    Then, we look at the more interesting case where $A - \lambda I_n$ is not
+    invertible, that is:
+    \[
+        \det (A - \lambda I_n) = 0
+    \]
+    To solve for $\lambda$ and $v$:
+    \begin{enumerate}[Step 1:]
+        \item Find all $\lambda$'s s.t. $\det (A - \lambda I_n) = 0$;
+        \item For each eigenvalue $\lambda$, find all the vectors $v$ s.t.:
+            \[
+                (A - \lambda I_n) v = 0
+            \]
+    \end{enumerate}
+\end{cookbook}
+
+\begin{remark}
+    When solving for $\lambda$ of matrix $A$, we are literally solving a polynomial of degree
+    $n$. (Remember we have: $A$ is an $n \times n$ matrix.) Threrfore:
+    \begin{itemize}
+        \item When considering $\lambda \in \R$, we may well have $m$ distinct
+            eigenvalues s.t. $m \le n$
+            \begin{enumerate}
+                \item It is possible that $\lambda _i$ has multiplicity $>1$;
+                \item It is also likely that there is not so much real roots
+                    available to the polynomial.
+            \end{enumerate}
+        \item For an eigenvalue $\lambda$ with multiplicity $k$, it has $j \le
+            $k linearly independent eigenvalues. (Again, this peculiarity arose
+                from solving polynomials of degree $n$, as well as the
+            corresponding traits of matrix $A$).
+    \end{itemize}
+\end{remark}
+
+\paragraph{Orthogonal projections}
+\begin{definition}
+    Let $U$ be a vector space, and $V$ be a linear subspace of $U$. The
+    orthogonal projection of a vector $u \in  U$ to $V$ is a vector $P_v(u)$
+    s.t.
+    \begin{enumerate}[(i)]
+        \item $P_v(u) \in V$;
+        \item $(u - P_v(u))\cdot v = 0$, $\forall v \in V$.
+    \end{enumerate}
+    Or, \textbf{equivalently}, $P_v(u) \coloneqq \underset{v \in V} {\arg \min}
+    ||u - v||$.
+\end{definition}
+
+\begin{proposition}
+    If $V$ is a linear subspace of linear space $U$, then $\forall u \in U$,
+    $\exists \hat u \in V$ and $\varepsilon \in V^{{\text{orthogonal space
+    w.r.t }U}}$ s.t.
+    \[
+        u = \hat u + \varepsilon
+    \]
+    where $\varepsilon \cdot v = 0$, $\forall v \in V$.
+\end{proposition}
+
+\section{Lecture 5: Measure Theory}
+
+\begin{remark}
+    [Overview of types of integrations]
+    Riemann Integration $\to$ Riemann-Stieltjes Integration $\to$ Lebesgue
+    Integration $\to $ Lebesgue-Stieltjes Integration.
+\end{remark}
+
+\begin{definition}
+    [Partitions in $\R$.]
+    A partition $P$ on $[a,b]$ is a finite set of points $x_0, x_1, \ldots, x_n$
+    s.t.
+    \[
+        x_0 = a \le x_2 \le \ldots \le x_{n-1} \le x_n = b
+    \]
+    Denote $\Delta x_i = x_i - x_{i-1}$, $\forall i > 0$.
+\end{definition}
+
+\begin{definition}
+    [Given partition $P$, $M_i$ and $m_i$; $U(P,f)$ and $L(P,f)$;
+    $\bar{\int_a^b} f dx$ and $\underline{\int_a^b } fdx$]
+    Assume first that $f$ is bounded and consider a given partition $P$, write:
+    \[
+        M_i = \sup_{x \in [x_{i-1}, x_i]} f(x)
+        \quad \text{ and } \quad
+        m_i = \inf_{x \in [x_{i-1}, x_i]} f(x)
+    \]
+    Note: the ultimate goal is to establish the notion of integral by refining the
+    partitions.
+
+    Given $f$ and a certain partition $P$, we define:
+    \[
+        U(P, f) = \sum_{i=1}^n M_i \Delta x_i
+        \quad \text{ and } \quad
+        L(P, f) = \sum_{i=1}^n m_i \Delta x_i
+    \]
+\end{definition}
+
+\begin{definition}
+    [Riemann Integral]
+    $f$ is Riemann integrable if
+    \[
+        \bar{\int_a^b} f dx = \underline{\int_a^b} fdx
+    \]
+    Then, we can write $\int_a^b f =
+    \bar{\int_a^b} f dx = \underline{\int_a^b} fdx$.
+\end{definition}
+
+\begin{remark}
+    When dealing with probability, Riemann integral is not general enough.
+\end{remark}
+
+\begin{example}
+    Let $\alpha: [a,b] \to \R$ be a weakly increasing function\footnote{Here, it 
+    is clear that $\alpha$ is a bounded function.}. Then, 
+\end{example}
 
 \bibliographystyle{plainnat}
 \bibliography{ref}
-
-
 \end{document}
-\usepackage{natbib}
