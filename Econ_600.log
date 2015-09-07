@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.9.4)  4 SEP 2015 15:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.9.4)  7 SEP 2015 18:56
 entering extended mode
 **Econ_600.tex
 (Econ_600.tex
@@ -693,21 +693,36 @@ File: upsy.fd 2001/06/04 font definitions for U/psy.
 \ULC@box=\box52
 Package: ulem 2012/05/18
 \ULdepth=\dimen171
-) (Econ_600.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 176.
-LaTeX Font Info:    ... okay on input line 176.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 176.
-LaTeX Font Info:    ... okay on input line 176.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 176.
-LaTeX Font Info:    ... okay on input line 176.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 176.
-LaTeX Font Info:    ... okay on input line 176.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 176.
-LaTeX Font Info:    ... okay on input line 176.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 176.
-LaTeX Font Info:    ... okay on input line 176.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 176.
-LaTeX Font Info:    ... okay on input line 176.
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\stackengine\stackengine.sty"
+Package: stackengine 2014/01/06 v3.24\ Stacking text and objects in convenient 
+ways
+\c@@stackindex=\count163
+\@boxshift=\skip128
+\stack@tmplength=\skip129
+\temp@stkl=\skip130
+\@stackedboxwidth=\skip131
+\@addedbox=\box53
+\@anchorbox=\box54
+\stackedbox=\box55
+\@centerbox=\box56
+\c@ROWcellindex@=\count164
+)
+(Econ_600.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 180.
+LaTeX Font Info:    ... okay on input line 180.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 180.
+LaTeX Font Info:    ... okay on input line 180.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 180.
+LaTeX Font Info:    ... okay on input line 180.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 180.
+LaTeX Font Info:    ... okay on input line 180.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 180.
+LaTeX Font Info:    ... okay on input line 180.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 180.
+LaTeX Font Info:    ... okay on input line 180.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 180.
+LaTeX Font Info:    ... okay on input line 180.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -745,168 +760,168 @@ LaTeX Font Info:    ... okay on input line 176.
 
 Package marginnote Info: \pdfoutput not 0 and \pdflastxpos available.
 (marginnote)             Extended position detection mode activated.
-\AtBeginShipoutBox=\box53
-Package hyperref Info: Link coloring ON on input line 176.
+\AtBeginShipoutBox=\box57
+Package hyperref Info: Link coloring ON on input line 180.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count163
+\c@section@level=\count165
 )
-LaTeX Info: Redefining \ref on input line 176.
-LaTeX Info: Redefining \pageref on input line 176.
-LaTeX Info: Redefining \nameref on input line 176.
+LaTeX Info: Redefining \ref on input line 180.
+LaTeX Info: Redefining \pageref on input line 180.
+LaTeX Info: Redefining \nameref on input line 180.
 
 (Econ_600.out) (Econ_600.out)
 \@outlinefile=\write3
 
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count164
+\scratchcounter=\count166
 \scratchdimen=\dimen172
-\scratchbox=\box54
-\nofMPsegments=\count165
-\nofMParguments=\count166
+\scratchbox=\box58
+\nofMPsegments=\count167
+\nofMParguments=\count168
 \everyMPshowfont=\toks34
-\MPscratchCnt=\count167
+\MPscratchCnt=\count169
 \MPscratchDim=\dimen173
-\MPnumerator=\count168
-\makeMPintoPDFobject=\count169
+\MPnumerator=\count170
+\makeMPintoPDFobject=\count171
 \everyMPtoPDFconversion=\toks35
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 178.
+LaTeX Font Info:    Try loading font information for U+msa on input line 182.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 178.
+LaTeX Font Info:    Try loading font information for U+msb on input line 182.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 178.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 182.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\jknappen\ursfs.fd"
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 189.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 193.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 189.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 193.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@ifnextchar' on input line 196.
+(hyperref)                removing `\@ifnextchar' on input line 200.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 196.
+(hyperref)                removing `math shift' on input line 200.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 196.
+(hyperref)                removing `math shift' on input line 200.
 
 [1
 
 {C:/Users/llinfeng/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 Package marginnote Info: Margin note 2.1 is on absolute page 2
-(marginnote)              on input line 255.
-Package marginnote Info: right page because not two side mode on input line 255
+(marginnote)              on input line 259.
+Package marginnote Info: right page because not two side mode on input line 259
 .
 Package marginnote Info: xpos seems to be 487.49904pt,
-(marginnote)             \marginnoterightadjust ignored on input line 255.
+(marginnote)             \marginnoterightadjust ignored on input line 259.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 272.
+(mdframed)              on input line 276.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 305.
+(mdframed)              on input line 309.
 
 [2]
-Package mdframed Info: Not enough space on this page on input line 310.
+Package mdframed Info: Not enough space on this page on input line 314.
  [3] [4]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 448.
+(mdframed)              on input line 452.
 pdfTeX warning (ext4): destination with the same identifier (name{theorem.1.1})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.518     F
+l.522     F
            or two sets $A$ and $B$, an ordered pair is $(a,b)$ such that $a ...
 pdfTeX warning (ext4): destination with the same identifier (name{theorem.1.2})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.524     L
+l.528     L
            et there be $n$ sets: $A_1, \ldots, A_n$,pdfTeX warning (ext4): dest
 ination with the same identifier (name{theorem.1.3}) has been already used, dup
 licate ignored
 <to be read again> 
                    \relax 
-l.532     L
+l.536     L
            et $A_1, \ldots, A_n$ be non-empty sets. Cartesion product of $A_...
 pdfTeX warning (ext4): destination with the same identifier (name{theorem.1.4})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.543     A
+l.547     A
             relation from set $A$ to set $B$ is a subset of $A\times B$, den...
 [5]pdfTeX warning (ext4): destination with the same identifier (name{theorem.1.
 5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.554     A
+l.558     A
             relation $R \subseteq A \times A$ is said to be:pdfTeX warning (ext
 4): destination with the same identifier (name{theorem.1.6}) has been already u
 sed, duplicate ignored
 <to be read again> 
                    \relax 
-l.596     A
+l.600     A
            n \textbf{equivalence} on set $A$ is a relation $E$ that ispdfTeX wa
 rning (ext4): destination with the same identifier (name{theorem.1.7}) has been
  already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.610     A
+l.614     A
             function from set $A$ to set $B$ is a relation $f$ from $A$ to $...
 [6]pdfTeX warning (ext4): destination with the same identifier (name{theorem.1.
 8}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.630     I
+l.634     I
            f $f$ is a function from $A$ to $B$, then $A$ is called thepdfTeX wa
 rning (ext4): destination with the same identifier (name{theorem.1.9}) has been
  already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.640     [Propoteries of functions] L
+l.644     [Propoteries of functions] L
                                       et $f$ be a function, then:
 Package marginnote Info: Margin note 7.1 is on absolute page 7
-(marginnote)              on input line 643.
-Package marginnote Info: right page because not two side mode on input line 643
+(marginnote)              on input line 647.
+Package marginnote Info: right page because not two side mode on input line 647
 .
 Package marginnote Info: xpos seems to be 264.99153pt,
-(marginnote)             \marginnoterightadjust ignored on input line 643.
+(marginnote)             \marginnoterightadjust ignored on input line 647.
 Package marginnote Info: Margin note 7.2 is on absolute page 7
-(marginnote)              on input line 645.
-Package marginnote Info: right page because not two side mode on input line 645
+(marginnote)              on input line 649.
+Package marginnote Info: right page because not two side mode on input line 649
 .
 Package marginnote Info: xpos seems to be 357.78267pt,
-(marginnote)             \marginnoterightadjust ignored on input line 645.
+(marginnote)             \marginnoterightadjust ignored on input line 649.
 pdfTeX warning (ext4): destination with the same identifier (name{theorem.1.10}
 ) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.662     F
+l.666     F
            or $f: A \to B$ and $C\subseteq A$, \underline{ the \textbf{image...
 
-Overfull \hbox (21.9323pt too wide) in paragraph at lines 662--664
+Overfull \hbox (21.9323pt too wide) in paragraph at lines 666--668
 [][]\OT1/cmr/bx/n/12 Definition 1.10 \OT1/cmr/m/n/12 (Im-age and Preim-age)\OT1
 /cmr/bx/n/12 . [][]\OT1/cmr/m/n/12 For $\OML/cmm/m/it/12 f \OT1/cmr/m/n/12 : \O
 ML/cmm/m/it/12 A \OMS/cmsy/m/n/12 ! \OML/cmm/m/it/12 B$ \OT1/cmr/m/n/12 and $\O
@@ -917,22 +932,22 @@ pdfTeX warning (ext4): destination with the same identifier (name{theorem.1.11}
 ) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.689     G
+l.693     G
            iven $f: A \to B$, then $f^{-1}: B \to A$ is a function if and on...
 pdfTeX warning (ext4): destination with the same identifier (name{theorem.1.12}
 ) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.696     A
+l.700     A
             sequence is a function $f: N \to A$, denoted by $\{a_1, a_2, \ld...
 pdfTeX warning (ext4): destination with the same identifier (name{theorem.1.13}
 ) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.706     T
+l.710     T
            wo sets $A, B$ have the same cardinality if $\exists$ a bijective...
 
-Overfull \hbox (13.30763pt too wide) in paragraph at lines 706--708
+Overfull \hbox (13.30763pt too wide) in paragraph at lines 710--712
 [][]\OT1/cmr/bx/n/12 Definition 1.13 \OT1/cmr/m/n/12 (Car-di-nal-ity, for (in-f
 i-nite) se-quences)\OT1/cmr/bx/n/12 . [][]\OT1/cmr/m/n/12 Two sets $\OML/cmm/m/
 it/12 A; B$ \OT1/cmr/m/n/12 have the same car-di-nal-ity
@@ -942,81 +957,81 @@ it/12 A; B$ \OT1/cmr/m/n/12 have the same car-di-nal-ity
 14}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.721     $
+l.725     $
            T: A \rightrightarrows B$ is a correspondence such that $T: A \to...
 pdfTeX warning (ext4): destination with the same identifier (name{theorem.1.1})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.729     A
+l.733     A
             sequence of real number is a function $a : N \to \R$ s.t. $a(i) ...
 pdfTeX warning (ext4): destination with the same identifier (name{theorem.1.2})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.734     A
+l.738     A
             real sequence is increasing if $a_{n+1} \ge a_n$ $\forall n \in N$.
 pdfTeX warning (ext4): destination with the same identifier (name{theorem.1.3})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.738     A
+l.742     A
             real sequence ispdfTeX warning (ext4): destination with the same id
 entifier (name{theorem.1.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.752     $
+l.756     $
            a \in \R$ is the least upper bound of a sequence $\{a_n\}$ ifpdfTeX 
 warning (ext4): destination with the same identifier (name{theorem.1.5}) has be
 en already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.762     I
+l.766     I
            f $S$ is a nonempty set of real numbers that is bounded above, th...
 pdfTeX warning (ext4): destination with the same identifier (name{theorem.1.6})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.771     A
+l.775     A
             real sequence $\{a_n\}$ converges to the limit $a\in \R$ if $\fo...
 [8] [9] [10]
 Package marginnote Info: Margin note 11.1 is on absolute page 12
-(marginnote)              on input line 1038.
-Package marginnote Info: right page because not two side mode on input line 103
-8.
+(marginnote)              on input line 1042.
+Package marginnote Info: right page because not two side mode on input line 104
+2.
 Package marginnote Info: xpos seems to be 175.86075pt,
-(marginnote)             \marginnoterightadjust ignored on input line 1038.
+(marginnote)             \marginnoterightadjust ignored on input line 1042.
  [11] [12]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1143.
+(mdframed)              on input line 1147.
  [13]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1248.
+(mdframed)              on input line 1252.
  [14]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1297.
+(mdframed)              on input line 1301.
 pdfTeX warning (ext4): destination with the same identifier (name{theorem.2.1})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1314     A
+l.1318     A
              real valued function defined on $X$ (an arbitrary set) is repre...
 pdfTeX warning (ext4): destination with the same identifier (name{theorem.2.2})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1320 \begin{notation} F
+l.1324 \begin{notation} F
                          or $a \in \R$ and $f,g$ being real value functions,pdf
 TeX warning (ext4): destination with the same identifier (name{theorem.2.3}) ha
 s been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1336 ...strictly/weakly increasing/decreasing] C
+l.1340 ...strictly/weakly increasing/decreasing] C
                                                   onstruction is intuitive and
-Overfull \hbox (3.58127pt too wide) in paragraph at lines 1336--1338
+Overfull \hbox (3.58127pt too wide) in paragraph at lines 1340--1342
 [][]\OT1/cmr/bx/n/12 Definition 2.3 \OT1/cmr/m/n/12 (strictly/weakly in-creas-i
 ng/decreasing)\OT1/cmr/bx/n/12 . [][]\OT1/cmr/m/n/12 Con-struc-tion is in-tu-it
 ive and thereby
@@ -1026,57 +1041,57 @@ pdfTeX warning (ext4): destination with the same identifier (name{theorem.2.4})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1341     [Limit of function] A
+l.1345     [Limit of function] A
                                  function $f : x \to \R$ converges to $a \in...
 pdfTeX warning (ext4): destination with the same identifier (name{theorem.2.5})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1355     A
+l.1359     A
              function $f : x \to \R$ converges to $a \in \R$ from right as $x$
 [15]pdfTeX warning (ext4): destination with the same identifier (name{theorem.2
 .6}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1368     S
+l.1372     S
             uppose $f: X \to \R$ and $g: X \to \R$, with $\underset{x\to x_0...
 pdfTeX warning (ext4): destination with the same identifier (name{theorem.2.7})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1379     [Continuity] A
+l.1383     [Continuity] A
                           function $f: X \to \R$ is continuous at $x_0 \in X...
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1388.
+(hyperref)                removing `math shift' on input line 1392.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\to' on input line 1388.
+(hyperref)                removing `\to' on input line 1392.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1388.
+(hyperref)                removing `math shift' on input line 1392.
 
 [16]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1437.
+(mdframed)              on input line 1441.
  [17]
-Overfull \hbox (1.47589pt too wide) in paragraph at lines 1495--1498
+Overfull \hbox (1.47589pt too wide) in paragraph at lines 1499--1502
 [][]\OT1/cmr/m/n/12 Note that, by con-struc-tion of $\OML/cmm/m/it/12 span\OT1/
 cmr/m/n/12 (\OML/cmm/m/it/12 A\OT1/cmr/m/n/12 )$, ar-bi-trary co-ef-fi-cient is
  al-lows. Let-ting
  []
 
 [18]
-Overfull \hbox (0.10538pt too wide) in paragraph at lines 1548--1550
+Overfull \hbox (0.10538pt too wide) in paragraph at lines 1552--1554
 [][]\OT1/cmr/m/n/12 Note that, it seems to me that the finite-ness as-sump-tion
  only serves the need of sim-pli-fy-ing
  []
 
 
-Overfull \hbox (17.67467pt too wide) in paragraph at lines 1568--1570
+Overfull \hbox (17.67467pt too wide) in paragraph at lines 1572--1574
 [][]\OT1/cmr/bx/n/12 Definition 3.13 \OT1/cmr/m/n/12 (Rank of a ma-trix)\OT1/cm
 r/bx/n/12 . [][]\OT1/cmr/m/n/12 The \OT1/cmr/m/it/12 max-i-mum num-ber \OT1/cmr
 /m/n/12 of lin-early in-de-pen-dent row/column
@@ -1086,182 +1101,182 @@ pdfTeX warning (ext4): destination with the same identifier (name{theorem.3.1})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1593     A
+l.1597     A
             n interval of $\R$ is either $[a,b]$, $(a,b]$, $[a,b)$ or $(a,b)...
 pdfTeX warning (ext4): destination with the same identifier (name{theorem.3.2})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1600     I
+l.1604     I
             f $I$ is an interval of $\R$ \footnote{ $I$ could be a connected...
 pdfTeX warning (ext4): destination with the same identifier (name{theorem.3.3})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1606     I
+l.1610     I
             f $f$ is continuous and bijective (thus invertible, i.e. $f^{-1}...
 [19pdfTeX warning (ext4): destination with the same identifier (name{theorem.3.
 13}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1614         \begin{quote}
+l.1618         \begin{quote}
                             ]pdfTeX warning (ext4): destination with the same i
 dentifier (name{theorem.3.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1624     I
+l.1628     I
             f $f: [a,b] \to \R$ is continuous, then $\exists x_1, x_2 \in [a...
 pdfTeX warning (ext4): destination with the same identifier (name{theorem.3.5})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1637     $
+l.1641     $
             f : x \to \R$ is said to be uniformly continuous if $\forall \va...
 pdfTeX warning (ext4): destination with the same identifier (name{theorem.3.6})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1650     P
+l.1654     P
             rove that $f(x) = \frac{1}{x}$ ($x > 0$) is not uniformly contin...
 [20]pdfTeX warning (ext4): destination with the same identifier (name{theorem.3
 .1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1702     `
+l.1706     `
             `Differentiation'' is essentially a process of taking linear app...
 pdfTeX warning (ext4): destination with the same identifier (name{theorem.3.2})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1707     T
+l.1711     T
             he tangent line to a function $y = f(x)$ at the point $(x_0,pdfTeX 
 warning (ext4): destination with the same identifier (name{theorem.3.3}) has be
 en already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1722     T
+l.1726     T
             he \textbf{derivative of $f: x \to \R$} {\textbf{at} $\highlight...
 pdfTeX warning (ext4): destination with the same identifier (name{theorem.3.4})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1740     [Properties of derivatives] F
+l.1744     [Properties of derivatives] F
                                         or $f,g$ as functions and $a,b \in \R$:
 pdfTeX warning (ext4): destination with the same identifier (name{theorem.3.5})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1748     [Chain Rule] I
+l.1752     [Chain Rule] I
                          f $g: x\to \R$ is differentiable at $x_0 \in X$ and...
 [21]pdfTeX warning (ext4): destination with the same identifier (name{theorem.3
 .6}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1761     I
+l.1765     I
             f $f: X \to Y$ is bijective, then derivative of $f^{-1}: Y \to X...
 pdfTeX warning (ext4): destination with the same identifier (name{theorem.3.7})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1779     F
+l.1783     F
             unction $f: X \to \R$ has a local maximum at $x_0 \in X$ if $\ex...
 pdfTeX warning (ext4): destination with the same identifier (name{theorem.3.8})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1788     I
+l.1792     I
             f $f: X \to \R$ is differentiable, and has a local maximum atpdfTeX
  warning (ext4): destination with the same identifier (name{theorem.3.9}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1819     I
+l.1823     I
             f $f:[a,b] \to \R$ is differentiable and  $f(a) = f(b) = 0$, the...
 [22]pdfTeX warning (ext4): destination with the same identifier (name{theorem.3
 .10}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1838     I
+l.1842     I
             f $f: [a,b] \to \R$ is differentiable, then $\exists x _ 0 \in (...
 pdfTeX warning (ext4): destination with the same identifier (name{theorem.3.11}
 ) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1854     L
+l.1858     L
             et $f: [a,b] \to \R$, $g:[a,b] \to \R$ be both differentiable, then
 pdfTeX warning (ext4): destination with the same identifier (name{theorem.3.12}
 ) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1867     $
+l.1871     $
             f$ and $g$ are differentiable, with $g'(x) \not = 0$, $\forall x...
 pdfTeX warning (ext4): destination with the same identifier (name{theorem.3.13}
 ) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1879     I
+l.1883     I
             f $\underset{x \to x_0} \lim f'(x)$ exists, then $f'(x_0) = \und...
 [23] [24] [25] [26]pdfTeX warning (ext4): destination with the same identifier 
 (name{theorem.4.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2132     F
+l.2136     F
             or $f: \R^n \to \R^m$, write $f(x) =pdfTeX warning (ext4): destinat
 ion with the same identifier (name{theorem.4.2}) has been already used, duplica
 te ignored
 <to be read again> 
                    \relax 
-l.2170         T
+l.2174         T
                 he Higher order (partial) derivatives for $f: \R^n \to \R$ i...
 [27]pdfTeX warning (ext4): destination with the same identifier (name{theorem.4
 .4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2270     F
+l.2274     F
             or matrices and vectors that are made of real numbers, inner pro...
 pdfTeX warning (ext4): destination with the same identifier (name{theorem.4.5})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2285     L
+l.2289     L
             et $A$ be a $m\times n$ matrix, thenpdfTeX warning (ext4): destinat
 ion with the same identifier (name{theorem.4.6}) has been already used, duplica
 te ignored
 <to be read again> 
                    \relax 
-l.2294     L
+l.2298     L
             et $A$ be a $ n \times n $ matrix, and $x = [28]pdfTeX warning (ext
 4): destination with the same identifier (name{theorem.4.1}) has been already u
 sed, duplicate ignored
 <to be read again> 
                    \relax 
-l.2318     L
+l.2322     L
             et $A$ be a $n\times n$ matrix, then $A$ is invertible if $\exis...
 pdfTeX warning (ext4): destination with the same identifier (name{theorem.4.2})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2331     I
+l.2335     I
             f $A$ is a square matrix, then $A B = I_n \implies BA = I_n$.pdfTeX
  warning (ext4): destination with the same identifier (name{theorem.4.3}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2348     A
+l.2352     A
             n orthogonal matrix is an $n \times n$ matrix $A$ s.t. $A A^T = ...
 [29]pdfTeX warning (ext4): destination with the same identifier (name{theorem.4
 .4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2374     F
+l.2378     F
             or $A= \begin{bmatrix}pdfTeX warning (ext4): destination with the s
 ame identifier (name{theorem.4.5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2381     $
+l.2385     $
             A$ is invertible if and only if rank$(A) = n$, or
-Overfull \hbox (3.29655pt too wide) in paragraph at lines 2385--2386
+Overfull \hbox (3.29655pt too wide) in paragraph at lines 2389--2390
 [][]\OT1/cmr/m/n/24.88 Exam does re-quire cal-cu-lat-ing the de-ter-mi-nant
  []
 
@@ -1269,31 +1284,31 @@ pdfTeX warning (ext4): destination with the same identifier (name{theorem.4.6})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2389     A
+l.2393     A
              matrix can realize any one of the following operations (casted ...
 pdfTeX warning (ext4): destination with the same identifier (name{theorem.4.7})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2405     F
+l.2409     F
             or a $n \times n$ matrix, if there exists $v \in \R^n$ and $\lam...
 pdfTeX warning (ext4): destination with the same identifier (name{theorem.4.8})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2420     U
+l.2424     U
             pon simply algebra, we see:pdfTeX warning (ext4): destination with 
 the same identifier (name{theorem.4.9}) has been already used, duplicate ignore
 d
 <to be read again> 
                    \relax 
-l.2443     W
+l.2447     W
             hen solving for $\lambda$ of matrix $A$, we are literally solvin...
 [30]pdfTeX warning (ext4): destination with the same identifier (name{theorem.4
 .10}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2462     L
+l.2466     L
             et $U$ be a vector space, and $V$ be a linear subspace of $U$. The
 Missing character: There is no Â in font cmr12!
 Missing character: There is no   in font cmr12!
@@ -1301,31 +1316,132 @@ pdfTeX warning (ext4): destination with the same identifier (name{theorem.4.11}
 ) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2474     I
+l.2478     I
             f $V$ is a linear subspace of linear space $U$, then $\forall u ...
-[31] (Econ_600.bbl
+[31]
+Overfull \hbox (12.13968pt too wide) in paragraph at lines 2565--2567
+[][]\OT1/cmr/bx/n/12 Proposition 5.7 \OT1/cmr/m/n/12 (Com-pare Rie-mann to Rie-
+man-n-Stielt-jes)\OT1/cmr/bx/n/12 . [][]\OT1/cmr/m/n/12 When $\OML/cmm/m/it/12 
+$ \OT1/cmr/m/n/12 is dif-fer-en-tiable, Rie-mann
+ []
+
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 2572.
+[32]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 2635.
+
+Overfull \hbox (18.97278pt too wide) in paragraph at lines 2648--2650
+[][]\OT1/cmr/bx/n/12 Theorem 5.10 \OT1/cmr/m/n/12 (Fun-da-men-tal The-o-rem of 
+Cal-cu-lus)\OT1/cmr/bx/n/12 . [][]$\OML/cmm/m/it/12 f$ \OT1/cmr/m/n/12 is in-te
+-grable over $[\OML/cmm/m/it/12 a; b\OT1/cmr/m/n/12 ]$, $\OML/cmm/m/it/12 F$ \O
+T1/cmr/m/n/12 is dif-fer-en-tiable
+ []
+
+[33]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 2711.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 2718.
+ [34]pdfTeX warning (ext4): destination with the same identifier (name{theorem.
+6.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2748     A
+             subset $S$ of $X$ is open if $\forall x \in S$, $\exists \varep...
+pdfTeX warning (ext4): destination with the same identifier (name{theorem.6.3})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2754     A
+             subset $S$ of $X$ is closed if $X \setminus S$ is open.pdfTeX warn
+ing (ext4): destination with the same identifier (name{theorem.6.4}) has been a
+lready used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2769     $
+            x$ is a limit point of $S$ if $\forall \varepsilon > 0$, [35pdfTeX 
+warning (ext4): destination with the same identifier (name{theorem.6.1}) has be
+en already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.2832 \end{proposition}
+                        ]pdfTeX warning (ext4): destination with the same ident
+ifier (name{theorem.6.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2843     $
+            \{a_n\}$ is a sequence in metric space $(X, d)$. We say that $\{...
+pdfTeX warning (ext4): destination with the same identifier (name{theorem.6.2})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2851     A
+             convergent sequence in $(X,d)$ has a unique limit.pdfTeX warning (
+ext4): destination with the same identifier (name{theorem.6.3}) has been alread
+y used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2874     E
+            very convergent sequence in a metric space is bounded. (That is ...
+pdfTeX warning (ext4): destination with the same identifier (name{theorem.6.4})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2888     $
+            S\subseteq X$ is closed if \textbf{every convergent sequence} \y...
+pdfTeX warning (ext4): destination with the same identifier (name{theorem.6.1})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2900     $
+            (X, d_X)$, $(Y, d_Y)$ are two metric spaces. $f: X\to Y$ is cont...
+[36]pdfTeX warning (ext4): destination with the same identifier (name{theorem.6
+.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2916     A
+             metric space is connected if $\not\exists $ nonempty open sets ...
+pdfTeX warning (ext4): destination with the same identifier (name{theorem.6.3})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2929     A
+             metric space $(X, d)$ is connected if and only if the only pair...
+pdfTeX warning (ext4): destination with the same identifier (name{theorem.6.4})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2951     $
+            (X, d_X)$ and $(Y, d_Y)$ are two metric spaces and $f: X\to Y$ is a
+(Econ_600.bbl
 Underfull \hbox (badness 3623) in paragraph at lines 9--12
 [][]\OT1/cmr/m/n/12 Walter Rudin.  Prin-ci-ples of math-e-mat-i-cal anal-y-sis.
   \OT1/cmr/m/it/12 New York:
  []
 
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2533.
- [32]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2533.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2968.
+ [37]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2968.
  (Econ_600.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2533.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2533.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2968.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2968.
 
 Package rerunfilecheck Info: File `Econ_600.out' has not changed.
-(rerunfilecheck)             Checksum: 5A5AFACA7A57186BE10864F7D6BD123B;1785.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2533.
+(rerunfilecheck)             Checksum: C1E24A37C94D651870D4DD5C915B59BB;2070.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2968.
  ) 
 Here is how much of TeX's memory you used:
- 17120 strings out of 493673
- 286387 string characters out of 3143952
- 469255 words of memory out of 3000000
- 20002 multiletter control sequences out of 15000+200000
+ 17283 strings out of 493673
+ 288498 string characters out of 3143952
+ 471680 words of memory out of 3000000
+ 20131 multiletter control sequences out of 15000+200000
  26864 words of font info for 106 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  45i,10n,42p,10422b,540s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1393,9 +1509,9 @@ public/amsfonts/euler/eurm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
 c/amsfonts/symbols/msam10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
 msfonts/symbols/msbm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/zapfdin
 g/uzdr.pfb>
-Output written on Econ_600.pdf (32 pages, 450140 bytes).
+Output written on Econ_600.pdf (37 pages, 474772 bytes).
 PDF statistics:
- 610 PDF objects out of 1000 (max. 8388607)
- 246 named destinations out of 1000 (max. 500000)
- 185 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 676 PDF objects out of 1000 (max. 8388607)
+ 276 named destinations out of 1000 (max. 500000)
+ 217 words of extra memory for PDF output out of 10000 (max. 10000000)
 

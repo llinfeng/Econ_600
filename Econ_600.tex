@@ -172,6 +172,10 @@
 \usepackage{mdframed}
 % \begin{mdframed}
 
+% Putting a bar below: \barbelow{something}
+\usepackage{stackengine}
+\newcommand\barbelow[1]{\stackunder[1.2pt]{$#1$}{\rule{.8ex}{.075ex}}}
+
 
 \begin{document}
 \maketitle
@@ -2480,7 +2484,7 @@ Formally, Remark \ref{remark:tangential_in_R_2} could be stated as follows:
     where $\varepsilon \cdot v = 0$, $\forall v \in V$.
 \end{proposition}
 
-\section{Lecture 5: Measure Theory}
+\section{Lecture 5: (Riemann) Integral}
 
 \begin{remark}
     [Overview of types of integrations]
@@ -2500,7 +2504,7 @@ Formally, Remark \ref{remark:tangential_in_R_2} could be stated as follows:
 
 \begin{definition}
     [Given partition $P$, $M_i$ and $m_i$; $U(P,f)$ and $L(P,f)$;
-    $\bar{\int_a^b} f dx$ and $\underline{\int_a^b } fdx$]
+    $\bar{\int_a^b} f dx$ and $\barbelow{\int_a^b } fdx$]
     Assume first that $f$ is bounded and consider a given partition $P$, write:
     \[
         M_i = \sup_{x \in [x_{i-1}, x_i]} f(x)
@@ -2522,20 +2526,442 @@ Formally, Remark \ref{remark:tangential_in_R_2} could be stated as follows:
     [Riemann Integral]
     $f$ is Riemann integrable if
     \[
-        \bar{\int_a^b} f dx = \underline{\int_a^b} fdx
+        \bar{\int_a^b} f dx = \barbelow{\int_a^b} fdx
     \]
     Then, we can write $\int_a^b f =
-    \bar{\int_a^b} f dx = \underline{\int_a^b} fdx$.
+    \bar{\int_a^b} f dx = \barbelow{\int_a^b} fdx$.
 \end{definition}
 
 \begin{remark}
     When dealing with probability, Riemann integral is not general enough.
 \end{remark}
 
+\begin{definition}
+    [Riemann-Stieltjes integral]
+    Given a partition $P = \{ x_0, \ldots, x_n\}$ s.t. $a = x_0 \le x_1 \le
+    \cdots \le x_n = b$, then define $\Delta \alpha _i = \alpha(x_i) -
+    \alpha(x_{i-1})$. Equivalently, we write:
+    \[
+        U(P,f,\alpha) = \sum_{i=1}^n M_i \Delta \alpha_i
+        \quad \text{ and } \quad
+        L(P,f,\alpha) = \sum_{i=1}^n m_i \Delta \alpha_i
+    \]
+    Accordingly, upper and lower integral is given as:
+    \[
+        \bar{\int_a^b} f d\alpha = \inf_P U(P,f, \alpha)
+        \quad \text{ and } \quad
+        \barbelow{\int_a^b} f d\alpha = \sup_P L(P,f,\alpha)
+    \]
+
+    If $ \bar{\int_a^b} f d\alpha  = \barbelow{\int_a^b} f d\alpha$, then we say
+    $f$ is \textbf{Riemann-Stieltjes integrable} \textbf{with respect to}
+    $\alpha$ \textbf{over} $[a,b]$. Then, we write:
+    $\int_a^b f d\alpha  =
+    \bar{\int_a^b} f dx = \barbelow{\int_a^b} fdx$.
+\end{definition}
+
+\begin{proposition}
+    [Compare Riemann to Riemann-Stieltjes]
+    When $\alpha$ is differentiable, Riemann integral is the same as
+    Riemann-Stieltjes integral in the following sense:
+    \[
+        \int_a^b f d\alpha = \int_a^b \left( f \alpha' \right)d x
+    \]
+\end{proposition}
+
 \begin{example}
-    Let $\alpha: [a,b] \to \R$ be a weakly increasing function\footnote{Here, it 
-    is clear that $\alpha$ is a bounded function.}. Then, 
+    Five examples on evaluating R-S integral were introduced in lecture. It is
+    on page 15-17 on my notes. [Don't really want to bother with these
+    compuational examples.] The take aways are:
+
+    \begin{itemize}
+        \item R-S integral is introduced to enhance handling of probabilities,
+            as often the times, random variables may have a discrete
+            distribution.
+        \item When evaluating the R-S integral with respect to $\alpha$,
+            function values are used at the points at which $\alpha$ is
+                not differentiable. Integrals are taken piece-wisely across the
+                intervals truncated by these points of discontinuity of
+                $\alpha$.
+    \end{itemize}
 \end{example}
+
+\begin{proposition}
+    \begin{itemize}
+        \item If $f$ is continuous over $[a,b]$, then $\int_a^b fd\alpha$
+            exists.
+        \item If $f$ is bounded on $[a,b]$, and has finitely many points of
+            discontinuity, \textbf{and} $\alpha$ is continuous at every point at
+            which $f$ is discontinuous, then $\int_a^b fd\alpha$ exists.
+        \item If $f$ is monotone and $\alpha$ is continuous, then $\int_a^b
+            f d\alpha$ exists.
+    \end{itemize}
+\end{proposition}
+
+\begin{proposition}
+    \begin{itemize}
+        \item If $f_1$ and $f_2$ are R-S integrable with respect to $\alpha$, then
+            \[
+                \int_a^b (f_1 + f_2) d\alpha = \int_a^b f_1 d\alpha + \int_a^b f_2
+                d\alpha
+            \]
+            For $c \in \R$,
+            \[
+                \int_a^b (c f) d\alpha = c \int_a^b f d\alpha
+            \]
+            \[
+                \int_a^b f d (c \alpha) = c \int_{b}^{a} f d\alpha
+            \]
+
+        \item If $f_1 \le f_2$ $\forall x$ and $f_1, f_2$ are R-S integrable,
+            then $\int_a^b f_1 d\alpha \le \int_a^b f_2 d\alpha$
+
+        \item If $f_1, f_2$ are R-S with respect to $\alpha$ over $[a,b]$ \&
+            $[b,c]$, then
+            \[
+                \int_a^c f d\alpha = \int_a^b f d\alpha + \int_b^c f d\alpha
+            \]
+        \item If $f$ is R-S integrable with respect to $\alpha_1$ and
+            $\alpha_2$, then
+            \[
+                \int_a^b f d(\alpha_1 + \alpha_2) = \int_a^b f d\alpha_1 +
+                \int_a^b f d\alpha _2
+            \]
+        \item If $f,g$ are R-S integrable with respect to $\alpha$, then $f\cdot
+            g$ is also R-S integrable with respect to $\alpha$.
+    \end{itemize}
+\end{proposition}
+
+\begin{example}
+    A function that is not R-S integrable:
+    \[
+        f(x) = \begin{cases}
+            1, &\text{ if }x \in [0,1] \setminus \Q \\
+            0, &\text{ if }x \in [0,1] \bigcap \Q \\
+        \end{cases}
+    \]
+    $U(P,f) = 1$ and $L(p,f) = 0$. (Doubt if this is a valid demonstration.)
+\end{example}
+
+\begin{theorem}
+    [Fundamental Theorem of Calculus]
+    $f$ is integrable over $[a,b]$, $F$ is differentiable over $[a,b]$ and
+    $F'(x) = f(x)$, then
+    \[
+        F(b) - F(a) = \int_{a}^{b}f(x) dx
+    \]
+\end{theorem}
+
+\begin{remark}
+    [Application of Fundamental Theorem of Calculus]
+    \textbf{Integration by parts : }
+
+    Let $F, G$ be differentiable over $[a,b]$, with $F' = f, G' = g$ and $f,g$
+    both integrable.
+    \[
+        \int_{a}^{b}F(x) g(x) dx = F(x) G(x) |_a^b - \int_{a}^{b}f(x) G(x) dx
+    \]
+    \begin{proof}
+        \[
+            \left( F(x) G(x) \right) ' = f(x) G(x) + F(x) g(x)
+        \]
+    \end{proof}
+    Integrating both parts from $a$ to $b$ yields the desired equality.
+\end{remark}
+
+\begin{theorem}
+    [Fubini Theorem]
+    Consider a double integral $\int_X \int_Y f(x,y) dy dx$, if either $\int_X
+    \int_Y |f(x,y)| dy dx$ or $\int_Y\int_X |f(x,y)|dx dy$ exists,
+    \textbf{and} $f(x,y)$ is integrable fixing either $x$ or $y$, then
+    \[
+        \int_X \int_Y f(x,y) dy dx
+        =
+        \int_Y \int_X  f(x,y) dx dy
+    \]
+\end{theorem}
+
+
+\section{Lecture 6: Metric space and more}
+\begin{definition}
+    [Metric]
+    A metric $d$ on a set $X$ is a function from $X \times X$ to $\R_+$ s.t.
+    \begin{itemize}
+        \item $\forall (x,y) \in X \times X$, $d(x,y) \ge 0$;
+        \item $\forall (x,y) \in X \times X$, $d(x,y) = 0$ if and only if $x = y$;
+        \item $\forall (x,y) \in X \times X$, $d(x,y) = d(y,x)$;
+        \item For arbitrary $x, y, z \in X$, $d(x,z) \le d(x,y) + d(y,z)$ (Triangular inequality).
+    \end{itemize}
+\end{definition}
+
+\begin{definition}
+    \textbf{Metric space} is a set $X$ together with its metric, denoted as $(X,
+    d)$.
+\end{definition}
+
+\begin{proposition}
+    [Cauchy-Schiwanz ineuqality]
+    For arbitrary inner product of $a,b \in \R^n$,
+    \[
+        <a,b> =  \sum_{i=1}^n a_i b_i \le \sqrt{\left( \sum_{i=1}^n a_i^2
+        \right) \left( \sum_{i=1}^n b_i^2 \right)}
+    \]
+\end{proposition}
+
+\begin{example}
+    [Metric spaces in $\R^n$]
+    For $X = \R^n$ and $d_p(x,y) \coloneqq
+    \left( \sum_{i=1}^n (|x_i - y_i|^p) \right)^\frac{1}{p}$ with $p \ge 1$,
+    $(X, d_p)$ is a metric space.
+\end{example}
+
+\begin{example}
+    [Metric space for $X$ = a set of continuous fucntions]
+    Let $C[0,1]$ denote continuous functions defined on $[0,1]$ interval. Then,
+    $\forall f,g \in C[0,1]$, define:
+    \[
+        d_p (f,g) = \left[ \int_{0}^{1}|f(x) - g(x)|^p dx
+        \right]^\frac{1}{p}
+    \]
+\end{example}
+
+\begin{remark}
+    Angle of ``vectors'' are not defined in metric space. They only apply to
+    inner product space.
+\end{remark}
+
+
+\subsection{Topology}
+\setcounter{theorem}{0}
+
+\begin{definition}
+    [$\varepsilon$-neighborhood of a point]
+    Let $(X,d)$ be a metric space. Then, $\forall x \in X$, $\forall \varepsilon
+    > 0$, the $\varepsilon$-neighborhood of $x$ is:
+    \[
+        B_\varepsilon(x) = \{ \forall y \in X: d(x-y) < \varepsilon \}
+    \]
+\end{definition}
+
+\begin{definition}
+    [Open]
+    A subset $S$ of $X$ is open if $\forall x \in S$, $\exists \varepsilon >  0$
+    s.t. $B_\varepsilon \subseteq S$.
+\end{definition}
+
+\begin{definition}
+    [Close]
+    A subset $S$ of $X$ is closed if $X \setminus S$ is open.
+\end{definition}
+
+Note that,
+\begin{itemize}
+    \item ``not open'' is not the converse of ``closed''. Consider $[a,b)$,
+        which is not open nor closed.
+    \item Open/closed is defined \textbf{w.r.t. the underlying background set}.
+        Also note that, compactness is ``background-free''.
+    \item Example: let $X = (-\infty, 0)$, then $[-1,0)$ is closed in $X$.
+        (Clearly, it is not closed in $\R$.)
+\end{itemize}
+
+\begin{definition}
+    [Limit point]
+    $x$ is a limit point of $S$ if $\forall \varepsilon > 0$,
+    \[
+        B_\varepsilon(x) \bigcap \left( S \setminus \{x \} \right) \not =
+        \emptyset
+    \]
+    Note that, $x$ is not necessarily an element of $S$.
+\end{definition}
+
+\begin{itemize}
+    \item ``Isolated points'' are not limit points.
+    \item Points at the ``edge'' are limit points.
+    \item Points in the interior of the set are limit points.
+\end{itemize}
+
+\begin{proposition}
+    [Convergent sequence to limit point]
+    If $x$ is a limit point of $S \subseteq X$, where $X$ is a metric space with
+    $d$; then $\exists$ a sequence $\{x_n\}$ s.t.
+    \begin{itemize}
+        \item $x_n \in S$, $\forall n\in \N$;
+        \item $\forall N \in \N$, $\exists n, m \ge N$ s.t. $x_n \not = x_m$
+        \item and $x _n \to x$.
+    \end{itemize}
+    $x_n \in S$
+\end{proposition}
+
+\begin{definition}
+    [Boundary point]
+    A point $x \in X$ is called a boundary point of $S \subseteq X$ if
+    \[
+        \forall \varepsilon > 0, \; \; B_\varepsilon (x) \bigcap  S\not= \emptyset \text{ and }
+        B_\varepsilon(x) \bigcap \left( X \setminus S \right) \not = \emptyset
+    \]
+\end{definition}
+
+\begin{definition}
+    [Interior point]
+    A point $x \in S$ is an interior point of $S \subseteq X$ if
+    \[
+        \exists \varepsilon > 0, \; \text{ s.t. } B_\varepsilon(x) \subseteq S
+    \]
+    The set of interior points of $S$ is denoted as $int(S)$.
+\end{definition}
+
+\begin{definition}
+    [Isolated point]
+    A point $x \in S$ is called an isolated point of $S \subseteq X$ if
+    \[
+        \exists \varepsilon > 0, \; \text{ s.t. } B_\varepsilon(x) \bigcap S =
+        \{ x \}
+    \]
+\end{definition}
+
+\begin{definition}
+    [Closure]
+    The closure of $S \subseteq X$ is the smallest cloest set that contains $S$.
+    It is denoted as $cl(S)$.
+\end{definition}
+
+\begin{proposition}
+    [open and closed]
+    $S$ is open if and only if $S = int(S)$; $S$ is closed if and only if $S =
+    cl(S)$.
+\end{proposition}
+
+\begin{definition}
+    [Boundary of a set]
+    The boundary of $S$ is $bd(S) = cl(S) \setminus int(S)$.
+\end{definition}
+
+\subsection{Sequence in Metric space}
+\setcounter{theorem}{0}
+
+\begin{definition}
+    $\{a_n\}$ is a sequence in metric space $(X, d)$. We say that $\{a_n\}$
+    converges to $a \in X$ if $\forall \varepsilon > 0$, $\exists N \in \N$ s.t.
+    \[
+        a_n \in B_\varepsilon (A), \quad \forall n \ge N
+    \]
+\end{definition}
+
+\begin{proposition}
+    A convergent sequence in $(X,d)$ has a unique limit.
+    \begin{proof}
+        Suppose $a_n \to a$, $a_n \to b$ and $a \not = b$. Then, by definition
+        of limit of sequences:
+        \[
+            \exists N_1 \text{ s.t. } d(a_n a) < \varepsilon =
+            \frac{d(a,b)}{2}
+        \]
+        \[
+            \exists N_2 \text{ s.t. } d(a_n b) < \varepsilon =
+            \frac{d(a,b)}{2}
+        \]
+
+        Now, by triangular inequality of metrics, we have:
+        \[
+            d(a,b) \le d(a, a_n) + d(a_n, b) < d(a,b)
+        \]
+        This inequality violates the assumption that $a \not =b $. We hereby
+        reached a contradiction.
+    \end{proof}
+\end{proposition}
+
+\begin{proposition}
+    Every convergent sequence in a metric space is bounded. (That is  to say:
+    $\exists M \in \R_+$ s.t.  $\forall x,y \in \{ a_n \}$, $d(x,y) <   M$;
+    alternatively, $\exists M \in \R_+$ s.t. $B_M(a) \supseteq S$.)
+    \begin{proof}
+        By definition of convergent sequence, take $\varepsilon = 1$, $\exists N
+        $ s.t. $\forall n \ge N$: $d(a_n , a ) < 1$. Therefore, take:
+        \[
+            M = \max \{ d(a,a_1), \ldots, d(a, a_N), 1\}
+        \]
+        Then, we see that $a_n \in B_M(a)$, $\forall n \in \N$.
+    \end{proof}
+\end{proposition}
+
+\begin{proposition}
+    $S\subseteq X$ is closed if \textbf{every convergent sequence} \yverb|in | $\highlight{S}$ has a  limit in
+    $S$.
+    \begin{proof}
+        Pending. (Page 27 of personal note.)
+    \end{proof}
+\end{proposition}
+
+
+\subsection{Functions in Metric Space}
+\setcounter{theorem}{0}
+\begin{definition}
+    [continuity]
+    $(X, d_X)$, $(Y, d_Y)$ are two metric spaces. $f: X\to Y$ is continuous at
+    $x \in X$ if $\forall \varepsilon > 0$, $\exists \delta > 0$ s.t.
+    \[
+        d_X(x', x) < \delta \implies
+        d_Y(f(x'), f(x)) < \varepsilon
+    \]
+\end{definition}
+
+Example: under discrete metric, $d_X(a,b) = \begin{cases}
+    0 , &\text{ if } x = y\\
+    1 , &\text{ if } x \not= y\\
+\end{cases}$, arbitrary $f$ is continuous. (For all $\varepsilon > 0$, let
+$\delta < 1$, only the original point $x$ is left.)
+
+\begin{definition}
+    [connected metric space]
+    A metric space is connected if $\not\exists $ nonempty open sets $A,B$ s.t.
+    \[
+        A \bigcup B = X, \;\;\; \text{ yet } A \bigcap B = \emptyset
+    \]
+    Note that, by construction, since $A\bigcup B = X$, using definition of
+    closed sets:
+    \begin{itemize}
+        \item $A, B$ open $\implies$ they are closed;
+        \item $A, B$ closed $\implies$ they are open;
+    \end{itemize}
+\end{definition}
+
+\begin{proposition}
+    A metric space $(X, d)$ is connected if and only if the only pair of sets
+    that are both closed and open are $\emptyset$ and $X$.
+    \begin{proof}
+        If $x$ is connected, then $\not\exists$ nonempty $A,B$ s.t. $A, B$, are
+        open, and $A \bigcup B = X$, $A \bigcap B = \emptyset$. This implies
+        that:
+        \[
+            B = X\setminus A\;\; \text{ and } A = X \setminus B
+        \]
+        By definition, $B$ and $A$ are closed. Therefore, the condition that
+        characterize ``connectedness'' of metric space stipulates explicitly
+        that there is no nonempty sets that are both closed and open.
+
+        To prove the other direction, we choose to prove the contrapositive
+        here. That is: assume that $X$ is not connected, then  there exists
+        nonempty $A$ and $B$ s.t. $A \bigcup B = X$ and $A \bigcup B =
+        \emptyset$. This conditional ($P\implies Q$) holds since $Q$ is a
+        rephrasing of $P$ by definition of connected metric space.
+    \end{proof}
+\end{proposition}
+
+\begin{proposition}
+    $(X, d_X)$ and $(Y, d_Y)$ are two metric spaces and $f: X\to Y$ is a
+    continuous function. Then, if $S\subseteq X$ is connected, then $f(X)$ is
+    also connected.
+    \begin{proof}
+        This is a constructive proof, depending on two lemmas:
+        \begin{itemize}
+            \item Lemma 1: if $f$ is continuous on $X$ and $T\subseteq Y$ is
+                open,  then $f^{-1}(T)$ is open in $X$;
+            \item Lemma 2: If $A$ is open in $X$, and $S \subseteq X$, then $A
+                \bigcap S$ is open in $S$.
+        \end{itemize}
+    \end{proof}
+\end{proposition}
+
 
 \bibliographystyle{plainnat}
 \bibliography{ref}
