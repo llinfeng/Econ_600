@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.9.4)  7 SEP 2015 18:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.9.4)  23 SEP 2015 17:46
 entering extended mode
 **Econ_600.tex
 (Econ_600.tex
@@ -609,19 +609,6 @@ Package zref Info: New property: mdf@pagevalue on input line 895.
 \c@question_sqrt=\count158
 \c@typo=\count159
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\bbm\bbm.sty"
-Package: bbm 1999/03/15 V 1.2 provides fonts for set symbols - TH
-LaTeX Font Info:    Overwriting math alphabet `\mathbbm' in version `bold'
-(Font)                  U/bbm/m/n --> U/bbm/bx/n on input line 33.
-LaTeX Font Info:    Overwriting math alphabet `\mathbbmss' in version `bold'
-(Font)                  U/bbmss/m/n --> U/bbmss/bx/n on input line 35.
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\ltxmisc\relsize.sty"
-Package: relsize 2003/07/04 ver 3.1
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\marvosym\marvosym.sty"
-Package: marvosym 2011/07/20 v2.2 Martin Vogel's Symbols font definitions
-)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\enumerate.sty"
 Package: enumerate 2014/10/28 v3.00 enumerate extensions (DPC)
 \@enLab=\toks31
@@ -666,6 +653,19 @@ LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
 \l_MT_below_intertext_sep=\dimen166
 \l_MT_above_shortintertext_sep=\dimen167
 \l_MT_below_shortintertext_sep=\dimen168
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\bbm\bbm.sty"
+Package: bbm 1999/03/15 V 1.2 provides fonts for set symbols - TH
+LaTeX Font Info:    Overwriting math alphabet `\mathbbm' in version `bold'
+(Font)                  U/bbm/m/n --> U/bbm/bx/n on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathbbmss' in version `bold'
+(Font)                  U/bbmss/m/n --> U/bbmss/bx/n on input line 35.
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\ltxmisc\relsize.sty"
+Package: relsize 2003/07/04 ver 3.1
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\marvosym\marvosym.sty"
+Package: marvosym 2011/07/20 v2.2 Martin Vogel's Symbols font definitions
 )
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\mleftright.sty"
 Package: mleftright 2010/09/25 v1.0 Math left/right delim. as open/close (HO)
@@ -1419,6 +1419,19 @@ pdfTeX warning (ext4): destination with the same identifier (name{theorem.6.4})
                    \relax 
 l.2951     $
             (X, d_X)$ and $(Y, d_Y)$ are two metric spaces and $f: X\to Y$ is a
+[37]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 2986.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 2995.
+ [38] [39]
+Overfull \hbox (10.24768pt too wide) in paragraph at lines 3128--3131
+[][]\OT1/cmr/m/n/12 We thereby find a se-quence whose any sub-se-quence con-ver
+ges to $\OML/cmm/m/it/12 x [] S$\OT1/cmr/m/n/12 , con-tra-dict-ing
+ []
+
 (Econ_600.bbl
 Underfull \hbox (badness 3623) in paragraph at lines 9--12
 [][]\OT1/cmr/m/n/12 Walter Rudin.  Prin-ci-ples of math-e-mat-i-cal anal-y-sis.
@@ -1426,25 +1439,25 @@ Underfull \hbox (badness 3623) in paragraph at lines 9--12
  []
 
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2968.
- [37]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2968.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3140.
+ [40]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 3140.
  (Econ_600.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2968.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2968.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3140.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3140.
 
 Package rerunfilecheck Info: File `Econ_600.out' has not changed.
-(rerunfilecheck)             Checksum: C1E24A37C94D651870D4DD5C915B59BB;2070.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2968.
+(rerunfilecheck)             Checksum: E30B762AC3084563B9CA9DBC8C3A4131;2201.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3140.
  ) 
 Here is how much of TeX's memory you used:
- 17283 strings out of 493673
- 288498 string characters out of 3143952
+ 17305 strings out of 493673
+ 288702 string characters out of 3143952
  471680 words of memory out of 3000000
- 20131 multiletter control sequences out of 15000+200000
+ 20133 multiletter control sequences out of 15000+200000
  26864 words of font info for 106 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 45i,10n,42p,10422b,540s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 45i,11n,42p,10422b,540s stack positions out of 5000i,500n,10000p,200000b,50000s
 pdfTeX warning (dest): name{Hfootnote.14} has been referenced but does not ex
 ist, replaced by a fixed one
 
@@ -1509,9 +1522,9 @@ public/amsfonts/euler/eurm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
 c/amsfonts/symbols/msam10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
 msfonts/symbols/msbm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/zapfdin
 g/uzdr.pfb>
-Output written on Econ_600.pdf (37 pages, 474772 bytes).
+Output written on Econ_600.pdf (40 pages, 487376 bytes).
 PDF statistics:
- 676 PDF objects out of 1000 (max. 8388607)
- 276 named destinations out of 1000 (max. 500000)
- 217 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 716 PDF objects out of 1000 (max. 8388607)
+ 296 named destinations out of 1000 (max. 500000)
+ 233 words of extra memory for PDF output out of 10000 (max. 10000000)
 

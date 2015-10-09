@@ -41,7 +41,6 @@
 \newcommand{\To}{\Rightarrow}
 \newcommand{\WLOG}{With out loss of generality}
 \newcommand{\card}{\text{card }}
-
 % The limits.
 \newcommand{\limk}{\underset{k\to\infty}\lim}
 \newcommand{\limn}{\underset{n\to\infty}\lim}
@@ -108,22 +107,15 @@
 \newcommand{\hilight}[1]{\colorbox{yellow}{#1}}
 \newcommand{\highlight}[1]{%
  \colorbox{yellow!50}{$\displaystyle#1$}}
-
-\usepackage{bbm}
-\usepackage{relsize} % For large symbles: \mathlarger{math_expression}
-\usepackage{marvosym} %
+% Changing the lead of enumerating.
 \usepackage{enumerate}
+% \begin{enumerate}[{Sample aaa} 1]
+%     \item
+% \end{enumerate}
 %\usepackage{enumitem} % For using: \begin{itemize}[leftmargin=-.5in]
-%\usepackage{comment}
-% To make footnote numering by section.
-\makeatletter
-\@addtoreset{footnote}{section}
-\makeatother
 \usepackage{colonequals}
-
 % Package for including footnotes to section-titles
 \usepackage[stable]{footmisc}
-
 % Highlighting:
 \usepackage{xcolor}
 \usepackage{newverbs}
@@ -142,10 +134,20 @@
 \newverbcommand{\grayverb}
 {\begin{lrbox}{\verbbox}}
 {\end{lrbox}\colorbox{gray!30}{\box\verbbox}}
-
 % For := symbol \coloneqq
 \usepackage{mathtools}
+% Putting a box around paragraph
+\usepackage{mdframed}
+% \begin{mdframed}
 
+% To make footnote numering by section.
+\makeatletter
+\@addtoreset{footnote}{section}
+\makeatother
+% MISC
+\usepackage{bbm}
+\usepackage{relsize} % For large symbles: \mathlarger{math_expression}
+\usepackage{marvosym} %
 % For large \mid (as conditional)
 \usepackage{mleftright}
 %\[
@@ -153,9 +155,6 @@
 %\]
 \newcommand{\suchthat}{\;\ifnum\currentgrouptype=16 \middle\fi|\;}
 
-
-\title{Econ 600: taught by Prof. Shaowei Ke}
-\author{Linfeng Li \\ llinfeng@umich.edu}
 
 
 
@@ -168,14 +167,15 @@
 \usepackage[normalem]{ulem}
 % Example: \sout{Hello World}
 
-% Putting a box around paragraph
-\usepackage{mdframed}
-% \begin{mdframed}
 
 % Putting a bar below: \barbelow{something}
 \usepackage{stackengine}
 \newcommand\barbelow[1]{\stackunder[1.2pt]{$#1$}{\rule{.8ex}{.075ex}}}
 
+
+
+\title{Econ 600: taught by Prof. Shaowei Ke}
+\author{Linfeng Li \\ llinfeng@umich.edu}
 
 \begin{document}
 \maketitle
@@ -2961,6 +2961,178 @@ $\delta < 1$, only the original point $x$ is left.)
         \end{itemize}
     \end{proof}
 \end{proposition}
+
+\section{Lecture 7: skipped}
+
+\section{Lecture 8: compact set and optimization}
+
+\begin{definition}
+    Let $(X,d)$ be a metric space and $S\subseteq X$ be a collection of subsets
+    of $X$. Then, $\mathcal A$ is said to cover $S$ if $S\subseteq \bigcup
+    \mathcal A$. (Here, we write: $\bigcup \mathcal A = \underset{A \in \mathcal
+    A}\bigcup A$)
+\end{definition}
+
+\begin{definition}
+    If $\mathcal A$ covers $S$, and $\forall A \in \mathcal A$ is open, then
+    $\mathcal A$ is an open cover of $S$.
+\end{definition}
+
+\begin{definition}[Compact metric space]
+    A metric space $X$ is said to be compact if every open cover of $X$ has a
+    finite subset of open sets that covers $X$.
+\end{definition}
+
+\begin{example}
+    For $X = [0,1)$ and $\mathcal A  = \{[0, 1 - \frac{1}{n})\}$. Then,
+    $\mathcal A$ is a open cover of $A$. ($\forall x \in [0,1]$, $x \in [0, 1 -
+    \frac{1}{n})$ for $n$ large enough.)
+
+    Therefore, we see that the definition for compact set is violated. (For the
+    specific open cover we fund.)
+\end{example}
+
+\begin{example}
+    [Metric matters]
+    For a set $A$ being uncountable or countable infinite, under discrete metric
+    $d(x,y) =
+    \begin{cases}
+        1, &\text{ if } x\not= y\\
+        0, &\text{ if } x= y
+    \end{cases}
+    $,
+    then for the following open cover
+    \[
+        \mathcal A = \{ \{ x \}: x \in X\}
+    \]
+    We can never find a finite subcover.
+\end{example}
+
+\begin{definition}
+    [Compact sets (in metric spaces)]
+    $S\subseteq X$ is compact if $\forall $ open cover of $S$ has a finite
+    subcover.
+\end{definition}
+
+\begin{proposition}
+    If $S\subseteq X$ is compact ($X$ being a metric space), then $\forall
+    \{a_n\}$ in $S$ has a convergent subsequence whose limit is in $S$.
+    \begin{proof}
+        Suppose that $\{a_n\}$ is a sequence in $S$ s.t. $\not\exists$ a subsequence that
+        converges to $x \in S$.
+        That is, for arbitrary point in $S$, $B_\varepsilon(x)$ shall only
+        contain finitely many members of the sequence. (Otherwise, this would be
+        the limit of a convergent subsequence.)
+
+        Then, for any point $x \in X$, we can construct an open cover. By
+        compactness, the set $X$ shall have a finite subcoering. This
+        contradicts the assumption. (According to the assumption, ruling out
+            these finite members of the sequence that are covered, the rest
+        shall go somewhere.)
+    \end{proof}
+\end{proposition}
+
+\textbf{Remark:}
+\begin{enumerate}
+    \item We only stated one direction, but this is a two way result: ``if and
+        only if'' relation. We only show $\implies$ direction.
+
+    \item This result also says: compactness implies \textit{sequential
+        compactness}. [This is a comment]
+\end{enumerate}
+
+\begin{proposition}
+    [Extreme Value Theorem]
+    If $f: X \to \R$ is continuous and $X$ is a compact metric space, then
+    $\exists x_1, x_2 \in X$, s..t. $f(x_1) = \underset{x \in X} \sup f(x)$,
+    $f(x_2) = \underset{x \in X} \inf f(x)$ where $f$ is bounded.
+    \begin{proof}
+        Suppose first that $f$ is bounded (to be proved later). it suffices to
+        show that $\exists x_1 \in X$ s.t. $f(x_1) = \underset{x \in X} \sup
+        f(x)$.
+
+        Let $M = \underset{x \in X} \sup f(x)$, by definition, $\forall
+        \varepsilon > 0$,
+        \[
+            \exists y_1 \in X \text{ s.t. } f(y_1) \in (M - \varepsilon, M)
+        \]
+        Then, we can find a sequence $\{y_n\}$ s.t. $\lim_{n \to \infty} f(y_n)
+        = M$.
+
+        Since $\{ y_n \}$ is defined on a compact metric space, then $\exists \{
+        y_{n_k}\}_{k=1}^\infty$ s.t. $\underset{k \to \infty} \lim y_{n_k} = y
+        \in X$. Now, consider such sequence $y_{n_k}$ and $f(y_{n_k})$:
+        \[
+            \lim_{k \to \infty} f(y_{n_k}) = M \text{ by } y_n \to M
+        \]
+    \end{proof}
+    \begin{proof}
+        [Idea of proof for boundedness of $f$]
+        $\forall n \in \N$, we find $y_n$ s.t. $f(y_n) > n$ but $y_{n_k} \to y
+        \in X$. So, $f(y) = \lim f(y_{n_k}) = +\infty$, contradiction to the
+        fact that $f(y) \in \R$.
+    \end{proof}
+\end{proposition}
+
+\begin{proposition}
+    $X,Y$ are metric spaces and $f: X \to Y$ is continuous if $S \subseteq X$
+    is compact then $f(S)$ is compact.
+    \begin{proof}
+        Suppose $\mathcal A$ is an open cover of $f(S)$, then we want to show
+        that there exists a finite subcover of $f(S)$.
+
+        Since $\forall A \in \mathcal A$ is open, therefore, by continuity of
+        $f$, $f^{-1}(A) \subseteq X$ is open. [\textbf{The preimage of an open
+        set is open.}]. Then, we can write:
+        \[
+            S \subseteq \bigcup _{A \in \mathcal A} f^{-1}(A)
+        \]
+        (If not, $\exists x \in S$ s.t. $x \not \in f^{-1}(A), $ $\forall A \in
+            \mathcal A$. That is, $f(x) \not \in A, $ $\forall A \in \mathcal
+            A$. However, since $x \in S$, $f(x) \in f(S)$ and $\mathcal A$
+        covers $f(S)$. This is a contradiction.)
+
+        Now, because $S$ is compact, we can find a finite subcover,
+        $\{f^{-1}(A_i)\}_{i=1}^n \subseteq \mathcal A$, that covers $S$. Then,
+        \[
+            f(S) \subseteq \bigcup_{i=1}^n A_i \;\; \implies \;\; f(S) \text{ is
+            compact.}
+        \]
+    \end{proof}
+\end{proposition}
+
+\begin{proposition}
+    A compact subset $S\subseteq X$ is closed and bounded if $(X,d)$ is a metric
+    space.
+    \begin{proof}
+        \begin{itemize}
+            \item Boundedness: $\{B_1(x): x \in S\}$ is an open cover of $S$;
+
+                $S$ is compact, thus, for $\{B_1(x_i\}_{i=1}^n$ is an open
+                subcover of $S$. Then, $\forall(x,y) \in S$ $\implies$ $x
+                \in B_1(x_i)$ and $y \in B_1(x_j)$. To reveal boundless,
+                find the furtherst distance:
+                \[
+                    d(x,y) \le d(x_1, x_i) + d(x_i, x_j) + d(x_j, y)
+                \]
+                This is bounded by a finite number, since the term in the
+                middle is bounded, yet the rest are bounded by $1$ in terms
+                of the distance apart.
+
+            \item Closed (call the definition using convergent sequence);
+                \begin{enumerate}
+                    \item $\exists x\in X \setminus S$ s.t. $\forall
+                        B_\varepsilon(x)$, $B_\varepsilon(x) \bigcup S \not =
+                        \emptyset$.
+                    \item Find a sequence $\{x_n\}$ in $S$ s.t. $x_n \to x$.
+                    \item We thereby find a sequence whose any subsequence
+                        converges to $x \notin S$, contradicting the previous
+                        result.
+                \end{enumerate}
+        \end{itemize}
+    \end{proof}
+\end{proposition}
+
 
 
 \bibliographystyle{plainnat}
